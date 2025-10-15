@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Microtech IT Service — Microsoft, Antivirus & Printer Support</title>
-  <meta name="description" content="Microtech IT Service provides professional IT support for Microsoft products, antivirus setup, and printer troubleshooting. Get certified help 24/7." />
+  <title>Microtech IT Service — Trusted Microsoft, Antivirus & Printer Support</title>
+  <meta name="description" content="Microtech IT Service offers expert technical support for Microsoft products, antivirus installation, and printer troubleshooting. 24/7 professional IT help." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* =============== GLOBAL STYLES =============== */
     :root {
-      --primary: #0067b8; /* Microsoft blue */
-      --light-blue: #e6f0fb;
+      --primary: #0067b8;
       --dark-blue: #004c8c;
-      --gray: #f5f5f5;
+      --light-blue: #f3f9ff;
+      --gray: #f7f7f7;
       --text-dark: #222;
       --text-light: #555;
     }
@@ -25,21 +24,18 @@
     }
 
     body {
-      background-color: #fff;
+      background: #fff;
       color: var(--text-dark);
       overflow-x: hidden;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
-    /* =============== HEADER =============== */
+    /* HEADER */
     header {
       background-color: #fff;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 15px 5%;
+      padding: 15px 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -60,23 +56,21 @@
     }
 
     .logo h2 {
-      font-size: 1.4rem;
-      font-weight: 600;
       color: var(--primary);
+      font-size: 1.5rem;
+      font-weight: 600;
     }
 
     .tollfree {
       background: var(--primary);
       color: #fff;
-      padding: 10px 18px;
+      padding: 10px 20px;
       border-radius: 20px;
       font-weight: 600;
       transition: 0.3s;
     }
 
-    .tollfree:hover {
-      background: var(--dark-blue);
-    }
+    .tollfree:hover { background: var(--dark-blue); }
 
     nav {
       background: var(--light-blue);
@@ -91,16 +85,14 @@
       transition: 0.3s;
     }
 
-    nav a:hover {
-      color: var(--primary);
-    }
+    nav a:hover { color: var(--primary); }
 
-    /* =============== HERO SECTION =============== */
+    /* HERO SECTION */
     .hero {
       background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
       color: white;
       text-align: center;
-      padding: 120px 5%;
+      padding: 120px 6%;
     }
 
     .hero h1 {
@@ -110,15 +102,15 @@
     }
 
     .hero p {
-      font-size: 1.2rem;
-      opacity: 0.9;
+      font-size: 1.15rem;
+      opacity: 0.95;
       margin-bottom: 25px;
     }
 
     .hero a {
       background: #fff;
       color: var(--primary);
-      padding: 12px 30px;
+      padding: 12px 32px;
       border-radius: 25px;
       font-weight: 600;
       transition: 0.3s;
@@ -129,7 +121,7 @@
       color: #fff;
     }
 
-    /* =============== SERVICES SECTION =============== */
+    /* COMMON SECTION STYLE */
     section {
       padding: 80px 8%;
     }
@@ -148,6 +140,33 @@
       font-size: 1.05rem;
     }
 
+    /* ABOUT SECTION */
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .about-text h3 {
+      color: var(--dark-blue);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .about-text p {
+      color: var(--text-light);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    /* SERVICES */
     .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -156,7 +175,7 @@
 
     .service-card {
       background: #fff;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e0e6ee;
       border-radius: 10px;
       padding: 40px 25px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -165,7 +184,7 @@
     }
 
     .service-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
@@ -176,7 +195,7 @@
     }
 
     .service-card h3 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin-bottom: 10px;
       color: var(--dark-blue);
     }
@@ -186,7 +205,40 @@
       font-size: 0.95rem;
     }
 
-    /* =============== CONTACT =============== */
+    /* PRODUCTS SECTION */
+    .products {
+      background: var(--gray);
+      text-align: center;
+    }
+
+    .product-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .product {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px 30px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      width: 200px;
+    }
+
+    .product img {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 10px;
+    }
+
+    .product p {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    /* CONTACT SECTION */
     .contact {
       background: var(--light-blue);
       text-align: center;
@@ -194,7 +246,6 @@
     }
 
     .contact h2 {
-      font-size: 2rem;
       color: var(--dark-blue);
       margin-bottom: 15px;
     }
@@ -202,7 +253,6 @@
     .contact p {
       margin-bottom: 20px;
       color: var(--text-light);
-      font-size: 1rem;
     }
 
     .contact a {
@@ -214,11 +264,9 @@
       transition: 0.3s;
     }
 
-    .contact a:hover {
-      background: var(--dark-blue);
-    }
+    .contact a:hover { background: var(--dark-blue); }
 
-    /* =============== FOOTER =============== */
+    /* FOOTER */
     footer {
       background: var(--dark-blue);
       color: #fff;
@@ -240,16 +288,9 @@
     }
 
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-      .tollfree {
-        margin-top: 10px;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
+      header { flex-direction: column; text-align: center; }
+      .tollfree { margin-top: 10px; }
+      .hero h1 { font-size: 2rem; }
     }
   </style>
 </head>
@@ -266,45 +307,79 @@
 
   <nav>
     <a href="#home">Home</a>
+    <a href="#about">About Us</a>
     <a href="#services">Services</a>
+    <a href="#products">Products</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <!-- HERO -->
   <section class="hero" id="home">
-    <h1>Trusted IT Solutions for Home & Business</h1>
-    <p>Certified Microsoft experts helping you with Windows, antivirus, and printer issues — anytime, anywhere.</p>
-    <a href="tel:+18886497907">Call Support Now</a>
+    <h1>Reliable IT Support for Every Need</h1>
+    <p>Certified technicians offering expert solutions for Microsoft software, antivirus protection, and printer troubleshooting — available 24/7.</p>
+    <a href="tel:+18886497907">Call Now</a>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <h2>Our Expertise</h2>
-    <p class="section-intro">Comprehensive technical assistance tailored to your digital needs.</p>
-
-    <div class="services">
-      <div class="service-card">
-        <i class="fa-brands fa-windows"></i>
-        <h3>Microsoft Product Support</h3>
-        <p>Installation, update, and troubleshooting support for Microsoft Windows & Office applications.</p>
-      </div>
-      <div class="service-card">
-        <i class="fa-solid fa-shield-virus"></i>
-        <h3>Antivirus Assistance</h3>
-        <p>Protection against malware, setup help, renewals, and complete security optimization for your system.</p>
-      </div>
-      <div class="service-card">
-        <i class="fa-solid fa-print"></i>
-        <h3>Printer Setup & Maintenance</h3>
-        <p>Driver updates, configuration fixes, and connectivity solutions for HP, Epson, and Canon printers.</p>
+  <!-- ABOUT US -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p class="section-intro">Delivering trustworthy IT support services with a focus on customer satisfaction and efficiency.</p>
+    <div class="about">
+      <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80" alt="Tech Team">
+      <div class="about-text">
+        <h3>Your Technology Partner</h3>
+        <p>Microtech IT Service is a professional tech support company providing expert solutions for Microsoft products, antivirus software, and printing devices. Our mission is to simplify your digital experience with quick, reliable, and transparent support.</p>
+        <p>We specialize in assisting individuals and businesses alike, ensuring optimal performance, security, and productivity across all devices and platforms.</p>
       </div>
     </div>
   </section>
 
+  <!-- SERVICES -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <p class="section-intro">Comprehensive support for your home and business IT infrastructure.</p>
+    <div class="services">
+      <div class="service-card">
+        <i class="fa-brands fa-windows"></i>
+        <h3>Microsoft Support</h3>
+        <p>Expert help for Microsoft Windows, Office Suite, Outlook configuration, and software troubleshooting.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-shield-virus"></i>
+        <h3>Antivirus Assistance</h3>
+        <p>Installation, renewal, and virus removal services for all leading antivirus programs like Norton, McAfee, and Bitdefender.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-print"></i>
+        <h3>Printer Setup & Repair</h3>
+        <p>Resolve driver issues, connectivity problems, and device errors for HP, Epson, and Canon printers.</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-network-wired"></i>
+        <h3>Network & Connectivity</h3>
+        <p>Wi-Fi setup, router configuration, and network diagnostics for seamless and secure connections.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="products">
+    <h2>Products We Support</h2>
+    <p class="section-intro">We provide assistance for a wide range of trusted technology brands.</p>
+    <div class="product-grid">
+      <div class="product"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"><p>Microsoft</p></div>
+      <div class="product"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Norton_Antivirus_logo.svg"><p>Norton</p></div>
+      <div class="product"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/McAfee_logo.svg"><p>McAfee</p></div>
+      <div class="product"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/HP_logo_2012.svg"><p>HP Printers</p></div>
+      <div class="product"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Epson_logo.svg"><p>Epson</p></div>
+      <div class="product"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Canon_logo.svg"><p>Canon</p></div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <h2>Connect With Our IT Experts</h2>
-    <p>Call our toll-free number or get a callback from our certified technicians.</p>
+  <section id="contact" class="contact">
+    <h2>Contact Our Experts</h2>
+    <p>Call our toll-free number or connect with our team for prompt support and expert guidance.</p>
     <a href="tel:+18886497907"><i class="fa-solid fa-phone"></i> (888) 649-7907</a>
   </section>
 
@@ -316,7 +391,7 @@
       <a href="#terms">Terms & Conditions</a>
     </div>
     <p>© 2025 Microtech IT Service. All Rights Reserved.</p>
-    <p id="disclaimer">Disclaimer: Microtech IT Service is an independent IT service provider and is not affiliated with Microsoft Corporation or any third-party brand. All trademarks are property of their respective owners.</p>
+    <p id="disclaimer">Disclaimer: Microtech IT Service is an independent IT service provider and is not affiliated with Microsoft or any third-party brand. All trademarks are property of their respective owners.</p>
   </footer>
 
 </body>
