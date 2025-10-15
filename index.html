@@ -59,7 +59,6 @@
       background: linear-gradient(120deg, #e8f1ff, #ffffff);
       padding: 100px 8%;
       text-align: center;
-      position: relative;
     }
     .hero h2 {
       color: #004c8c;
@@ -104,10 +103,6 @@
     .stat h4 {
       font-size: 2rem;
       margin: 10px 0;
-    }
-    .stat p {
-      font-size: 1rem;
-      opacity: 0.9;
     }
 
     /* About Section */
@@ -168,17 +163,43 @@
       font-size: 1.2rem;
       font-weight: 600;
     }
-    .service-card p {
-      color: #555;
-      font-size: 0.95rem;
+
+    /* Testimonials Section */
+    .testimonials {
+      background: #fff;
+      padding: 80px 8%;
+    }
+    .testimonials h3 {
+      text-align: center;
+      color: #0067b8;
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .testimonial {
+      background: #f3f7fc;
+      border-left: 4px solid #0067b8;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .testimonial p {
+      color: #333;
+      font-style: italic;
+      margin-bottom: 15px;
       line-height: 1.6;
     }
-    .service-card a {
-      display: inline-block;
-      margin-top: 10px;
-      color: #0067b8;
+    .testimonial h4 {
+      color: #004c8c;
       font-weight: 600;
-      text-decoration: none;
+    }
+    .testimonial span {
+      color: #777;
+      font-size: 0.9rem;
     }
 
     /* Contact Section */
@@ -192,20 +213,6 @@
       font-size: 2rem;
       margin-bottom: 20px;
     }
-    .contact p {
-      color: #444;
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-    }
-    .contact a {
-      background: #0067b8;
-      color: #fff;
-      padding: 12px 25px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .contact a:hover { background: #004c8c; }
 
     /* Footer */
     footer {
@@ -221,8 +228,9 @@
     }
     footer p {
       font-size: 0.9rem;
-      opacity: 0.8;
+      opacity: 0.9;
       margin-top: 10px;
+      line-height: 1.6;
     }
 
     @media (max-width: 768px) {
@@ -242,6 +250,7 @@
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#services">Services</a>
+    <a href="#testimonials">Testimonials</a>
     <a href="#contact">Contact</a>
   </nav>
   <a href="tel:+18886497907" class="tollfree"><i class="fa-solid fa-phone"></i> (888) 649-7907</a>
@@ -283,49 +292,67 @@
       <i class="fa-solid fa-cloud"></i>
       <h4>Cloud Computing</h4>
       <p>Migration, setup, and management of Microsoft Azure, AWS, and Google Cloud environments.</p>
-      <a href="services/cloud.html">Learn More →</a>
     </div>
     <div class="service-card">
       <i class="fa-solid fa-network-wired"></i>
       <h4>Networking Services</h4>
       <p>Router configuration, LAN/WAN optimization, and secure enterprise connectivity.</p>
-      <a href="services/networking.html">Learn More →</a>
     </div>
     <div class="service-card">
       <i class="fa-solid fa-globe"></i>
       <h4>Web Design & Development</h4>
       <p>Responsive and secure business websites built for performance and brand presence.</p>
-      <a href="services/web.html">Learn More →</a>
     </div>
     <div class="service-card">
       <i class="fa-solid fa-user-shield"></i>
       <h4>Cybersecurity</h4>
       <p>Endpoint protection, malware defense, and proactive monitoring for system safety.</p>
-      <a href="services/security.html">Learn More →</a>
     </div>
     <div class="service-card">
       <i class="fa-solid fa-database"></i>
       <h4>Data Backup & Recovery</h4>
       <p>Reliable cloud backup, disaster recovery, and quick restore solutions for all platforms.</p>
-      <a href="services/backup.html">Learn More →</a>
     </div>
     <div class="service-card">
       <i class="fa-solid fa-laptop-code"></i>
       <h4>Microsoft Product Support</h4>
       <p>Fix issues in Windows, Office, Outlook, and Microsoft 365 with certified professionals.</p>
-      <a href="services/microsoft.html">Learn More →</a>
     </div>
-    <div class="service-card">
-      <i class="fa-solid fa-print"></i>
-      <h4>Printer & Hardware Support</h4>
-      <p>Driver installation, printer setup, and hardware diagnostics for all major brands.</p>
-      <a href="services/printer.html">Learn More →</a>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <h3>What Our Clients Say</h3>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <p>“Microtech IT Service resolved my Microsoft Outlook issue in just minutes. Excellent support!”</p>
+      <h4>Sarah Johnson</h4>
+      <span>Business Owner, NY</span>
     </div>
-    <div class="service-card">
-      <i class="fa-solid fa-headset"></i>
-      <h4>Remote IT Helpdesk</h4>
-      <p>24/7 expert assistance for troubleshooting, software setup, and performance tuning.</p>
-      <a href="services/remote.html">Learn More →</a>
+    <div class="testimonial">
+      <p>“Their remote desktop help was quick and safe. My system performance improved drastically.”</p>
+      <h4>Michael Lee</h4>
+      <span>Software Engineer, CA</span>
+    </div>
+    <div class="testimonial">
+      <p>“Amazing customer service! They handled my printer and driver setup professionally.”</p>
+      <h4>Rachel Adams</h4>
+      <span>Marketing Specialist, TX</span>
+    </div>
+    <div class="testimonial">
+      <p>“Trustworthy and efficient. They helped migrate our business data securely to Azure.”</p>
+      <h4>David Brown</h4>
+      <span>IT Director, WA</span>
+    </div>
+    <div class="testimonial">
+      <p>“The Microtech team is always available. 24/7 support really means 24/7!”</p>
+      <h4>Emma Williams</h4>
+      <span>Freelancer, FL</span>
+    </div>
+    <div class="testimonial">
+      <p>“Highly recommend! Great experience with Windows installation and virus cleanup.”</p>
+      <h4>Robert Miller</h4>
+      <span>Consultant, NV</span>
     </div>
   </div>
 </section>
@@ -343,6 +370,7 @@
     <a href="disclaimer.html">Disclaimer</a> |
     <a href="#home">Home</a>
   </div>
+  <p><strong>Disclaimer:</strong> Microtech IT Service is an independent IT support company. We are not affiliated with Microsoft, HP, Dell, or any other brand mentioned on this site. Product names and trademarks are the property of their respective owners. Services provided are for general IT assistance purposes only.</p>
   <p>© 2025 Microtech IT Service. All Rights Reserved.</p>
 </footer>
 
