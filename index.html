@@ -1,315 +1,398 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MicroTech IT Services</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MicroTech IT Services — Professional IT Support</title>
+  <meta name="description" content="MicroTech IT Services provides enterprise-grade IT support: networking, cybersecurity, cloud, Microsoft products, web development, printer & antivirus support." />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0a0a0f;
-      color: #e0e0e0;
+    /* --- Theme & fonts --- */
+    :root{
+      --bg:#0f1317; /* lighter dark gray */
+      --panel:#111418;
+      --muted:#9aa3b2;
+      --text:#e8eef6;
+      --accent:#00cfe6; /* neon cyan */
+      --accent-2:#7b61ff; /* complementary neon */
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --card-shadow: 0 10px 30px rgba(3,9,22,0.6);
+      --radius:14px;
+      --max-width:1200px;
+      --ease:cubic-bezier(.2,.9,.3,1);
     }
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 50px;
-      background: rgba(20,20,30,0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid #1f1f2e;
-      z-index: 999;
+    html,body{height:100%;}
+    body{margin:0;font-family:"Segoe UI", "Segoe UI Variable", -apple-system, Roboto, Arial, sans-serif;background:linear-gradient(180deg,var(--bg),#07080a);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.55}
+
+    /* --- Header --- */
+    header{position:fixed;top:0;left:0;right:0;z-index:1200;background:rgba(10,12,15,0.7);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.03);}
+    .topbar{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;gap:12px}
+    .brand{display:flex;flex-direction:column}
+    .brand h1{margin:0;font-size:18px;font-weight:800;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;color:transparent}
+    .brand p{margin:2px 0 0;font-size:12px;color:var(--muted);letter-spacing:0.4px}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600;padding:8px;border-radius:8px}
+    nav a:hover{color:var(--accent)}
+    .header-actions{display:flex;gap:12px;align-items:center}
+    .phone{color:var(--accent);font-weight:700}
+    .mobile-toggle{display:none;background:transparent;border:none;color:var(--accent);font-size:22px}
+
+    /* --- Main layout --- */
+    main{max-width:var(--max-width);margin:110px auto 60px;padding:24px}
+
+    /* Hero / Intro with right-side form on wide screens */
+    .intro-wrap{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start}
+    .intro{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));padding:28px;border-radius:14px;box-shadow:var(--card-shadow);border:1px solid rgba(255,255,255,0.02)}
+    .intro h2{margin:0 0 10px;font-size:28px}
+    .intro p{color:var(--muted);margin:0 0 18px}
+    .why-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+    .why-pill{background:var(--panel);padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);font-weight:600}
+
+    /* Contact form card (right side) */
+    .form-card{background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 30px rgba(2,6,23,0.5)}
+    .form-card h3{margin:0 0 8px;font-size:18px}
+    .form{display:grid;gap:10px}
+    .form input,.form select,.form textarea{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)}
+    .form .row{display:flex;gap:8px}
+    .form .row .col{flex:1}
+    .form-actions{display:flex;gap:10px;align-items:center}
+    .btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 14px;border-radius:10px;border:none;color:#041018;font-weight:800;cursor:pointer}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+    .call-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:10px 14px;border-radius:10px;background:rgba(0,207,230,0.08);color:var(--accent);font-weight:700;border:1px solid rgba(0,207,230,0.12)}
+
+    /* Services & Industries cards */
+    .section{margin-top:30px}
+    .section h3{margin:0 0 18px;font-size:20px}
+    .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--panel);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);box-shadow:0 8px 20px rgba(2,6,23,0.5)}
+    .card h4{margin:0 0 8px}
+    .card p{color:var(--muted);margin:0}
+
+    /* Stats counters */
+    .counters{display:flex;gap:18px;justify-content:space-between;margin-top:26px}
+    .counter{flex:1;background:linear-gradient(180deg, rgba(255,255,255,0.01),transparent);padding:18px;border-radius:10px;text-align:center}
+    .counter .num{font-size:28px;font-weight:800;color:var(--accent)}
+    .counter p{margin:6px 0 0;color:var(--muted)}
+
+    /* FAQ */
+    .faq .item{background:var(--panel);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);margin-bottom:10px}
+    .faq .q{font-weight:700}
+    .faq .a{color:var(--muted);margin-top:8px}
+
+    /* Testimonials */
+    .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .test{background:var(--panel);padding:16px;border-radius:12px;display:flex;gap:12px;align-items:flex-start}
+    .avatar{width:56px;height:56px;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#021017}
+    .test p{margin:0;color:var(--muted)}
+
+    /* Partners strip */
+    .partners{display:flex;gap:18px;align-items:center;flex-wrap:wrap;padding:12px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)}
+    .partner{padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted);font-weight:700}
+
+    /* Footer */
+    footer{margin-top:40px;padding:30px 20px;background:#0b0d10;border-top:1px solid rgba(255,255,255,0.02)}
+    .footer-grid{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .footer-grid h5{color:var(--accent);margin-bottom:8px}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* Floating support button + modal */
+    .support-btn{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021018;padding:12px 14px;border-radius:12px;border:none;box-shadow:0 8px 30px rgba(0,207,230,0.12);cursor:pointer;z-index:1400}
+    .support-btn:hover{transform:translateY(-3px)}
+    .modal{position:fixed;right:18px;bottom:72px;width:360px;background:var(--panel);border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 20px 50px rgba(0,0,0,0.6);z-index:1400;display:none}
+    .modal header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    .modal .mini-form input,.modal .mini-form select{width:100%;padding:10px;margin-bottom:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+
+    /* Animations */
+    .fade-in{opacity:0;transform:translateY(8px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+    .fade-in.visible{opacity:1;transform:none}
+
+    /* Responsive adjustments */
+    @media (max-width:1000px){
+      .card-grid{grid-template-columns:repeat(2,1fr)}
+      .test-grid{grid-template-columns:repeat(2,1fr)}
+      .intro-wrap{grid-template-columns:1fr 360px}
     }
-    header h1 {
-      font-size: 1.5em;
-      color: #0ff;
-      text-shadow: 0 0 10px #0ff;
+    @media (max-width:720px){
+      .intro-wrap{grid-template-columns:1fr;}
+      .form-card{order:2}
+      .form-card,.intro{padding:18px}
+      .card-grid{grid-template-columns:1fr}
+      .test-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .mobile-toggle{display:block}
+      nav{display:none}
+      .modal{right:12px;left:12px;width:auto;bottom:78px}
     }
-    header span {
-      font-size: 0.8em;
-      color: #9cf;
-    }
-    nav {
-      display: flex;
-      gap: 20px;
-    }
-    nav a {
-      color: #e0e0e0;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      color: #0ff;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 120px auto 0 auto;
-      padding: 20px;
-    }
-    .intro {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-      margin-bottom: 80px;
-    }
-    .intro-text {
-      flex: 1 1 50%;
-    }
-    .intro-text h2 {
-      color: #00e6e6;
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-    .intro-text p {
-      color: #ccc;
-    }
-    .contact-form {
-      flex: 1 1 40%;
-      background: #141420;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.15);
-    }
-    .contact-form h3 {
-      color: #00e6e6;
-      margin-bottom: 15px;
-    }
-    .contact-form input, .contact-form select, .contact-form textarea {
-      width: 100%;
-      margin: 10px 0;
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      background: #1c1c2c;
-      color: #fff;
-    }
-    .form-buttons {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    button, .call-btn {
-      background: #00e6e6;
-      color: #000;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-      text-decoration: none;
-    }
-    button:hover, .call-btn:hover {
-      background: #00b3b3;
-    }
-    section {
-      margin-bottom: 80px;
-    }
-    h2.section-title {
-      text-align: center;
-      color: #00e6e6;
-      margin-bottom: 40px;
-    }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #141420;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.1);
-      transition: 0.3s;
-    }
-    .card:hover {
-      box-shadow: 0 0 25px rgba(0,255,255,0.3);
-      transform: translateY(-5px);
-    }
-    .stats {
-      display: flex;
-      justify-content: space-around;
-      text-align: center;
-      margin: 50px 0;
-    }
-    .stats div h3 {
-      font-size: 2em;
-      color: #00e6e6;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { text-shadow: 0 0 10px #0ff; }
-      50% { text-shadow: 0 0 25px #0ff; }
-      100% { text-shadow: 0 0 10px #0ff; }
-    }
-    .faq-item {
-      background: #141420;
-      margin: 10px 0;
-      padding: 15px;
-      border-radius: 8px;
-    }
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .testimonial {
-      background: #141420;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-    }
-    .testimonial img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
-    footer {
-      background: #0a0a12;
-      text-align: center;
-      padding: 20px;
-      border-top: 1px solid #1f1f2e;
-      font-size: 0.9em;
-    }
-    footer a {
-      color: #00e6e6;
-      text-decoration: none;
-    }
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-      }
-      .intro {
-        flex-direction: column;
-      }
-      .contact-form {
-        width: 100%;
-      }
-    }
+
+    /* Accessibility focus */
+    a:focus, button:focus, input:focus, select:focus, textarea:focus{outline:2px solid rgba(0,207,230,0.18);outline-offset:2px}
   </style>
 </head>
 <body>
   <header>
-    <div>
-      <h1>MicroTech IT Services</h1>
-      <span>Innovate. Secure. Support.</span>
+    <div class="topbar">
+      <div class="brand">
+        <h1>MicroTech IT Services</h1>
+        <p>Innovate • Secure • Support</p>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="phone">📞 1-800-MICRO-IT</div>
+        <button class="mobile-toggle" aria-expanded="false" aria-label="Toggle menu">☰</button>
+      </div>
     </div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#industries">Industries</a>
-      <a href="#contact">Contact</a>
-      <a href="tel:+18886497907">📞 (888) 649-7907</a>
-    </nav>
   </header>
 
-  <div class="container" id="home">
-    <div class="intro">
-      <div class="intro-text">
-        <h2>Get Expert Support from Certified Technicians</h2>
-        <p>At MicroTech IT Services, we specialize in delivering fast, reliable, and professional IT solutions for home and business users. Schedule your support session today and experience seamless tech assistance.</p>
+  <main>
+    <!-- Intro + Right form (desktop), stacked on mobile -->
+    <section class="intro-wrap fade-in" id="home">
+      <div class="intro">
+        <h2>Get Expert Support — Fast & Secure</h2>
+        <p>MicroTech delivers enterprise-grade IT services to small businesses and home users. Book a time for an expert tech to connect with you — remote or onsite, 24/7.</p>
+
+        <div class="why-grid" aria-hidden="false">
+          <div class="why-pill">24/7 Support</div>
+          <div class="why-pill">Certified Engineers</div>
+          <div class="why-pill">Secure Remote Access</div>
+          <div class="why-pill">SLA Response</div>
+          <div class="why-pill">Transparent Pricing</div>
+        </div>
+
+        <div style="margin-top:18px;color:var(--muted)">
+          <strong>Quick Links:</strong>
+          <span style="margin-left:8px">Printer Support • Antivirus Help • Microsoft Products • Xbox & Gaming</span>
+        </div>
       </div>
-      <div class="contact-form">
-        <h3>Request Support</h3>
-        <form>
-          <input type="text" placeholder="Full Name" required>
-          <input type="email" placeholder="Email Address" required>
-          <input type="tel" placeholder="Phone Number" required>
-          <select>
-            <option>Select Preferred Time</option>
-            <option>Morning (8AM - 12PM)</option>
-            <option>Afternoon (12PM - 4PM)</option>
-            <option>Evening (4PM - 8PM)</option>
-            <option>Night (8PM - 11PM)</option>
-          </select>
-          <select>
-            <option>Select Service Type</option>
+
+      <aside class="form-card">
+        <h3>Book Support</h3>
+        <form class="form" onsubmit="handleSubmit(event)">
+          <input name="name" type="text" placeholder="Full name" required />
+          <input name="email" type="email" placeholder="Email" required />
+          <input name="phone" type="tel" placeholder="Phone" required />
+          <select name="service" required>
+            <option value="">Select service</option>
+            <option>Network Setup & Troubleshooting</option>
+            <option>Web Design & Development</option>
+            <option>Printer Support</option>
+            <option>Antivirus & Security</option>
             <option>Microsoft Product Support</option>
-            <option>Antivirus Troubleshooting</option>
-            <option>Printer & Peripheral Setup</option>
-            <option>Network Configuration</option>
-            <option>Website Development</option>
-            <option>Cloud Backup Solutions</option>
-            <option>Cybersecurity Consulting</option>
-            <option>Software Installation & Updates</option>
+            <option>Cloud Backup & Storage</option>
+            <option>Data Recovery</option>
+            <option>Onsite Visit</option>
           </select>
-          <div class="form-buttons">
-            <button type="submit">Submit Request</button>
+          <select name="timeslot" required>
+            <option value="">Preferred time</option>
+            <option>Morning (09:00 - 12:00)</option>
+            <option>Afternoon (12:00 - 16:00)</option>
+            <option>Evening (16:00 - 20:00)</option>
+            <option>Night (20:00 - 23:00)</option>
+          </select>
+          <textarea name="details" rows="3" placeholder="Briefly describe the issue (optional)"></textarea>
+
+          <div class="form-actions">
+            <button class="btn" type="submit">Submit Request</button>
             <a class="call-btn" href="tel:+18886497907">Call Us Now</a>
           </div>
         </form>
+      </aside>
+    </section>
+
+    <!-- Services -->
+    <section class="section fade-in" id="services">
+      <h3>Our Professional IT Services</h3>
+      <div class="card-grid">
+        <div class="card"><h4>Network Solutions</h4><p>Design, deploy and secure LAN/WAN infrastructure. Router/firewall configuration, VPN, Wi‑Fi optimization and monitoring.</p></div>
+        <div class="card"><h4>Web Design & Development</h4><p>Responsive websites, eCommerce, CMS, hosting and ongoing maintenance with SEO best practices.</p></div>
+        <div class="card"><h4>Cloud & Backup</h4><p>Cloud migration, automated backups, disaster recovery planning and managed cloud services (Azure, AWS, Google Cloud).</p></div>
+        <div class="card"><h4>Cybersecurity</h4><p>Antivirus & endpoint protection, threat detection, vulnerability assessment, and incident response planning.</p></div>
+        <div class="card"><h4>Microsoft Products</h4><p>Windows, Office 365, Azure onboarding and troubleshooting, identity & access management, Teams support.</p></div>
+        <div class="card"><h4>Printer & Peripheral Support</h4><p>Driver installation, network printer configuration, hardware troubleshooting and preventive maintenance.</p></div>
+        <div class="card"><h4>Data Recovery</h4><p>Secure file recovery from failed disks, corrupted volumes and accidental deletion with chain-of-custody for sensitive data.</p></div>
+        <div class="card"><h4>Managed IT Services</h4><p>24/7 monitoring, patch management, proactive maintenance and SLA-driven support packages for businesses.</p></div>
+        <div class="card"><h4>IT Consulting</h4><p>Strategy, audits, IT roadmaps, procurement guidance and project management to align technology with business goals.</p></div>
+      </div>
+
+      <!-- counters -->
+      <div class="counters" aria-hidden="false">
+        <div class="counter"><div class="num" data-target="15000">0</div><p>Satisfied Customers</p></div>
+        <div class="counter"><div class="num" data-target="40000">0</div><p>Issues Resolved</p></div>
+        <div class="counter"><div class="num" data-target="10000">0</div><p>People Connected</p></div>
+      </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="section fade-in" id="industries">
+      <h3>Industries We Serve</h3>
+      <div class="card-grid">
+        <div class="card"><h4>Healthcare</h4><p>Secure patient systems, EMR integrations and compliance-aware IT operations.</p></div>
+        <div class="card"><h4>Education</h4><p>Remote learning setups, lab management and student device provisioning.</p></div>
+        <div class="card"><h4>Finance</h4><p>Secure transactions, endpoint hardening and regulatory compliance support.</p></div>
+        <div class="card"><h4>Retail & eCommerce</h4><p>PoS integrations, inventory systems, secure payment processing and uptime guarantees.</p></div>
+        <div class="card"><h4>Manufacturing</h4><p>Operational tech support, networked devices and production environment stability.</p></div>
+        <div class="card"><h4>Gaming & Entertainment</h4><p>Console support, low-latency networking and community platform troubleshooting.</p></div>
+      </div>
+
+      <div style="margin-top:18px">
+        <h4 style="margin:0 0 8px;color:var(--accent)">Partners & Certifications</h4>
+        <div class="partners">
+          <div class="partner">Microsoft Partner</div>
+          <div class="partner">Cisco Certified</div>
+          <div class="partner">CompTIA</div>
+          <div class="partner">ISO 27001</div>
+          <div class="partner">AWS Partner</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section fade-in faq" id="faq">
+      <h3>Frequently Asked Questions</h3>
+
+      <div class="item">
+        <div class="q">1. How do I request support?</div>
+        <div class="a">Submit the booking form with your preferred timeslot or click the 'Call Us Now' button. Our team will confirm within the hour for urgent requests.</div>
+      </div>
+
+      <div class="item">
+        <div class="q">2. Do you provide remote assistance?</div>
+        <div class="a">Yes — secure remote sessions are our primary method for fast resolutions. We use encrypted connections and ask for permission before any remote access.</div>
+      </div>
+
+      <div class="item">
+        <div class="q">3. Is my data safe during remote support?</div>
+        <div class="a">Absolutely. All sessions are logged, and technicians follow strict data-handling protocols. We never access personal files without explicit consent.</div>
+      </div>
+
+      <div class="item">
+        <div class="q">4. Do you offer on-site visits?</div>
+        <div class="a">Yes — onsite support is available for businesses and complex hardware issues. Availability depends on your location and chosen plan.</div>
+      </div>
+
+      <div class="item">
+        <div class="q">5. What are your SLAs?</div>
+        <div class="a">We offer tiered SLAs: Standard (24–48 hrs), Priority (4–12 hrs), and Emergency (1–2 hrs) response depending on the plan selected.</div>
+      </div>
+
+      <div class="item">
+        <div class="q">6. Which antivirus products do you support?</div>
+        <div class="a">We support major vendors including Windows Defender, Norton, McAfee, Bitdefender, Kaspersky and can assist with installations, renewals and removals.</div>
+      </div>
+
+      <div class="item">
+        <div class="q">7. Can you migrate our systems to the cloud?</div>
+        <div class="a">Yes — we provide cloud readiness assessments, migration plans and managed cloud services across Azure, AWS and Google Cloud.</div>
+      </div>
+
+      <div class="item">
+        <div class="q">8. How do I pay for services?</div>
+        <div class="a">We accept major credit cards, bank transfers and offer monthly billing for managed services. Enterprise invoicing is available on request.</div>
+      </div>
+
+      <div class="item">
+        <div class="q">9. Do you provide training?</div>
+        <div class="a">Yes — we offer staff training sessions for Microsoft 365, security best practices and custom software onboarding.</div>
+      </div>
+
+      <div class="item">
+        <div class="q">10. How are emergency incidents handled?</div>
+        <div class="a">Emergency incidents follow our incident response protocol with priority triage, containment and recovery steps. Contact the emergency line for immediate escalation.</div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section fade-in" id="testimonials">
+      <h3>What Clients Say</h3>
+      <div class="test-grid">
+        <div class="test"><div class="avatar">JS</div><div><p>"Quick, professional and very knowledgeable. Resolved our network outage in under an hour."</p><strong>- Jaya S., Small Business</strong></div></div>
+        <div class="test"><div class="avatar">AR</div><div><p>"Excellent Microsoft 365 migration support — seamless and no downtime."</p><strong>- Amit R., IT Manager</strong></div></div>
+        <div class="test"><div class="avatar">MK</div><div><p>"Fast remote help for antivirus removal and system clean-up."</p><strong>- Maria K., Freelancer</strong></div></div>
+        <div class="test"><div class="avatar">SB</div><div><p>"Onsite technician was punctual and fixed our printer fleet quickly."</p><strong>- Sam B., Education</strong></div></div>
+        <div class="test"><div class="avatar">LN</div><div><p>"Clear communication and a professional approach to security hardening."</p><strong>- Lina N., Healthcare</strong></div></div>
+        <div class="test"><div class="avatar">TP</div><div><p>"Managed services have drastically reduced our downtime and costs."</p><strong>- Tom P., Retail</strong></div></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating call/chat support and modal form -->
+  <button class="support-btn" id="supportBtn" aria-haspopup="dialog" aria-controls="supportModal">Need Help? Chat/Call</button>
+  <div class="modal" id="supportModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <header><strong>Quick Support</strong><button aria-label="Close" id="closeModal">✕</button></header>
+    <div class="mini-form">
+      <input id="mname" placeholder="Your name" />
+      <input id="mphone" placeholder="Phone or click Call" />
+      <select id="mservice"><option>Select service</option><option>Antivirus</option><option>Printer</option><option>Microsoft</option><option>Network</option><option>Web</option></select>
+      <div style="display:flex;gap:8px">
+        <button class="btn" id="miniSubmit">Request Callback</button>
+        <a class="call-btn" href="tel:+18886497907">Call Now</a>
       </div>
     </div>
-
-    <section id="services">
-      <h2 class="section-title">Our Professional IT Services</h2>
-      <div class="card-grid">
-        <div class="card">Comprehensive Microsoft product troubleshooting and configuration.</div>
-        <div class="card">Advanced antivirus installation, removal, and real-time protection setup.</div>
-        <div class="card">Printer connectivity, driver updates, and wireless setup assistance.</div>
-        <div class="card">Network optimization, router configuration, and firewall setup.</div>
-        <div class="card">Website design, hosting, and SEO optimization services.</div>
-        <div class="card">Cloud data backup, storage management, and disaster recovery.</div>
-        <div class="card">24/7 cybersecurity monitoring and threat prevention.</div>
-        <div class="card">Software installation, patch management, and performance tuning.</div>
-      </div>
-    </section>
-
-    <section id="industries">
-      <h2 class="section-title">Industries We Serve</h2>
-      <div class="card-grid">
-        <div class="card">Healthcare & Medical</div>
-        <div class="card">Education & E-learning</div>
-        <div class="card">Finance & Banking</div>
-        <div class="card">Retail & E-commerce</div>
-        <div class="card">Manufacturing & Logistics</div>
-        <div class="card">Gaming & Entertainment</div>
-      </div>
-    </section>
-
-    <section class="stats">
-      <div><h3>15K+</h3><p>Satisfied Customers</p></div>
-      <div><h3>40K+</h3><p>Issues Resolved</p></div>
-      <div><h3>10K+</h3><p>People Connected</p></div>
-    </section>
-
-    <section id="faq">
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <div class="faq-item">1. How can I request technical support?</div>
-      <div class="faq-item">2. What services are covered under your IT plans?</div>
-      <div class="faq-item">3. Is remote assistance safe and secure?</div>
-      <div class="faq-item">4. Do you provide on-site support?</div>
-      <div class="faq-item">5. What payment methods do you accept?</div>
-      <div class="faq-item">6. Are your services available 24/7?</div>
-      <div class="faq-item">7. Can I schedule recurring maintenance?</div>
-      <div class="faq-item">8. Do you offer custom business IT packages?</div>
-      <div class="faq-item">9. How fast is your response time?</div>
-      <div class="faq-item">10. Can I cancel a service request?</div>
-    </section>
-
-    <section id="testimonials">
-      <h2 class="section-title">Client Testimonials</h2>
-      <div class="testimonial-grid">
-        <div class="testimonial"><img src="https://i.pravatar.cc/60?img=1"><p>“Excellent service! My printer was fixed in minutes.”</p><strong>- Sarah L.</strong></div>
-        <div class="testimonial"><img src="https://i.pravatar.cc/60?img=2"><p>“Highly professional and quick remote support.”</p><strong>- Daniel M.</strong></div>
-        <div class="testimonial"><img src="https://i.pravatar.cc/60?img=3"><p>“They optimized our office network perfectly.”</p><strong>- Karen S.</strong></div>
-        <div class="testimonial"><img src="https://i.pravatar.cc/60?img=4"><p>“Friendly and knowledgeable technicians!”</p><strong>- Michael R.</strong></div>
-        <div class="testimonial"><img src="https://i.pravatar.cc/60?img=5"><p>“My antivirus issues were solved instantly.”</p><strong>- Priya T.</strong></div>
-        <div class="testimonial"><img src="https://i.pravatar.cc/60?img=6"><p>“Reliable partner for all our IT needs.”</p><strong>- James K.</strong></div>
-      </div>
-    </section>
   </div>
 
   <footer>
-    <p>© 2025 MicroTech IT Services. All Rights Reserved.</p>
-    <p><a href="#">Disclaimer</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+    <div class="footer-grid">
+      <div>
+        <h5>MicroTech IT Services</h5>
+        <p class="small">Enterprise-grade IT support for businesses and home users — networking, security, cloud and more.</p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <a href="#services">Network Solutions</a>
+        <a href="#services">Cybersecurity</a>
+        <a href="#services">Cloud & Backup</a>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <p class="small">📞 1-800-MICRO-IT</p>
+        <p class="small">✉ support@microtechit.com</p>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+      </div>
+    </div>
+    <div style="max-width:var(--max-width);margin:18px auto 0 auto;color:var(--muted);font-size:13px;text-align:center">© 2025 MicroTech IT Services. All rights reserved. Not affiliated with any third-party vendors unless explicitly stated.</div>
   </footer>
+
+  <script>
+    // smooth reveal on scroll
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target);} });
+    },{threshold:0.12});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+    // counters animation
+    function animateCounter(el, target){ let curr=0; const step=Math.ceil(target/120); const iv=setInterval(()=>{ curr+=step; if(curr>=target){ el.textContent = target.toLocaleString(); clearInterval(iv);} else el.textContent = curr.toLocaleString(); },12); }
+    const counters = document.querySelectorAll('.num');
+    const cObserver = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ animateCounter(e.target, parseInt(e.target.dataset.target)); cObserver.unobserve(e.target); } }); },{threshold:0.5});
+    counters.forEach(c=>cObserver.observe(c));
+
+    // support modal
+    const supportBtn = document.getElementById('supportBtn');
+    const modal = document.getElementById('supportModal');
+    const closeModal = document.getElementById('closeModal');
+    supportBtn.addEventListener('click', ()=>{ modal.style.display='block'; modal.setAttribute('aria-hidden','false'); document.getElementById('mname').focus(); });
+    closeModal.addEventListener('click', ()=>{ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); });
+
+    // form submit handlers (demo) - client side
+    function handleSubmit(e){ e.preventDefault(); const fd = new FormData(e.target); alert('Request received — we will contact you to confirm the booking.'); e.target.reset(); }
+    document.getElementById('miniSubmit').addEventListener('click', ()=>{ alert('Callback requested. Our team will call you shortly.'); document.getElementById('mname').value=''; document.getElementById('mphone').value=''; modal.style.display='none'; });
+
+    // mobile menu toggle (simple)
+    document.querySelector('.mobile-toggle')?.addEventListener('click', function(){ const nav = document.querySelector('nav'); const shown = nav.style.display==='flex'; nav.style.display = shown ? 'none':'flex'; this.setAttribute('aria-expanded', String(!shown)); });
+
+    // accessible focus trap for modal (basic)
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ if(modal.style.display==='block'){ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); } }});
+  </script>
 </body>
 </html>
