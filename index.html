@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Microtech IT Service — Trusted Microsoft & IT Support</title>
-  <meta name="description" content="Microtech IT Service offers expert IT support, Microsoft assistance, cloud solutions, antivirus setup, networking, and web design for homes and businesses." />
+  <title>Microtech IT Service — Trusted Microsoft & IT Support Solutions</title>
+  <meta name="description" content="Microtech IT Service provides certified IT support, Microsoft solutions, cloud management, web design, cybersecurity, and remote tech assistance for individuals and businesses." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,6 +12,7 @@
       font-family: "Segoe UI", "Poppins", sans-serif;
       color: #222;
       background: #f7f9fc;
+      scroll-behavior: smooth;
     }
     header {
       background: #fff;
@@ -29,9 +30,7 @@
       align-items: center;
       gap: 10px;
     }
-    .logo img {
-      width: 40px;
-    }
+    .logo img { width: 38px; }
     .logo h1 {
       color: #0067b8;
       font-size: 1.5rem;
@@ -44,9 +43,7 @@
       font-weight: 500;
       transition: 0.3s;
     }
-    nav a:hover {
-      color: #0067b8;
-    }
+    nav a:hover { color: #0067b8; }
     .tollfree {
       background: #0067b8;
       color: #fff;
@@ -59,19 +56,21 @@
 
     /* Hero Section */
     .hero {
-      background: linear-gradient(120deg, #e6f0ff, #ffffff);
-      padding: 80px 8%;
+      background: linear-gradient(120deg, #e8f1ff, #ffffff);
+      padding: 100px 8%;
       text-align: center;
+      position: relative;
     }
     .hero h2 {
-      color: #0067b8;
-      font-size: 2.5rem;
+      color: #004c8c;
+      font-size: 2.8rem;
       margin-bottom: 15px;
+      font-weight: 700;
     }
     .hero p {
       font-size: 1.2rem;
-      color: #444;
-      margin-bottom: 30px;
+      color: #555;
+      margin-bottom: 35px;
     }
     .hero a {
       background: #0067b8;
@@ -80,16 +79,42 @@
       border-radius: 30px;
       text-decoration: none;
       font-weight: 600;
+      transition: 0.3s;
     }
-    .hero a:hover {
-      background: #004c8c;
+    .hero a:hover { background: #004c8c; }
+
+    /* Stats Section */
+    .stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: #0067b8;
+      color: #fff;
+      text-align: center;
+      padding: 60px 6%;
+    }
+    .stat {
+      flex: 1 1 250px;
+      margin: 20px;
+    }
+    .stat i {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .stat h4 {
+      font-size: 2rem;
+      margin: 10px 0;
+    }
+    .stat p {
+      font-size: 1rem;
+      opacity: 0.9;
     }
 
     /* About Section */
     .about {
-      padding: 70px 8%;
-      text-align: center;
+      padding: 80px 8%;
       background: #fff;
+      text-align: center;
     }
     .about h3 {
       color: #0067b8;
@@ -98,22 +123,22 @@
     }
     .about p {
       color: #444;
-      line-height: 1.8;
       max-width: 900px;
       margin: auto;
+      line-height: 1.8;
       font-size: 1.1rem;
     }
 
-    /* Services */
+    /* Services Section */
     .services {
       padding: 80px 6%;
-      background: #f2f6fb;
+      background: #f3f7fc;
     }
     .services h3 {
       text-align: center;
       font-size: 2rem;
       color: #0067b8;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
     .service-grid {
       display: grid;
@@ -126,11 +151,11 @@
       box-shadow: 0 3px 10px rgba(0,0,0,0.08);
       padding: 30px;
       text-align: center;
-      transition: all 0.3s ease;
+      transition: 0.3s ease;
     }
     .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transform: translateY(-6px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
     }
     .service-card i {
       font-size: 2.2rem;
@@ -141,11 +166,12 @@
       color: #004c8c;
       margin-bottom: 10px;
       font-size: 1.2rem;
+      font-weight: 600;
     }
     .service-card p {
       color: #555;
       font-size: 0.95rem;
-      line-height: 1.5;
+      line-height: 1.6;
     }
     .service-card a {
       display: inline-block;
@@ -155,11 +181,11 @@
       text-decoration: none;
     }
 
-    /* Contact */
+    /* Contact Section */
     .contact {
       padding: 80px 8%;
-      text-align: center;
       background: #fff;
+      text-align: center;
     }
     .contact h3 {
       color: #0067b8;
@@ -200,7 +226,7 @@
     }
 
     @media (max-width: 768px) {
-      .hero h2 { font-size: 1.8rem; }
+      .hero h2 { font-size: 2rem; }
       .about h3, .services h3, .contact h3 { font-size: 1.6rem; }
     }
   </style>
@@ -222,73 +248,91 @@
 </header>
 
 <section class="hero" id="home">
-  <h2>Professional IT Support & Microsoft Services</h2>
-  <p>Your trusted partner for technology solutions, remote help, and business-grade IT support.</p>
-  <a href="#services">Explore Services</a>
+  <h2>Your Trusted Partner for Microsoft & IT Solutions</h2>
+  <p>Empowering businesses and individuals with expert support, reliable technology, and 24/7 assistance.</p>
+  <a href="#services">Explore Our Services</a>
+</section>
+
+<section class="stats">
+  <div class="stat">
+    <i class="fa-solid fa-users"></i>
+    <h4>50K+</h4>
+    <p>Happy Customers Worldwide</p>
+  </div>
+  <div class="stat">
+    <i class="fa-solid fa-plug"></i>
+    <h4>120K+</h4>
+    <p>Connected Users with Us</p>
+  </div>
+  <div class="stat">
+    <i class="fa-solid fa-screwdriver-wrench"></i>
+    <h4>500K+</h4>
+    <p>Technical Issues Resolved</p>
+  </div>
 </section>
 
 <section class="about" id="about">
-  <h3>About Us</h3>
-  <p>Microtech IT Service is a trusted name in comprehensive IT support and managed technology solutions. From troubleshooting Microsoft products to setting up cloud systems, we offer reliable tech services for individuals and businesses alike. Our certified experts ensure seamless operation, security, and performance of your digital ecosystem.</p>
+  <h3>About Microtech IT Service</h3>
+  <p>Microtech IT Service provides end-to-end IT support and technology management for businesses of all sizes. We specialize in Microsoft products, antivirus protection, cloud solutions, and network infrastructure. Our mission is to deliver reliable, affordable, and secure IT solutions that drive business success and personal convenience.</p>
 </section>
 
 <section class="services" id="services">
-  <h3>Our Core IT Services</h3>
+  <h3>Our Professional IT Solutions</h3>
   <div class="service-grid">
     <div class="service-card">
       <i class="fa-solid fa-cloud"></i>
       <h4>Cloud Computing</h4>
-      <p>Secure cloud migration, setup, and management for Azure, AWS, and Google Cloud.</p>
+      <p>Migration, setup, and management of Microsoft Azure, AWS, and Google Cloud environments.</p>
       <a href="services/cloud.html">Learn More →</a>
     </div>
     <div class="service-card">
       <i class="fa-solid fa-network-wired"></i>
       <h4>Networking Services</h4>
-      <p>LAN/WAN setup, router configuration, Wi-Fi optimization, and remote monitoring.</p>
+      <p>Router configuration, LAN/WAN optimization, and secure enterprise connectivity.</p>
       <a href="services/networking.html">Learn More →</a>
-    </div>
-    <div class="service-card">
-      <i class="fa-solid fa-desktop"></i>
-      <h4>Microsoft & Windows Support</h4>
-      <p>Fix activation errors, system crashes, and software compatibility issues.</p>
-      <a href="services/microsoft.html">Learn More →</a>
-    </div>
-    <div class="service-card">
-      <i class="fa-solid fa-shield-halved"></i>
-      <h4>Antivirus & Security</h4>
-      <p>Protect your devices with industry-leading antivirus installation and malware removal.</p>
-      <a href="services/security.html">Learn More →</a>
-    </div>
-    <div class="service-card">
-      <i class="fa-solid fa-server"></i>
-      <h4>Data Backup & Recovery</h4>
-      <p>Prevent data loss with secure cloud backup and fast recovery options.</p>
-      <a href="services/backup.html">Learn More →</a>
     </div>
     <div class="service-card">
       <i class="fa-solid fa-globe"></i>
       <h4>Web Design & Development</h4>
-      <p>Custom websites built with performance, security, and professional appeal.</p>
+      <p>Responsive and secure business websites built for performance and brand presence.</p>
       <a href="services/web.html">Learn More →</a>
+    </div>
+    <div class="service-card">
+      <i class="fa-solid fa-user-shield"></i>
+      <h4>Cybersecurity</h4>
+      <p>Endpoint protection, malware defense, and proactive monitoring for system safety.</p>
+      <a href="services/security.html">Learn More →</a>
+    </div>
+    <div class="service-card">
+      <i class="fa-solid fa-database"></i>
+      <h4>Data Backup & Recovery</h4>
+      <p>Reliable cloud backup, disaster recovery, and quick restore solutions for all platforms.</p>
+      <a href="services/backup.html">Learn More →</a>
+    </div>
+    <div class="service-card">
+      <i class="fa-solid fa-laptop-code"></i>
+      <h4>Microsoft Product Support</h4>
+      <p>Fix issues in Windows, Office, Outlook, and Microsoft 365 with certified professionals.</p>
+      <a href="services/microsoft.html">Learn More →</a>
     </div>
     <div class="service-card">
       <i class="fa-solid fa-print"></i>
       <h4>Printer & Hardware Support</h4>
-      <p>Printer setup, connectivity troubleshooting, and driver updates for all brands.</p>
+      <p>Driver installation, printer setup, and hardware diagnostics for all major brands.</p>
       <a href="services/printer.html">Learn More →</a>
     </div>
     <div class="service-card">
       <i class="fa-solid fa-headset"></i>
       <h4>Remote IT Helpdesk</h4>
-      <p>24/7 expert remote assistance for all your IT and software problems.</p>
+      <p>24/7 expert assistance for troubleshooting, software setup, and performance tuning.</p>
       <a href="services/remote.html">Learn More →</a>
     </div>
   </div>
 </section>
 
 <section class="contact" id="contact">
-  <h3>Contact Us</h3>
-  <p>Need immediate IT help? Speak directly with a certified support agent today.</p>
+  <h3>Get in Touch</h3>
+  <p>Need IT assistance or want to discuss enterprise support plans? Connect with our experts now.</p>
   <a href="tel:+18886497907"><i class="fa-solid fa-phone"></i> Call (888) 649-7907</a>
 </section>
 
