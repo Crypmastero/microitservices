@@ -6,162 +6,343 @@
   <title>Printer Support | MicroTech IT Services</title>
   <style>
     :root {
-      --bg: #0f0f13;
-      --panel: #1c1c22;
-      --text: #e0e0e0;
-      --accent: #00cfe6;
+      --bg: #0e0e12;
+      --panel: #18181f;
+      --accent: #00cffe;
       --accent2: #7b61ff;
-      --muted: #9aa3b2;
-      --radius: 12px;
-      --card-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      --text: #f2f2f2;
+      --muted: #a0a0b5;
+      --radius: 14px;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+    }
+    * {
+      box-sizing: border-box;
     }
     body {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      font-family: "Segoe UI", Tahoma, sans-serif;
       background: var(--bg);
       color: var(--text);
+      overflow-x: hidden;
     }
-    header, footer {
-      background: var(--panel);
-      text-align: center;
-      padding: 1rem 0.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(24, 24, 31, 0.95);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
     header h1 {
-      margin: 0;
       color: var(--accent);
-      font-size: 1.8rem;
-    }
-    header p {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    .support-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    .step-card {
-      background: var(--panel);
-      padding: 1.4rem;
-      border-radius: var(--radius);
-      box-shadow: var(--card-shadow);
-      transition: transform 0.3s;
-    }
-    .step-card:hover {
-      transform: translateY(-5px);
-    }
-    .step-card h3 {
-      margin: 0 0 0.6rem;
-      color: var(--accent);
-      font-size: 1.2rem;
-    }
-    .step-card p {
+      font-size: 1.6rem;
       margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
+      letter-spacing: 0.5px;
     }
-    .contact-form {
+    header .phone {
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    /* Hero section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 7rem 2rem 3rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    .hero-text h2 {
+      color: var(--accent);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .hero-text p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* Form */
+    .hero-form {
+      flex: 0.8;
+      min-width: 320px;
       background: var(--panel);
       padding: 1.8rem;
       border-radius: var(--radius);
-      box-shadow: var(--card-shadow);
-      margin-top: 2rem;
+      box-shadow: var(--shadow);
     }
-    .contact-form form {
+    .hero-form h3 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+    form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
-      background: #24242c;
+    input, select, textarea {
+      background: #222;
       border: none;
       padding: 0.9rem;
-      border-radius: 6px;
+      border-radius: 8px;
       color: var(--text);
-      font-size: 0.95rem;
     }
-    .contact-form button {
+    button {
       background: linear-gradient(90deg, var(--accent), var(--accent2));
-      color: #00121a;
       border: none;
       padding: 0.9rem;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
+      border-radius: 8px;
       font-weight: 600;
+      cursor: pointer;
+      color: #000;
     }
-    .contact-form .call-btn {
-      margin-top: 0.4rem;
+    .call-btn {
       background: #28a745;
       color: #fff;
     }
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.5rem; }
-      .support-steps { gap: 1rem; }
-      .step-card h3 { font-size: 1.1rem; }
+
+    /* Services */
+    .services {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+    .services h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--panel);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      color: var(--accent2);
+      margin-top: 0;
+    }
+
+    /* Counters */
+    .stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 3rem 1rem;
+      background: #14141a;
+      text-align: center;
+    }
+    .stat {
+      flex: 1;
+      min-width: 200px;
+    }
+    .stat h3 {
+      color: var(--accent);
+      font-size: 2rem;
+    }
+
+    /* FAQ */
+    .faq {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .faq h2 {
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    details {
+      background: var(--panel);
+      margin: 0.7rem 0;
+      padding: 1rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+    details summary {
+      color: var(--accent2);
+      font-weight: 600;
+      outline: none;
+    }
+    details p {
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: #14141a;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .testimonials h2 {
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .slider {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 1rem;
+    }
+    .testimonial {
+      min-width: 260px;
+      background: var(--panel);
+      padding: 1.2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      flex-shrink: 0;
+      text-align: left;
+    }
+    .testimonial img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+    }
+    .testimonial h4 {
+      color: var(--accent2);
+      margin: 0.3rem 0;
+    }
+    .testimonial p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background: var(--panel);
+      text-align: center;
+      padding: 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; text-align: center; }
+      header { flex-direction: column; gap: 0.3rem; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Printer Support</h1>
-    <p>Professional help for all printer problems</p>
+    <h1>MicroTech IT Services</h1>
+    <div class="phone">📞 (888) 649-7907</div>
   </header>
 
-  <section>
-    <h2>Common Printer Issues We Solve</h2>
-    <div class="support-steps">
-      <div class="step-card">
-        <h3>Driver Installation</h3>
-        <p>We assist in installing correct drivers, firmware updates, and compatibility fixes.</p>
-      </div>
-      <div class="step-card">
-        <h3>Connection & Networking</h3>
-        <p>Fix WiFi, USB, or network connectivity problems to your printer.</p>
-      </div>
-      <div class="step-card">
-        <h3>Print Quality & Calibration</h3>
-        <p>Tune color, alignment, dark/faint prints, streaks, or blank pages.</p>
-      </div>
-      <div class="step-card">
-        <h3>Hardware & Maintenance</h3>
-        <p>Address paper jams, rollers, sensors, and preventive cleaning.</p>
-      </div>
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Expert Printer Support Solutions</h2>
+      <p>We offer complete printer setup, driver installation, Wi-Fi connectivity, print quality optimization, and remote repair assistance. Get your printers running flawlessly — whether it’s HP, Canon, Epson, or Brother.</p>
+    </div>
+    <div class="hero-form">
+      <h3>Book Your Printer Support</h3>
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <select required>
+          <option value="">Select Printer Brand</option>
+          <option>HP</option><option>Canon</option><option>Epson</option><option>Brother</option><option>Other</option>
+        </select>
+        <textarea rows="3" placeholder="Describe your printer issue"></textarea>
+        <button type="submit">Submit Request</button>
+        <button type="button" class="call-btn" onclick="window.location.href='tel:+18886497907'">Call Us Now</button>
+      </form>
     </div>
   </section>
 
-  <section class="contact-form">
-    <h2>Contact Our Printer Experts</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="tel" placeholder="Phone Number" required />
-      <select required>
-        <option value="">Select Printer Brand</option>
-        <option>HP</option>
-        <option>Canon</option>
-        <option>Epson</option>
-        <option>Brother</option>
-        <option>Other</option>
-      </select>
-      <textarea rows="3" placeholder="Describe your printer issue"></textarea>
-      <button type="submit">Submit Request</button>
-      <button class="call-btn" type="button" onclick="window.location.href='tel:+18886497907'">Call Us Now</button>
-    </form>
+  <section class="services">
+    <h2>Our Professional Printer Services</h2>
+    <div class="service-grid">
+      <div class="card"><h3>Setup & Installation</h3><p>Fast, remote or onsite setup for all major printer models.</p></div>
+      <div class="card"><h3>Driver & Software Support</h3><p>Resolve missing or outdated printer driver issues easily.</p></div>
+      <div class="card"><h3>Wireless Configuration</h3><p>Wi-Fi & network printing setup with stable connectivity.</p></div>
+      <div class="card"><h3>Print Quality Fix</h3><p>Address faded prints, misalignment, paper jams, and streaks.</p></div>
+      <div class="card"><h3>Performance Optimization</h3><p>Enhance speed, reduce errors, and boost print performance.</p></div>
+      <div class="card"><h3>Remote Troubleshooting</h3><p>Certified experts available 24×7 to fix any printer issues.</p></div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><h3 id="count1">15,000+</h3><p>Issues Resolved</p></div>
+    <div class="stat"><h3 id="count2">9,500+</h3><p>Satisfied Clients</p></div>
+    <div class="stat"><h3 id="count3">2,000+</h3><p>Connected Partners</p></div>
+  </section>
+
+  <section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <details><summary>How do I install my printer drivers?</summary><p>We help install the right drivers via remote support or official brand software.</p></details>
+    <details><summary>My printer is offline — how do I fix it?</summary><p>We reconnect your printer to your network or PC and restore online status.</p></details>
+    <details><summary>Why is my printer printing blank pages?</summary><p>This could be due to cartridge issues or clogs — our experts diagnose and fix it quickly.</p></details>
+    <details><summary>Do you support wireless printer setup?</summary><p>Yes, we configure Wi-Fi and wireless printing for all printer brands.</p></details>
+    <details><summary>Can you repair paper jam issues?</summary><p>Yes, we guide you through safe jam removal or send a technician if required.</p></details>
+    <details><summary>Do you support scanning issues?</summary><p>Yes, we fix scanner connectivity, drivers, and software integration problems.</p></details>
+    <details><summary>How soon can I get remote help?</summary><p>Usually within minutes — our agents are available 24×7.</p></details>
+    <details><summary>Is my data secure during remote access?</summary><p>Yes, all connections are encrypted and authorized by you.</p></details>
+    <details><summary>Which printer brands do you cover?</summary><p>HP, Canon, Epson, Brother, Lexmark, Samsung, Ricoh, and more.</p></details>
+    <details><summary>Do you provide business printer maintenance?</summary><p>Yes, we provide AMC plans for businesses and offices.</p></details>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="slider">
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/45.jpg"><h4>David L.</h4><p>MicroTech fixed my HP printer remotely within 15 minutes. Great experience!</p></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/32.jpg"><h4>Sarah M.</h4><p>The technician was very professional and explained every step clearly.</p></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/54.jpg"><h4>James K.</h4><p>Quick and reliable. My printer works perfectly now!</p></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/68.jpg"><h4>Olivia R.</h4><p>They fixed my wireless printer setup on call. Highly recommend!</p></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/78.jpg"><h4>Robert S.</h4><p>Excellent service and fast response time. 5 stars.</p></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/25.jpg"><h4>Lisa W.</h4><p>Very polite agents, solved my scanning issue instantly.</p></div>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 MicroTech IT Services. All rights reserved.</p>
+    &copy; 2025 MicroTech IT Services. All Rights Reserved. | <a href="#" style="color:var(--accent)">Privacy Policy</a> | <a href="#" style="color:var(--accent)">Terms</a>
   </footer>
+
+  <script>
+    // simple counter animation
+    function animateCount(id, target){
+      let num=0;
+      const el=document.getElementById(id);
+      const step=target/100;
+      const interval=setInterval(()=>{
+        num+=step;
+        if(num>=target){num=target; clearInterval(interval);}
+        el.textContent=Math.floor(num).toLocaleString()+"+";
+      },20);
+    }
+    animateCount("count1",15000);
+    animateCount("count2",9500);
+    animateCount("count3",2000);
+  </script>
 </body>
 </html>
-
