@@ -26,7 +26,7 @@
       --glass: rgba(255,255,255,0.04);
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:"Segoe UI",system-ui,-apple-system, "Helvetica Neue", Arial; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+    html,body{height:100%;margin:0;font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
     a{color:inherit}
     /* HEADER */
     header{position:fixed;left:0;right:0;top:0;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 5%;z-index:1200;transition:background .28s,backdrop-filter .28s,box-shadow .28s}
@@ -62,11 +62,6 @@
     [data-theme="dark"] .booking input{border-color:rgba(255,255,255,0.04)}
     .booking button{margin-top:12px;background:var(--primary);color:#fff;border:none;padding:11px;border-radius:10px;font-weight:800;cursor:pointer}
     .small-info{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
-    /* brand carousel */
-    .brand-strip{margin-top:18px;padding:12px;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 8px 30px rgba(3,34,63,0.04)}
-    .brand-track{display:flex;gap:36px;align-items:center;animation:marquee 28s linear infinite}
-    .brand-item img{height:48px;filter:grayscale(1);opacity:.95}
-    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-55%)}}
     /* metrics */
     .metrics{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:20px 5%}
     .metric{min-width:160px;background:var(--card);padding:16px;border-radius:12px;text-align:center;box-shadow:0 8px 24px rgba(3,34,63,0.04)}
@@ -86,11 +81,11 @@
     .svc h4{margin:0;color:var(--accent)}
     .svc p{flex:1;color:var(--muted);font-size:14px}
     .svc a{margin-top:8px;color:var(--primary);font-weight:800}
-    /* brand grid */
-    .brand-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:12px}
-    .brand-card{background:var(--card);padding:12px;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,0.03)}
-    .brand-card img{max-height:44px}
-    .brand-label{font-size:13px;color:var(--muted);font-weight:700;margin-top:8px}
+    /* PRODUCTS: text/icon grid (images removed) */
+    .brand-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:12px}
+    .brand-card{background:linear-gradient(180deg,#fff 0,#fbfdff 100%);padding:12px;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,0.03);min-height:96px}
+    .brand-icon{font-size:28px;color:var(--primary);margin-bottom:8px}
+    .brand-label{font-size:13px;color:var(--muted);font-weight:700;text-align:center}
     /* industries */
     .chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px}
     .chip{padding:8px 14px;border-radius:999px;background:linear-gradient(180deg,#eef7ff 0,#fff 100%);font-weight:700;color:var(--accent);border:1px solid #e6f2ff}
@@ -112,7 +107,7 @@
     footer{padding:28px 5%;margin-top:18px;color:var(--muted)}
     footer .links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
     footer .disclaimer{margin-top:12px;color:var(--muted);max-width:1140px;margin-left:auto;margin-right:auto;text-align:center;font-size:13px}
-    /* small */
+    /* responsive */
     @media (max-width:680px){
       header{padding:12px 4%}
       .brand h1{font-size:16px}
@@ -126,7 +121,8 @@
   <!-- HEADER -->
   <header id="siteHeader" class="transparent" role="banner">
     <div class="brand" aria-label="Microtech brand">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_logo.svg" alt="Microtech logo">
+      <!-- small decorative icon instead of image -->
+      <div style="width:36px;height:36px;border-radius:8px;background:linear-gradient(180deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900">M</div>
       <h1>Microtech IT Service</h1>
     </div>
 
@@ -157,42 +153,10 @@
         <a class="btn-ghost" href="#services">View Services</a>
       </div>
 
-      <div class="brand-strip" aria-hidden="false" style="margin-top:20px">
-        <div class="brand-track" role="list">
-          <!-- Microsoft ecosystem -->
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_logo.svg" alt="Microsoft logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Windows_logo_-_2021.svg" alt="Windows logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Xbox_logo_2021.svg" alt="Xbox logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Microsoft_Office_logo_%282019%E2%80%93present%29.svg" alt="Office logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Microsoft_OneDrive_2019_logo.svg" alt="OneDrive logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Microsoft_Teams_logo.svg" alt="Teams logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Microsoft_Outlook_2013-2019_logo.svg" alt="Outlook logo"></div>
-
-          <!-- Antivirus -->
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Norton_logo_2021.svg" alt="Norton logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/McAfee_logo.svg" alt="McAfee logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Avast_Software_logo.svg" alt="Avast logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Kaspersky_Lab_logo.svg" alt="Kaspersky logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Bitdefender_logo.svg" alt="Bitdefender logo"></div>
-
-          <!-- Printers & OEMs -->
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/HP_logo_2012.svg" alt="HP logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Dell_logo_2016.svg" alt="Dell logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Canon_logo_vector.svg" alt="Canon logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Epson_logo.svg" alt="Epson logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Brother_logo.svg" alt="Brother logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Lexmark_logo_2015.svg" alt="Lexmark logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Xerox_logo.svg" alt="Xerox logo"></div>
-
-          <!-- Design & Productivity -->
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Adobe_Corporate_logo.svg" alt="Adobe logo"></div>
-
-          <!-- Repeat block to make scroll continuous -->
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_logo.svg" alt="Microsoft logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Windows_logo_-_2021.svg" alt="Windows logo"></div>
-          <div class="brand-item" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Xbox_logo_2021.svg" alt="Xbox logo"></div>
-          <!-- ...repeat as necessary -->
-        </div>
+      <!-- Replaced image slider with a simple trust banner (no images) -->
+      <div style="margin-top:20px;padding:14px;background:var(--card);border-radius:10px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center">
+        <div style="font-weight:800;color:var(--primary)">Trusted by businesses worldwide</div>
+        <div style="color:var(--muted)">Microsoft • Windows • Xbox • Norton • McAfee • HP • Canon • Epson • Adobe</div>
       </div>
     </section>
 
@@ -265,11 +229,11 @@
         </article>
 
         <article class="svc" role="listitem">
-          <i class="fa-solid fa-shield-halved"></i><h4>Antivirus & Security</h4><p>Installations, renewals, malware removal and endpoint protection (Norton, McAfee, Kaspersky & more).</p><a href="services/security.html">Learn more →</a>
+          <i class="fa-solid fa-shield-halved"></i><h4>Antivirus & Security</h4><p>Installations, renewals, malware removal and endpoint protection for major AV vendors.</p><a href="services/security.html">Learn more →</a>
         </article>
 
         <article class="svc" role="listitem">
-          <i class="fa-solid fa-print"></i><h4>Printer & Peripheral Support</h4><p>Drivers, wireless printing, scanning configuration for HP, Canon, Epson, Brother, Lexmark and more.</p><a href="services/printer.html">Learn more →</a>
+          <i class="fa-solid fa-print"></i><h4>Printer & Peripheral Support</h4><p>Drivers, wireless printing, scanning configuration for HP, Canon, Epson, Brother and more.</p><a href="services/printer.html">Learn more →</a>
         </article>
 
         <article class="svc" role="listitem">
@@ -288,35 +252,33 @@
 
     <section class="card" id="brands">
       <h3>Products & Brands We Support</h3>
-      <p class="lead">Representative set of brands we support. Logos sourced from Wikimedia Commons (public repository). If you prefer, download and host locally for best performance.</p>
+      <p class="lead">We support the major software, gaming, antivirus and printer brands — below is a compact, text-and-icon grid (images removed for a clean, fast experience).</p>
 
       <div class="brand-grid" aria-live="polite">
         <!-- Microsoft ecosystem -->
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_logo.svg" alt="Microsoft"><div class="brand-label">Microsoft</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Windows_logo_-_2021.svg" alt="Windows"><div class="brand-label">Windows</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Xbox_logo_2021.svg" alt="Xbox"><div class="brand-label">Xbox</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Microsoft_Office_logo_%282019%E2%80%93present%29.svg" alt="Office"><div class="brand-label">Office</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Microsoft_OneDrive_2019_logo.svg" alt="OneDrive"><div class="brand-label">OneDrive</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Microsoft_Teams_logo.svg" alt="Teams"><div class="brand-label">Teams</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-brands fa-microsoft"></i></div><div class="brand-label">Microsoft</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-brands fa-windows"></i></div><div class="brand-label">Windows</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-brands fa-xbox"></i></div><div class="brand-label">Xbox</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-solid fa-briefcase"></i></div><div class="brand-label">Office / M365</div></div>
 
         <!-- Antivirus -->
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Norton_logo_2021.svg" alt="Norton"><div class="brand-label">Norton</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/McAfee_logo.svg" alt="McAfee"><div class="brand-label">McAfee</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Avast_Software_logo.svg" alt="Avast"><div class="brand-label">Avast</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Kaspersky_Lab_logo.svg" alt="Kaspersky"><div class="brand-label">Kaspersky</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Bitdefender_logo.svg" alt="Bitdefender"><div class="brand-label">Bitdefender</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-solid fa-shield"></i></div><div class="brand-label">Norton</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-solid fa-shield-virus"></i></div><div class="brand-label">McAfee</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-solid fa-bug"></i></div><div class="brand-label">Avast</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-solid fa-lock"></i></div><div class="brand-label">Kaspersky</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-solid fa-star"></i></div><div class="brand-label">Bitdefender</div></div>
 
         <!-- Printers / OEMs -->
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/HP_logo_2012.svg" alt="HP"><div class="brand-label">HP</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Dell_logo_2016.svg" alt="Dell"><div class="brand-label">Dell</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Canon_logo_vector.svg" alt="Canon"><div class="brand-label">Canon</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Epson_logo.svg" alt="Epson"><div class="brand-label">Epson</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Brother_logo.svg" alt="Brother"><div class="brand-label">Brother</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Lexmark_logo_2015.svg" alt="Lexmark"><div class="brand-label">Lexmark</div></div>
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Xerox_logo.svg" alt="Xerox"><div class="brand-label">Xerox</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-solid fa-print"></i></div><div class="brand-label">HP</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-solid fa-desktop"></i></div><div class="brand-label">Dell</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-solid fa-camera"></i></div><div class="brand-label">Canon</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-solid fa-square"></i></div><div class="brand-label">Epson</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-solid fa-box"></i></div><div class="brand-label">Brother</div></div>
 
         <!-- Software / Design -->
-        <div class="brand-card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Adobe_Corporate_logo.svg" alt="Adobe"><div class="brand-label">Adobe</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-brands fa-adobe"></i></div><div class="brand-label">Adobe</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div><div class="brand-label">OneDrive</div></div>
+        <div class="brand-card" role="article"><div class="brand-icon"><i class="fa-brands fa-teams"></i></div><div class="brand-label">Teams</div></div>
       </div>
     </section>
 
@@ -390,22 +352,18 @@
   <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="links"><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a> | <a href="disclaimer.html">Disclaimer</a></div>
-    <div class="disclaimer"><strong>Disclaimer:</strong> Microtech IT Service is an independent IT support provider. We are not affiliated with or endorsed by Microsoft Corporation, HP, Dell, Canon, Norton, McAfee, or other brands displayed. All trademarks are the property of their respective owners. Logos used on this page are loaded from Wikimedia Commons (upload.wikimedia.org).</div>
+    <div class="disclaimer"><strong>Disclaimer:</strong> Microtech IT Service is an independent IT support provider. We are not affiliated with or endorsed by Microsoft Corporation, HP, Dell, Canon, Norton, McAfee, or other brands displayed. All trademarks are the property of their respective owners.</div>
     <div style="margin-top:12px;color:var(--muted)">© 2025 Microtech IT Service. All Rights Reserved.</div>
   </footer>
 
-  <!-- SCRIPTS: counters, header behavior, theme, brand track pause on hover -->
+  <!-- SCRIPTS: counters, header behavior, theme -->
   <script>
-    // Sticky header transparent -> solid on scroll
+    // HEADER: solid on scroll
     const header = document.getElementById('siteHeader');
-    function updateHeader(){
-      if (window.scrollY > 24) { header.classList.remove('transparent'); header.classList.add('solid'); }
-      else { header.classList.remove('solid'); header.classList.add('transparent'); }
-    }
-    updateHeader();
-    window.addEventListener('scroll', updateHeader);
+    function updateHeader(){ if(window.scrollY>24){header.classList.remove('transparent');header.classList.add('solid')}else{header.classList.remove('solid');header.classList.add('transparent')} }
+    updateHeader(); window.addEventListener('scroll', updateHeader);
 
-    // Dark mode toggle (persist in localStorage)
+    // THEME TOGGLE
     const body = document.body;
     const themeToggle = document.getElementById('themeToggle');
     const themeLabel = document.getElementById('themeLabel');
@@ -413,63 +371,29 @@
       if(t==='dark'){ body.setAttribute('data-theme','dark'); themeToggle.setAttribute('aria-pressed','true'); themeLabel.textContent='Light'; themeToggle.innerHTML = '<i class="fa-regular fa-sun"></i> Light'; localStorage.setItem('microtech-theme','dark'); }
       else { body.setAttribute('data-theme','light'); themeToggle.setAttribute('aria-pressed','false'); themeLabel.textContent='Dark'; themeToggle.innerHTML = '<i class="fa-regular fa-moon"></i> Dark'; localStorage.setItem('microtech-theme','light'); }
     }
-    // initial
     const saved = localStorage.getItem('microtech-theme') || 'light';
     setTheme(saved);
-    themeToggle.addEventListener('click', ()=>{
-      const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      setTheme(next);
-    });
+    themeToggle.addEventListener('click', ()=> setTheme(body.getAttribute('data-theme')==='dark' ? 'light' : 'dark'));
 
-    // Animated counters - run when visible
-    const counters = [
-      {id:'m1', to:150000},
-      {id:'m2', to:600000},
-      {id:'m3', to:2500000},
-      {id:'m4', to:98}
-    ];
-    let countersStarted = false;
-    function formatShort(n){
-      if (n>=1000000) return Math.round(n/1000000) + 'M+';
-      if (n>=1000) return Math.round(n/1000) + 'K+';
-      return n;
-    }
+    // Animated counters (run once when visible)
+    const counters = [{id:'m1',to:150000},{id:'m2',to:600000},{id:'m3',to:2500000},{id:'m4',to:98}];
+    let started=false;
+    function formatShort(n){ if(n>=1000000) return Math.round(n/1000000)+'M+'; if(n>=1000) return Math.round(n/1000)+'K+'; return n; }
     function runCounters(){
-      if (countersStarted) return;
-      countersStarted = true;
+      if(started) return; started=true;
       counters.forEach(c=>{
-        const el = document.getElementById(c.id);
-        let start = 0; const end = c.to;
-        const duration = 1600; const stepTime = 30;
-        const step = Math.max(1, Math.floor(end / (duration/stepTime)));
-        const timer = setInterval(()=>{
-          start += step;
-          if (start >= end) { clearInterval(timer); el.textContent = (c.id==='m4' ? end + '%' : formatShort(end)); }
-          else { el.textContent = (c.id==='m4' ? start + '%' : formatShort(start)); }
-        }, stepTime);
+        const el=document.getElementById(c.id); let start=0; const end=c.to; const dur=1600; const stepTime=30; const step=Math.max(1, Math.floor(end/(dur/stepTime)));
+        const timer=setInterval(()=>{ start+=step; if(start>=end){ clearInterval(timer); el.textContent = (c.id==='m4' ? end+'%' : formatShort(end)); } else { el.textContent = (c.id==='m4' ? start+'%' : formatShort(start)); } }, stepTime);
       });
     }
-    // Observe metrics
     const metrics = document.querySelector('.metrics');
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(ent => { if (ent.isIntersecting) runCounters(); });
-    }, {threshold:0.3});
-    obs.observe(metrics);
+    const obs = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting) runCounters(); }) }, {threshold:0.3});
+    if (metrics) obs.observe(metrics);
 
-    // Brand track pause on hover/focus
-    const track = document.querySelector('.brand-track');
-    const brandStrip = document.querySelector('.brand-strip');
-    brandStrip.addEventListener('mouseenter', ()=> track.style.animationPlayState = 'paused');
-    brandStrip.addEventListener('mouseleave', ()=> track.style.animationPlayState = 'running');
-    brandStrip.addEventListener('focusin', ()=> track.style.animationPlayState = 'paused');
-    brandStrip.addEventListener('focusout', ()=> track.style.animationPlayState = 'running');
+    // booking demo
+    document.getElementById('bookBtn').addEventListener('click', ()=> alert('Thanks — demo booking request received.'));
 
-    // Booking/contact demo buttons
-    document.getElementById('bookBtn').addEventListener('click', ()=>{
-      alert('Thanks — demo request received. This is a placeholder action.');
-    });
-
-    // keep header state correct on load (if page deep linked)
+    // ensure header initial state
     window.addEventListener('load', updateHeader);
   </script>
 </body>
