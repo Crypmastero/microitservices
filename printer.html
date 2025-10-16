@@ -1,85 +1,747 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Printer setup, driver installation, Wi-Fi connection & troubleshooting support for all HP printers. Get instant assistance from certified printer experts.">
-  <meta name="keywords" content="hp printer setup, wireless printer connection, hp printer driver install, printer offline fix, connect hp printer to wifi, hp printer support, hp printer not printing">
-  <title>HP Printer Support | Setup, Driver & Wireless Help</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body { background: #fff; color: #222; line-height: 1.6; }
-    header { background: #0076ce; color: white; padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; }
-    header h1 { font-size: 1.5rem; }
-    header nav a { color: white; margin-left: 20px; text-decoration: none; font-weight: 500; }
-    .hero { display: flex; flex-wrap: wrap; align-items: center; padding: 40px 5%; background: #f9f9f9; }
-    .hero-text { flex: 1; min-width: 300px; }
-    .hero-text h2 { font-size: 2rem; color: #0076ce; margin-bottom: 15px; }
-    .hero-text p { margin-bottom: 20px; }
-    .hero-text a { background: #0076ce; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; }
-    .hero img { flex: 1; max-width: 450px; width: 100%; border-radius: 10px; }
-    .services { padding: 50px 5%; text-align: center; background: #fff; }
-    .services h3 { font-size: 1.8rem; color: #0076ce; margin-bottom: 30px; }
-    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; }
-    .service { background: #f4f8fb; padding: 25px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    .service img { width: 60px; margin-bottom: 15px; }
-    .service h4 { color: #0076ce; margin-bottom: 10px; }
-    footer { background: #0076ce; color: white; text-align: center; padding: 20px; margin-top: 40px; font-size: 0.9rem; }
-    @media (max-width: 768px) {
-      .hero { flex-direction: column; text-align: center; }
-      .hero-text { margin-bottom: 25px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrinterHelp Pro | Expert Printer Support & Solutions</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c3e50"/><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="none" stroke="%233498db" stroke-width="2"/><circle cx="50" cy="50" r="15" fill="none" stroke="%23e74c3c" stroke-width="2"/></svg>');
+            background-size: cover;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            background-color: var(--secondary);
+            color: white;
+            font-size: 2.5rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* Issues Section */
+        .issues {
+            background-color: var(--light);
+            padding: 4rem 0;
+        }
+        
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .issue-category {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .issue-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .issue-list {
+            list-style: none;
+        }
+        
+        .issue-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .issue-list li:before {
+            content: "•";
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Support Team Section */
+        .support-team {
+            padding: 4rem 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-member {
+            text-align: center;
+            background: white;
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: var(--light);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--secondary);
+        }
+        
+        .team-member h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .team-member .role {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            background-color: var(--secondary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255,255,255,0.9);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🖨️</div>
+                    <h1>PrinterHelp Pro</h1>
+                </div>
+                <button class="mobile-menu-btn">☰</button>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#issues">Common Issues</a></li>
+                        <li><a href="#team">Support Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-  <header>
-    <h1>HP Printer Support</h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Expert Printer Support & Solutions</h2>
+            <p>We provide comprehensive solutions for all printer issues, from paper jams to connectivity problems. Our expert team is available 24/7 to help you get your printer working perfectly.</p>
+            <a href="#contact" class="btn">Get Help Now</a>
+            <a href="#services" class="btn btn-accent">Our Services</a>
+        </div>
+    </section>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Get Your HP Printer Working in Minutes</h2>
-      <p>Instant setup, Wi-Fi connection, driver installation & troubleshooting by experts. 24/7 support available for all HP printer models.</p>
-      <a href="#contact">Get Help Now</a>
-    </div>
-    <img src="https://images.hp.com/is/image/hp/HP-ENVY-Printer?wid=800&hei=600" alt="HP Printer">
-  </section>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Printer Support Services</h2>
+                <p>We offer a wide range of printer support services to resolve any issue you might be facing</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <div class="service-content">
+                        <h3>Hardware Troubleshooting</h3>
+                        <p>Diagnose and fix physical printer issues including paper jams, print head problems, and hardware malfunctions.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <div class="service-content">
+                        <h3>Software & Driver Support</h3>
+                        <p>Install, update, and troubleshoot printer drivers and software for all operating systems.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📡</div>
+                    <div class="service-content">
+                        <h3>Connectivity Solutions</h3>
+                        <p>Resolve network, wireless, and USB connectivity issues to get your printer connected properly.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <div class="service-content">
+                        <h3>Print Quality Issues</h3>
+                        <p>Fix problems with print quality including streaks, smudges, faded prints, and color inaccuracies.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <div class="service-content">
+                        <h3>Performance Optimization</h3>
+                        <p>Optimize your printer settings for faster printing, better quality, and improved efficiency.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛒</div>
+                    <div class="service-content">
+                        <h3>Supply & Cartridge Support</h3>
+                        <p>Help with ink/toner cartridge installation, replacement, and troubleshooting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="services" id="services">
-    <h3>Our Printer Support Services</h3>
-    <div class="service-grid">
-      <div class="service">
-        <img src="https://cdn-icons-png.flaticon.com/512/3061/3061341.png" alt="Printer Setup">
-        <h4>Printer Setup</h4>
-        <p>Complete HP printer installation & configuration support for home and office.</p>
-      </div>
-      <div class="service">
-        <img src="https://cdn-icons-png.flaticon.com/512/481/481874.png" alt="Wireless Connect">
-        <h4>Wireless Connect</h4>
-        <p>Connect your HP printer to Wi-Fi or mobile easily with expert guidance.</p>
-      </div>
-      <div class="service">
-        <img src="https://cdn-icons-png.flaticon.com/512/3069/3069172.png" alt="Driver Install">
-        <h4>Driver Installation</h4>
-        <p>Quick installation of compatible HP printer drivers for Windows & Mac.</p>
-      </div>
-      <div class="service">
-        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055646.png" alt="Offline Fix">
-        <h4>Printer Offline Fix</h4>
-        <p>Resolve printer offline and printing issues with remote troubleshooting.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Common Issues Section -->
+    <section class="issues" id="issues">
+        <div class="container">
+            <div class="section-title">
+                <h2>Common Printer Issues We Solve</h2>
+                <p>Our experts can help you resolve these and many other printer problems</p>
+            </div>
+            <div class="issues-grid">
+                <div class="issue-category">
+                    <h3>Connectivity Problems</h3>
+                    <ul class="issue-list">
+                        <li>Printer not connecting to Wi-Fi</li>
+                        <li>USB connection issues</li>
+                        <li>Network printer not found</li>
+                        <li>Bluetooth pairing problems</li>
+                        <li>Printer offline status</li>
+                    </ul>
+                </div>
+                <div class="issue-category">
+                    <h3>Print Quality Issues</h3>
+                    <ul class="issue-list">
+                        <li>Streaks or lines on prints</li>
+                        <li>Faded or light printing</li>
+                        <li>Blurry or smudged text</li>
+                        <li>Incorrect colors</li>
+                        <li>Ghost images</li>
+                    </ul>
+                </div>
+                <div class="issue-category">
+                    <h3>Paper Handling Problems</h3>
+                    <ul class="issue-list">
+                        <li>Paper jams</li>
+                        <li>Multiple sheets feeding</li>
+                        <li>Paper not feeding properly</li>
+                        <li>Wrong paper size detection</li>
+                        <li>Envelope printing issues</li>
+                    </ul>
+                </div>
+                <div class="issue-category">
+                    <h3>Software & Driver Issues</h3>
+                    <ul class="issue-list">
+                        <li>Driver installation failures</li>
+                        <li>Printer not recognized by computer</li>
+                        <li>Print spooler errors</li>
+                        <li>Compatibility issues</li>
+                        <li>Print queue stuck</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer id="contact">
-    <p>© 2025 HP Printer Support - Independent technical service provider | Call 24/7 for Help</p>
-  </footer>
+    <!-- Support Team Section -->
+    <section class="support-team" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Expert Support Team</h2>
+                <p>Meet our dedicated team of printer specialists ready to help you</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">👨‍💼</div>
+                    <h3>Michael Johnson</h3>
+                    <div class="role">Senior Printer Technician</div>
+                    <p>15+ years experience with all major printer brands and models.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👩‍💻</div>
+                    <h3>Sarah Williams</h3>
+                    <div class="role">Software & Driver Specialist</div>
+                    <p>Expert in printer software, drivers, and connectivity solutions.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👨‍🔧</div>
+                    <h3>David Chen</h3>
+                    <div class="role">Hardware Repair Expert</div>
+                    <p>Specializes in physical repairs and component replacements.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">👩‍🎨</div>
+                    <h3>Emily Rodriguez</h3>
+                    <div class="role">Print Quality Specialist</div>
+                    <p>Focuses on color accuracy and print quality optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch With Our Support Team</h2>
+                <p>We're here to help you resolve any printer issue quickly and efficiently</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-method">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Phone Support</h4>
+                            <p>1-800-PRINTER (1-800-774-6837)</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>Email Support</h4>
+                            <p>support@printerhelppro.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">💬</div>
+                        <div>
+                            <h4>Live Chat</h4>
+                            <p>Available 24/7 on our website</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <h4>Support Hours</h4>
+                            <p>24/7 - We're always here to help</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="supportForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="printer">Printer Model</label>
+                            <input type="text" id="printer" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="issue">Describe Your Issue</label>
+                            <textarea id="issue" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>PrinterHelp Pro</h3>
+                    <p>Your trusted partner for all printer support and troubleshooting needs.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#issues">Common Issues</a></li>
+                        <li><a href="#team">Support Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Brands We Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">HP Printers</a></li>
+                        <li><a href="#">Canon Printers</a></li>
+                        <li><a href="#">Epson Printers</a></li>
+                        <li><a href="#">Brother Printers</a></li>
+                        <li><a href="#">All Other Brands</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Troubleshooting Guides</a></li>
+                        <li><a href="#">Driver Downloads</a></li>
+                        <li><a href="#">User Manuals</a></li>
+                        <li><a href="#">Blog & Articles</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 PrinterHelp Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Form submission
+        document.getElementById('supportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your request! Our support team will contact you shortly.');
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
