@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Microtech IT Service — Professional Microsoft & IT Support</title>
-  <meta name="description" content="Microtech IT Service offers Microsoft, antivirus, printer, cloud, networking and web-support services. 24/7 remote & on-site IT support." />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Microtech IT Service — Responsive</title>
+  <meta name="description" content="Microtech IT Service: Microsoft, Antivirus, Printer, Networking & Cloud support. 24/7 remote & on-site IT support." />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
-    /* ---------------- Theme (Modern Microsoft Blue Gradient) ---------------- */
     :root{
       --bg:#f4f8fc;
       --card:#ffffff;
       --text:#0b2743;
       --muted:#5b6f85;
-      --primary:#0078d4; /* main blue */
-      --primary-2:#005fa3; /* darker blue */
+      --primary:#0078d4;
+      --primary-2:#005fa3;
       --glass: rgba(255,255,255,0.6);
-      --success:#0ea5a3;
     }
     [data-theme="dark"]{
       --bg:#071426;
@@ -25,417 +26,519 @@
       --muted:#9fb7d8;
       --primary:#3ea0ff;
       --primary-2:#2b8be6;
-      --glass: rgba(255,255,255,0.03);
-      --success:#39d6c8;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
-    a{color:inherit}
+    html,body{height:100%;margin:0;font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+    a{color:inherit;text-decoration:none;}
     img{max-width:100%;height:auto;display:block}
 
     /* Header */
-    header{position:fixed;left:0;right:0;top:0;display:flex;align-items:center;justify-content:space-between;padding:12px 5%;z-index:1200;transition:background .25s,box-shadow .25s}
-    header.transparent{background:transparent}
-    header.solid{background:var(--card);box-shadow:0 8px 30px rgba(3,34,63,0.06);backdrop-filter:saturate(140%) blur(6px)}
-    .brand{display:flex;gap:12px;align-items:center}
-    .brand-logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--primary-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
-    .brand h1{font-size:18px;margin:0;color:var(--primary);letter-spacing:0.2px}
-    nav{display:flex;gap:14px;align-items:center}
-    nav a{padding:8px 10px;border-radius:8px;font-weight:600;color:var(--muted);text-decoration:none}
-    nav a:hover{color:var(--primary);background:var(--glass)}
+    .site-header{
+      position:sticky; top:0; z-index:1040;
+      background:rgba(255,255,255,0.96); backdrop-filter: blur(6px);
+      border-bottom:1px solid rgba(0,0,0,0.04);
+    }
+    .brand-logo{
+      width:44px; height:44px; border-radius:8px; display:inline-flex; align-items:center; justify-content:center;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2)); color:#fff; font-weight:800; font-size:1.05rem;
+    }
+    .site-title{color:var(--primary); font-weight:700; margin-left:.6rem;}
 
-    .header-right{display:flex;gap:12px;align-items:center}
-    .call-btn{background:var(--primary);color:#fff;padding:9px 14px;border-radius:999px;font-weight:800;display:flex;gap:10px;align-items:center;box-shadow:0 8px 20px rgba(3,105,161,0.12)}
-    .dark-toggle{background:transparent;border:1px solid transparent;padding:8px;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:8px;color:var(--muted)}
-    .dark-toggle:hover{background:var(--glass)}
+    /* Hero & layout */
+    .hero{
+      background: linear-gradient(135deg, rgba(0,120,212,0.12), rgba(0,95,163,0.06));
+      padding:4.5rem 0;
+      text-align:center;
+    }
+    .hero h1{color:var(--primary-2); font-size:2rem; margin-bottom:.6rem;}
+    .hero p{color:var(--muted);font-size:1.05rem;max-width:900px;margin:0 auto 1rem;}
 
-    /* Hero + booking layout */
-    .hero-wrap{display:flex;gap:28px;align-items:stretch;padding:110px 5% 36px}
-    @media (max-width:980px){.hero-wrap{flex-direction:column;padding-top:86px}}
-    .hero{flex:1;background:linear-gradient(180deg, rgba(0,120,212,0.12) 0, rgba(255,255,255,0.7) 100%); border-radius:14px;padding:36px;box-shadow:0 12px 36px rgba(3,34,63,0.04)}
-    .hero h2{color:var(--primary-2);font-size:30px;margin:0 0 12px;line-height:1.05}
-    .hero p{color:var(--muted);margin:0 0 16px;max-width:780px}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-    .btn-primary{background:linear-gradient(90deg,var(--primary),var(--primary-2));color:#fff;padding:11px 18px;border-radius:10px;font-weight:800;box-shadow:0 10px 26px rgba(3,105,161,0.12)}
-    .btn-ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:10px 16px;border-radius:10px;color:var(--primary);font-weight:700}
+    /* Booking card */
+    .booking-card{border-radius:12px; padding:18px; background:var(--card);box-shadow:0 10px 30px rgba(3,34,63,0.06)}
+    @media (max-width:991.98px){
+      .hero{padding:3rem 0}
+    }
 
-    /* Booking panel */
-    .booking{width:360px;background:var(--card);border-radius:12px;padding:18px;box-shadow:0 12px 36px rgba(3,34,63,0.06);align-self:flex-start}
-    @media (max-width:980px){.booking{width:100%}}
-    .booking h4{margin:0 0 6px;color:var(--primary-2);font-size:16px}
-    .booking small{color:var(--muted);display:block;margin-bottom:12px}
-    .booking label{display:block;margin-top:10px;margin-bottom:6px;color:var(--muted);font-size:13px}
-    .booking input,.booking select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eefc;background:transparent}
-    [data-theme="dark"] .booking input{border-color:rgba(255,255,255,0.04)}
-    .booking button{margin-top:12px;background:linear-gradient(90deg,var(--primary),var(--primary-2));color:#fff;border:none;padding:11px;border-radius:10px;font-weight:800;cursor:pointer}
-    .small-info{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+    /* Trusted logos — moving grid */
+    .logo-marquee{
+      overflow:hidden; padding:14px; border-radius:10px; background:var(--card); box-shadow:0 8px 24px rgba(3,34,63,0.04);
+    }
+    .logo-track{
+      display:flex; gap:28px; align-items:center; animation:scrollLogos 18s linear infinite;
+    }
+    .logo-track img{height:56px; filter:grayscale(12%); transition:transform .2s,filter .2s;}
+    .logo-track img:hover{transform:translateY(-6px); filter:grayscale(0);}
+    .logo-marquee:hover .logo-track, .logo-marquee:focus-within .logo-track{ animation-play-state: paused; }
 
-    /* Brands (Trusted) section - show images centered responsive */
-    .trusted-logos{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:center;margin-top:20px;padding:12px;border-radius:10px;background:var(--card);box-shadow:0 8px 24px rgba(3,34,63,0.04)}
-    .trusted-logos img{height:56px;filter:grayscale(10%);transition:transform .2s,filter .2s}
-    .trusted-logos img:hover{transform:translateY(-6px);filter:grayscale(0%)}
+    @keyframes scrollLogos{
+      0%{ transform: translateX(0); }
+      100%{ transform: translateX(-50%); }
+    }
+    /* Make sure track duplicates content for continuous scroll */
+    .logo-track .logo-item{flex:0 0 auto;display:flex;align-items:center;justify-content:center;}
 
-    /* Metrics */
-    .metrics{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:20px 5%}
-    .metric{min-width:160px;background:var(--card);padding:16px;border-radius:12px;text-align:center;box-shadow:0 10px 28px rgba(3,34,63,0.04)}
-    .metric h3{color:var(--primary);margin:0;font-size:22px}
-    .metric p{margin:6px 0 0 0;color:var(--muted);font-weight:700}
+    /* Service cards */
+    .svc-card{border-radius:12px;padding:18px;background:linear-gradient(180deg,#f8fbff 0,#fff 100%);transition:transform .18s}
+    .svc-card:hover{transform:translateY(-8px);box-shadow:0 18px 36px rgba(3,34,63,0.06)}
 
-    /* Main content */
-    main{max-width:1200px;margin:22px auto;padding:0 5% 60px;display:grid;gap:18px}
-    section.card{background:var(--card);padding:26px;border-radius:12px;box-shadow:0 10px 30px rgba(3,34,63,0.04)}
-    section.card h3{text-align:center;color:var(--primary);margin-top:0}
-    .lead{text-align:center;color:var(--muted);max-width:920px;margin:12px auto 0;line-height:1.6}
-
-    /* Services grid */
-    .grid-services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
-    .svc{background:linear-gradient(180deg,#f8fbff 0,#fff 100%);padding:18px;border-radius:12px;min-height:140px;display:flex;flex-direction:column;gap:10px;transition:transform .18s,box-shadow .18s}
-    .svc:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(3,34,63,0.08)}
-    .svc i{font-size:28px;color:var(--primary)}
-    .svc h4{margin:0;color:var(--primary-2)}
-    .svc p{flex:1;color:var(--muted);font-size:14px}
-    .svc a{margin-top:8px;color:var(--primary);font-weight:800}
-
-    /* Products list (text only) */
-    .product-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:12px}
-    .product-item{background:var(--card);border:1px solid rgba(0,0,0,0.04);padding:12px;border-radius:10px;text-align:center;font-weight:700;color:var(--muted)}
-
-    /* FAQ */
-    .faq-list{margin-top:12px}
-    details.faq{background:linear-gradient(180deg,#fbfdff 0,#fff 100%);padding:12px;border-radius:10px;margin-bottom:10px;border:1px solid #eef6ff}
-    details.faq summary{cursor:pointer;font-weight:700;color:var(--primary-2);list-style:none}
-    details.faq p{margin-top:8px;color:var(--muted)}
+    /* Product list (text only) - responsive layout: 2 cols on xs, 3 on sm, 4 on md+ */
+    .product-list .product-item{background:var(--card);border:1px solid rgba(0,0,0,0.04);padding:12px;border-radius:8px;font-weight:700;color:var(--muted);text-align:center}
 
     /* Testimonials */
-    .test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:12px}
-    .test-card{background:linear-gradient(180deg,#fbfdff 0,#fff 100%);padding:14px;border-radius:12px;border-left:4px solid var(--primary)}
-    .test-card p{font-style:italic;color:var(--muted)}
-    .test-card h5{margin-top:10px;color:var(--primary-2)}
+    .testimonial{background:#fff;border-radius:10px;padding:12px;box-shadow:0 8px 20px rgba(3,34,63,0.04);display:flex;gap:12px;align-items:center}
+    .testimonial .avatar{width:64px;height:64px;border-radius:50%;overflow:hidden;flex:0 0 64px}
+    .testimonial .text{flex:1}
 
-    /* Contact form */
-    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
-    @media (max-width:980px){.contact-grid{grid-template-columns:1fr}}
-    .contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:12px;border-radius:10px;border:1px solid #e6eefc;background:transparent;margin-bottom:10px}
-    .contact-form button{background:linear-gradient(90deg,var(--primary),var(--primary-2));color:#fff;padding:12px;border-radius:10px;border:none;font-weight:900;cursor:pointer}
+    /* FAQ */
+    details summary{cursor:pointer;font-weight:700;color:var(--primary-2)}
+    details p{margin-top:.6rem;color:var(--muted)}
 
     /* Footer */
-    footer{padding:28px 5%;margin-top:18px;color:var(--muted);background:transparent}
-    footer .links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-    footer .disclaimer{margin-top:12px;color:var(--muted);max-width:1140px;margin-left:auto;margin-right:auto;text-align:center;font-size:13px}
+    footer{background:transparent;padding:28px 0;color:var(--muted);font-size:.95rem}
 
-    /* Responsive tweaks */
-    @media (max-width:680px){
-      header{padding:10px 4%}
-      .brand h1{font-size:16px}
-      .hero h2{font-size:22px}
-      .trusted-logos img{height:44px}
-      .metric h3{font-size:20px}
+    /* small device adjustments */
+    @media (max-width:575.98px){
+      .logo-track img{height:44px}
+      .testimonial .avatar{width:52px;height:52px;flex:0 0 52px}
+      .hero h1{font-size:1.5rem}
+      .hero p{font-size:1rem}
     }
   </style>
 </head>
 <body data-theme="light">
 
   <!-- HEADER -->
-  <header id="siteHeader" class="transparent" role="banner">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%">
-      <div class="brand" style="display:flex;align-items:center;gap:12px">
+  <header class="site-header">
+    <div class="container d-flex align-items-center justify-content-between py-2">
+      <div class="d-flex align-items-center">
         <div class="brand-logo" aria-hidden="true">M</div>
-        <h1 style="margin:0;color:var(--primary)">Microtech IT Service</h1>
+        <div class="site-title ms-2">Microtech IT Service</div>
       </div>
 
-      <nav style="display:flex;gap:16px;align-items:center">
-        <a href="#services">Services</a>
-        <a href="#brands">Products</a>
-        <a href="#about">About</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <!-- tollfree then hamburger for mobile -->
+      <div class="d-flex align-items-center gap-2">
+        <a class="me-2 fw-bold text-primary d-none d-md-inline" href="tel:+18886497907"><i class="fa-solid fa-phone"></i> (888) 649-7907</a>
 
-      <div class="header-right">
-        <button class="dark-toggle" id="themeToggle" title="Toggle dark mode" aria-pressed="false">
-          <i class="fa-regular fa-moon"></i><span id="themeLabel" style="font-weight:700">Dark</span>
+        <!-- On small screens show tollfree before toggle -->
+        <div class="d-flex align-items-center d-md-none me-2">
+          <a class="fw-bold text-primary" href="tel:+18886497907" aria-label="Call toll free"><i class="fa-solid fa-phone"></i></a>
+        </div>
+
+        <button class="btn btn-outline-secondary d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
         </button>
-        <a class="call-btn" href="tel:+18886497907" aria-label="Call Microtech support"><i class="fa-solid fa-phone"></i> (888) 649-7907</a>
+
+        <!-- regular nav for md+ -->
+        <nav class="d-none d-md-flex align-items-center gap-3">
+          <a href="#services" class="text-muted">Services</a>
+          <a href="#brands" class="text-muted">Products</a>
+          <a href="#about" class="text-muted">About</a>
+          <a href="#faq" class="text-muted">FAQ</a>
+          <a href="#contact" class="text-muted">Contact</a>
+        </nav>
       </div>
     </div>
   </header>
 
-  <!-- HERO + BOOKING -->
-  <div class="hero-wrap">
-    <section class="hero" id="home" aria-labelledby="homeTitle">
-      <h2 id="homeTitle">On-demand Microsoft & IT Support — Remote or On-site</h2>
-      <p>Certified technicians for Microsoft Windows, Microsoft 365, antivirus, printers, networking and cloud migration. Fast, secure & reliable assistance — 24/7.</p>
-
-      <div class="cta-row">
-        <a class="btn-primary" href="#contact">Get Support Now</a>
-        <a class="btn-ghost" href="#services">View Services</a>
-      </div>
-
-      <!-- Trusted logos (images) -->
-      <div class="trusted-logos" aria-hidden="false" style="margin-top:18px">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_logo.svg" alt="Microsoft logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/HP_logo_2012.svg" alt="HP logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Canon_logo_vector.svg" alt="Canon logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Norton_logo_2021.svg" alt="Norton logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/McAfee_logo.svg" alt="McAfee logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Microsoft_Office_logo_%282019%E2%80%93present%29.svg" alt="Office 365 logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Microsoft_Outlook_2013-2019_logo.svg" alt="Outlook logo">
-      </div>
-
-    </section>
-
-    <aside class="booking" aria-labelledby="bookingTitle">
-      <h4 id="bookingTitle">Request Support — Fast</h4>
-      <small>Remote sessions start within minutes. Optional on-site available.</small>
-
-      <label for="service">Service</label>
-      <select id="service" aria-label="Select service">
-        <option>Remote Troubleshooting</option>
-        <option>Windows / Microsoft 365</option>
-        <option>Antivirus & Security</option>
-        <option>Printer Setup & Repair</option>
-        <option>Networking (Wi-Fi, Router)</option>
-        <option>Cloud Migration</option>
-        <option>Web Design & Development</option>
-        <option>Data Backup & Recovery</option>
-      </select>
-
-      <label for="name">Full name</label>
-      <input id="name" type="text" placeholder="Your name">
-
-      <label for="contact">Phone or email</label>
-      <input id="contact" type="text" placeholder="Phone or email">
-
-      <label for="when">Preferred time</label>
-      <input id="when" type="datetime-local">
-
-      <button id="bookBtn">Request Support</button>
-      <div class="small-info">Or call us: <strong>(888) 649-7907</strong></div>
-    </aside>
+  <!-- Mobile Offcanvas Nav -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+    <div class="offcanvas-header">
+      <h5 id="mobileNavLabel">Menu</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="mb-3"><a class="d-block mb-2 fw-bold text-primary" href="tel:+18886497907"><i class="fa-solid fa-phone"></i> (888) 649-7907</a></div>
+      <ul class="list-unstyled">
+        <li><a class="d-block py-2" href="#services" data-bs-dismiss="offcanvas">Services</a></li>
+        <li><a class="d-block py-2" href="#brands" data-bs-dismiss="offcanvas">Products</a></li>
+        <li><a class="d-block py-2" href="#about" data-bs-dismiss="offcanvas">About</a></li>
+        <li><a class="d-block py-2" href="#faq" data-bs-dismiss="offcanvas">FAQ</a></li>
+        <li><a class="d-block py-2" href="#contact" data-bs-dismiss="offcanvas">Contact</a></li>
+      </ul>
+    </div>
   </div>
 
-  <!-- METRICS -->
-  <div class="metrics" role="region" aria-label="Company metrics">
-    <div class="metric"><h3 id="m1">0</h3><p>Happy Customers</p></div>
-    <div class="metric"><h3 id="m2">0</h3><p>Devices Connected</p></div>
-    <div class="metric"><h3 id="m3">0</h3><p>Issues Resolved</p></div>
-    <div class="metric"><h3 id="m4">0%</h3><p>Customer Satisfaction</p></div>
-  </div>
+  <!-- HERO + booking -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-start gx-4">
+        <div class="col-lg-8">
+          <h1>On-demand Microsoft & IT Support — Remote or On-site</h1>
+          <p>Certified technicians for Microsoft Windows, Microsoft 365, antivirus, printers, networking and cloud migration. Fast, secure & reliable assistance — 24/7.</p>
+          <div class="d-flex gap-2 flex-wrap justify-content-center justify-content-lg-start">
+            <a href="#contact" class="btn btn-primary btn-lg"><i class="fa-solid fa-headset me-2"></i> Get Support Now</a>
+            <a href="#services" class="btn btn-outline-primary btn-lg">View Services</a>
+          </div>
+
+          <!-- moving logos (marquee) -->
+          <div class="logo-marquee mt-4" aria-hidden="false">
+            <div class="logo-track" id="logoTrack">
+              <!-- Logos block (use upload.wikimedia.org raw links) - duplicated below for continuous scrolling -->
+              <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_logo.svg" alt="Microsoft"></div>
+              <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/HP_logo_2012.svg" alt="HP"></div>
+              <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Canon_logo_vector.svg" alt="Canon"></div>
+              <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Norton_logo_2021.svg" alt="Norton"></div>
+              <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/McAfee_logo.svg" alt="McAfee"></div>
+              <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Microsoft_Office_logo_%282019%E2%80%93present%29.svg" alt="Office 365"></div>
+              <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Microsoft_Outlook_2013-2019_logo.svg" alt="Outlook"></div>
+
+              <!-- duplicate for continuous scroll -->
+              <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_logo.svg" alt="Microsoft"></div>
+              <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/HP_logo_2012.svg" alt="HP"></div>
+              <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Canon_logo_vector.svg" alt="Canon"></div>
+              <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Norton_logo_2021.svg" alt="Norton"></div>
+              <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/McAfee_logo.svg" alt="McAfee"></div>
+              <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Microsoft_Office_logo_%282019%E2%80%93present%29.svg" alt="Office 365"></div>
+              <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Microsoft_Outlook_2013-2019_logo.svg" alt="Outlook"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- booking panel -->
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="booking-card">
+            <h5 class="mb-1">Request Support — Fast</h5>
+            <small class="text-muted">Remote sessions start within minutes. Optional on-site available.</small>
+
+            <label class="form-label mt-3">Service</label>
+            <select id="serviceSelect" class="form-select" aria-label="Select service">
+              <option>Remote Troubleshooting</option>
+              <option>Windows / Microsoft 365</option>
+              <option>Antivirus & Security</option>
+              <option>Printer Setup & Repair</option>
+              <option>Networking (Wi-Fi, Router)</option>
+              <option>Cloud Migration</option>
+              <option>Web Design & Development</option>
+              <option>Data Backup & Recovery</option>
+            </select>
+
+            <label class="form-label mt-2">Full name</label>
+            <input id="bookName" class="form-control" placeholder="Your name">
+
+            <label class="form-label mt-2">Phone or email</label>
+            <input id="bookContact" class="form-control" placeholder="Phone or email">
+
+            <label class="form-label mt-2">Preferred time</label>
+            <input id="bookWhen" class="form-control" type="datetime-local">
+
+            <button id="bookBtn" class="btn btn-primary w-100 mt-3">Request Support</button>
+            <div class="text-center mt-2 small text-muted">Or call us: <strong>(888) 649-7907</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS / COUNTERS -->
+  <section class="py-4">
+    <div class="container">
+      <div class="row g-3 justify-content-center text-center">
+        <div class="col-6 col-sm-4 col-md-3">
+          <div class="p-3 bg-white rounded shadow-sm">
+            <h3 id="c1">0</h3><small class="text-muted">Happy Customers</small>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3">
+          <div class="p-3 bg-white rounded shadow-sm">
+            <h3 id="c2">0</h3><small class="text-muted">Devices Connected</small>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3">
+          <div class="p-3 bg-white rounded shadow-sm">
+            <h3 id="c3">0</h3><small class="text-muted">Issues Resolved</small>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3">
+          <div class="p-3 bg-white rounded shadow-sm">
+            <h3 id="c4">0%</h3><small class="text-muted">Customer Satisfaction</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- MAIN CONTENT -->
-  <main role="main">
+  <main class="container mb-5">
     <!-- About -->
-    <section class="card" id="about">
-      <h3>About Microtech IT Service</h3>
-      <p class="lead">Microtech IT Service helps individuals and businesses stay productive and secure. Our certified technicians provide Microsoft and Windows support, antivirus installation and removal, printer setup, networking, cloud migration, and custom web solutions — remotely and on-site.</p>
-
-      <div style="display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:14px">
-        <div style="min-width:140px;text-align:center"><strong style="color:var(--primary);font-size:20px">10+</strong><div style="color:var(--muted)">Years Experience</div></div>
-        <div style="min-width:140px;text-align:center"><strong style="color:var(--primary);font-size:20px">24/7</strong><div style="color:var(--muted)">Support Availability</div></div>
-        <div style="min-width:140px;text-align:center"><strong style="color:var(--primary);font-size:20px">Certified</strong><div style="color:var(--muted)">Technicians</div></div>
+    <section id="about" class="mb-4">
+      <div class="card p-4">
+        <h3>About Microtech IT Service</h3>
+        <p class="lead text-muted">Microtech IT Service helps individuals and businesses stay productive and secure. Our certified technicians provide Microsoft and Windows support, antivirus installation and removal, printer setup, networking, cloud migration, and custom web solutions — remotely and on-site.</p>
+        <div class="d-flex flex-wrap gap-3 mt-3">
+          <div class="text-center flex-fill" style="min-width:140px"><strong class="text-primary">10+</strong><div class="text-muted">Years Experience</div></div>
+          <div class="text-center flex-fill" style="min-width:140px"><strong class="text-primary">24/7</strong><div class="text-muted">Support Availability</div></div>
+          <div class="text-center flex-fill" style="min-width:140px"><strong class="text-primary">Certified</strong><div class="text-muted">Technicians</div></div>
+        </div>
       </div>
     </section>
 
     <!-- Services -->
-    <section class="card" id="services">
-      <h3>Services — What We Offer</h3>
-      <p class="lead">End-to-end IT services with transparent pricing and secure remote sessions. Click a service to learn more or start a booking.</p>
+    <section id="services" class="mb-4">
+      <div class="card p-4">
+        <h3>Services — What We Offer</h3>
+        <p class="text-muted">End-to-end IT services with transparent pricing and secure remote sessions. Click a service to learn more or start a booking.</p>
+        <div class="row g-3 mt-3">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="svc-card h-100 p-3">
+              <div class="d-flex align-items-center mb-2"><i class="fa-solid fa-cloud fa-2x text-primary me-3"></i><h5 class="mb-0">Cloud Computing</h5></div>
+              <p class="text-muted">Azure, OneDrive and cloud migration, backup and optimization for business continuity.</p>
+              <a href="cloud-services.html" class="fw-bold text-primary">Learn more →</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="svc-card h-100 p-3">
+              <div class="d-flex align-items-center mb-2"><i class="fa-solid fa-network-wired fa-2x text-primary me-3"></i><h5 class="mb-0">Networking & Wi-Fi</h5></div>
+              <p class="text-muted">Router setup, VLAN/WAN configuration, Wi-Fi site surveys and secure remote access.</p>
+              <a href="networking-services.html" class="fw-bold text-primary">Learn more →</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="svc-card h-100 p-3">
+              <div class="d-flex align-items-center mb-2"><i class="fa-brands fa-windows fa-2x text-primary me-3"></i><h5 class="mb-0">Microsoft & Windows Support</h5></div>
+              <p class="text-muted">Installation, activation, update troubleshooting, Office/Outlook and M365 admin help.</p>
+              <a href="microsoft-support.html" class="fw-bold text-primary">Learn more →</a>
+            </div>
+          </div>
 
-      <div class="grid-services" role="list" aria-label="Services list">
-        <article class="svc" role="listitem">
-          <i class="fa-solid fa-cloud"></i><h4>Cloud Computing</h4><p>Azure, OneDrive and cloud migration, backup and optimization for business continuity.</p><a href="cloud-services.html">Learn more →</a>
-        </article>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="svc-card h-100 p-3">
+              <div class="d-flex align-items-center mb-2"><i class="fa-solid fa-shield-halved fa-2x text-primary me-3"></i><h5 class="mb-0">Antivirus & Security</h5></div>
+              <p class="text-muted">Installations, renewals, malware removal and endpoint protection for major AV vendors.</p>
+              <a href="antivirus-support.html" class="fw-bold text-primary">Learn more →</a>
+            </div>
+          </div>
 
-        <article class="svc" role="listitem">
-          <i class="fa-solid fa-network-wired"></i><h4>Networking & Wi-Fi</h4><p>Router setup, VLAN/WAN configuration, Wi-Fi site surveys and secure remote access.</p><a href="networking-services.html">Learn more →</a>
-        </article>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="svc-card h-100 p-3">
+              <div class="d-flex align-items-center mb-2"><i class="fa-solid fa-print fa-2x text-primary me-3"></i><h5 class="mb-0">Printer & Peripheral Support</h5></div>
+              <p class="text-muted">Drivers, wireless printing, scanning configuration for HP, Canon, Epson, Brother and more.</p>
+              <a href="printer-support.html" class="fw-bold text-primary">Learn more →</a>
+            </div>
+          </div>
 
-        <article class="svc" role="listitem">
-          <i class="fa-brands fa-windows"></i><h4>Microsoft & Windows Support</h4><p>Installation, activation, update troubleshooting, Office/Outlook and M365 admin help.</p><a href="microsoft-support.html">Learn more →</a>
-        </article>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="svc-card h-100 p-3">
+              <div class="d-flex align-items-center mb-2"><i class="fa-solid fa-globe fa-2x text-primary me-3"></i><h5 class="mb-0">Web Design & Development</h5></div>
+              <p class="text-muted">Fast, secure & responsive websites, e-commerce setup, and SEO basics.</p>
+              <a href="web-design.html" class="fw-bold text-primary">Learn more →</a>
+            </div>
+          </div>
 
-        <article class="svc" role="listitem">
-          <i class="fa-solid fa-shield-halved"></i><h4>Antivirus & Security</h4><p>Installations, renewals, malware removal and endpoint protection for major AV vendors.</p><a href="antivirus-support.html">Learn more →</a>
-        </article>
-
-        <article class="svc" role="listitem">
-          <i class="fa-solid fa-print"></i><h4>Printer & Peripheral Support</h4><p>Drivers, wireless printing, scanning configuration for HP, Canon, Epson, Brother and more.</p><a href="printer-support.html">Learn more →</a>
-        </article>
-
-        <article class="svc" role="listitem">
-          <i class="fa-solid fa-globe"></i><h4>Web Design & Development</h4><p>Fast, secure & responsive websites, e-commerce setup, and SEO basics.</p><a href="web-design.html">Learn more →</a>
-        </article>
-
-        <article class="svc" role="listitem">
-          <i class="fa-solid fa-database"></i><h4>Data Backup & Recovery</h4><p>Cloud and local backup strategies, scheduled snapshots and rapid recoveries.</p><a href="data-recovery.html">Learn more →</a>
-        </article>
-
-        <article class="svc" role="listitem">
-          <i class="fa-solid fa-headset"></i><h4>Remote Helpdesk</h4><p>24/7 remote troubleshooting, performance tuning and subscription-based maintenance.</p><a href="remote-support.html">Learn more →</a>
-        </article>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="svc-card h-100 p-3">
+              <div class="d-flex align-items-center mb-2"><i class="fa-solid fa-database fa-2x text-primary me-3"></i><h5 class="mb-0">Data Backup & Recovery</h5></div>
+              <p class="text-muted">Cloud and local backup strategies, scheduled snapshots and rapid recoveries.</p>
+              <a href="data-recovery.html" class="fw-bold text-primary">Learn more →</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Products & Brands (text list, no icons) -->
-    <section class="card" id="brands">
-      <h3>Products & Brands We Support</h3>
-      <p class="lead">We support major software and hardware products — below is a concise list (text only).</p>
-
-      <div class="product-list" aria-live="polite">
-        <div class="product-item">Microsoft Products</div>
-        <div class="product-item">Norton Products</div>
-        <div class="product-item">HP Products</div>
-        <div class="product-item">Brother Printers</div>
-        <div class="product-item">Outlook Applications</div>
-        <div class="product-item">MS Office 365 Suite</div>
-        <div class="product-item">Canon Printers</div>
-        <div class="product-item">McAfee Antivirus</div>
+    <!-- Products & Brands (TEXT GRID responsive 2-per-row on mobile) -->
+    <section id="brands" class="mb-4">
+      <div class="card p-4">
+        <h3>Products & Brands We Support</h3>
+        <p class="text-muted">We support major software and hardware products — listed below (text only for fast load).</p>
+        <div class="product-list row g-3 mt-2">
+          <div class="col-6 col-sm-4 col-md-3"><div class="product-item">Microsoft Products</div></div>
+          <div class="col-6 col-sm-4 col-md-3"><div class="product-item">Norton Products</div></div>
+          <div class="col-6 col-sm-4 col-md-3"><div class="product-item">HP Products</div></div>
+          <div class="col-6 col-sm-4 col-md-3"><div class="product-item">Brother Printers</div></div>
+          <div class="col-6 col-sm-4 col-md-3"><div class="product-item">Outlook Applications</div></div>
+          <div class="col-6 col-sm-4 col-md-3"><div class="product-item">MS Office 365 Suite</div></div>
+          <div class="col-6 col-sm-4 col-md-3"><div class="product-item">Canon Printers</div></div>
+          <div class="col-6 col-sm-4 col-md-3"><div class="product-item">McAfee Antivirus</div></div>
+        </div>
       </div>
     </section>
 
     <!-- Industries -->
-    <section class="card" id="industries">
-      <h3>Industries We Serve</h3>
-      <p class="lead">We deliver tailored IT solutions for enterprises, SMBs, education, healthcare, retail and public sector organizations.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px">
-        <div style="padding:8px 14px;border-radius:999px;background:linear-gradient(180deg,#eef7ff 0,#fff 100%);font-weight:700;color:var(--primary);border:1px solid #e6f2ff">Enterprise</div>
-        <div style="padding:8px 14px;border-radius:999px;background:linear-gradient(180deg,#eef7ff 0,#fff 100%);font-weight:700;color:var(--primary);border:1px solid #e6f2ff">Healthcare</div>
-        <div style="padding:8px 14px;border-radius:999px;background:linear-gradient(180deg,#eef7ff 0,#fff 100%);font-weight:700;color:var(--primary);border:1px solid #e6f2ff">Education</div>
-        <div style="padding:8px 14px;border-radius:999px;background:linear-gradient(180deg,#eef7ff 0,#fff 100%);font-weight:700;color:var(--primary);border:1px solid #e6f2ff">Retail</div>
-        <div style="padding:8px 14px;border-radius:999px;background:linear-gradient(180deg,#eef7ff 0,#fff 100%);font-weight:700;color:var(--primary);border:1px solid #e6f2ff">Finance</div>
-        <div style="padding:8px 14px;border-radius:999px;background:linear-gradient(180deg,#eef7ff 0,#fff 100%);font-weight:700;color:var(--primary);border:1px solid #e6f2ff">Small Business</div>
+    <section class="mb-4">
+      <div class="card p-4">
+        <h3>Industries We Serve</h3>
+        <p class="text-muted">Tailored IT solutions for enterprise, healthcare, education, retail and SMB.</p>
+        <div class="d-flex flex-wrap gap-2 mt-2">
+          <span class="badge bg-light text-primary border">Enterprise</span>
+          <span class="badge bg-light text-primary border">Healthcare</span>
+          <span class="badge bg-light text-primary border">Education</span>
+          <span class="badge bg-light text-primary border">Retail</span>
+          <span class="badge bg-light text-primary border">Finance</span>
+          <span class="badge bg-light text-primary border">Small Business</span>
+        </div>
       </div>
     </section>
 
-    <!-- FAQ + Testimonials -->
-    <section class="card" id="faq">
-      <h3>Frequently Asked Questions</h3>
-      <div class="faq-list">
-        <details class="faq"><summary>How do I request immediate support?</summary><p>Use the booking panel at the top, call our toll-free number, or submit the contact form below. Remote sessions usually begin within minutes.</p></details>
+    <!-- FAQ & Testimonials combined -->
+    <section class="mb-4">
+      <div class="row g-3">
+        <div class="col-lg-6">
+          <div class="card p-4 h-100">
+            <h3>Frequently Asked Questions</h3>
+            <details class="faq mt-3"><summary>How do I request immediate support?</summary><p class="mt-2 text-muted">Use the booking panel at the top, call our toll-free number, or submit the contact form below. Remote sessions usually begin within minutes.</p></details>
+            <details class="faq mt-2"><summary>Which antivirus brands do you support?</summary><p class="mt-2 text-muted">We support Norton, McAfee, Bitdefender, Kaspersky, ESET, Avast, AVG and more.</p></details>
+            <details class="faq mt-2"><summary>Are remote sessions secure?</summary><p class="mt-2 text-muted">Yes — we use encrypted connections and follow verification steps before connecting.</p></details>
+            <details class="faq mt-2"><summary>Do you provide on-site visits?</summary><p class="mt-2 text-muted">Yes — where available, on-site visits can be scheduled.</p></details>
+          </div>
+        </div>
 
-        <details class="faq"><summary>Which antivirus brands do you support?</summary><p>We support major antivirus vendors including Norton, McAfee, Bitdefender, Kaspersky, ESET, Avast, AVG, Trend Micro, Sophos and more.</p></details>
+        <div class="col-lg-6">
+          <div class="card p-4 h-100">
+            <h3>What Our Customers Say</h3>
+            <div class="mt-3 d-grid gap-3">
+              <!-- testimonial items -->
+              <div class="testimonial">
+                <div class="avatar"><img src="https://ui-avatars.com/api/?name=Sarah+L&background=0078d4&color=ffffff&size=128" alt="Sarah"></div>
+                <div class="text">
+                  <p class="mb-1">“Excellent service! Resolved my Outlook issue within minutes.”</p>
+                  <strong class="text-primary">— Sarah L.</strong>
+                </div>
+              </div>
 
-        <details class="faq"><summary>Do you offer on-site visits?</summary><p>Yes — we provide on-site technician visits in covered areas. Remote resolution is usually faster and more cost-effective.</p></details>
+              <div class="testimonial">
+                <div class="avatar"><img src="https://ui-avatars.com/api/?name=David+R&background=005fa3&color=ffffff&size=128" alt="David"></div>
+                <div class="text">
+                  <p class="mb-1">“Professional technicians who know their stuff. Highly recommend!”</p>
+                  <strong class="text-primary">— David R.</strong>
+                </div>
+              </div>
 
-        <details class="faq"><summary>Are remote sessions secure?</summary><p>All remote sessions are encrypted and we follow strict verification processes before connecting to any device.</p></details>
-      </div>
+              <div class="testimonial">
+                <div class="avatar"><img src="https://ui-avatars.com/api/?name=Emily+K&background=2b8be6&color=ffffff&size=128" alt="Emily"></div>
+                <div class="text">
+                  <p class="mb-1">“My printer setup was done remotely in 10 minutes. Great job!”</p>
+                  <strong class="text-primary">— Emily K.</strong>
+                </div>
+              </div>
 
-      <h3 style="margin-top:22px;">What Clients Say</h3>
-      <div class="test-grid">
-        <div class="test-card"><p>“Microtech resolved our Office365 migration quickly and securely.”</p><h5>— GlobalSoft Inc.</h5></div>
-        <div class="test-card"><p>“Excellent remote support and very professional technicians.”</p><h5>— Sarah J.</h5></div>
-        <div class="test-card"><p>“Printer setup across our stores in under a day, highly recommended.”</p><h5>— RetailCo</h5></div>
-        <div class="test-card"><p>“Recovered our corrupted files and restored operations — amazing work.”</p><h5>— Kevin P.</h5></div>
-        <div class="test-card"><p>“Fast, friendly and affordable. We love the support plan.”</p><h5>— Emma W.</h5></div>
-        <div class="test-card"><p>“Managed backups and monitoring saved us time and money.”</p><h5>— TechCore LLC</h5></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section class="card" id="contact">
-      <h3>Contact & Request Support</h3>
-      <p class="lead">Tell us about your issue — we’ll respond quickly. For immediate assistance call <strong>(888) 649-7907</strong>.</p>
+    <section id="contact" class="mb-4">
+      <div class="card p-4">
+        <h3>Contact & Request Support</h3>
+        <p class="text-muted">Tell us about your issue — we’ll respond quickly. For immediate assistance call <strong>(888) 649-7907</strong>.</p>
+        <div class="row g-3">
+          <div class="col-lg-8">
+            <form onsubmit="event.preventDefault(); alert('Request received — demo only.');">
+              <div class="row g-2">
+                <div class="col-md-6"><input class="form-control" required placeholder="Full name"></div>
+                <div class="col-md-6"><input type="email" class="form-control" required placeholder="Email address"></div>
+              </div>
+              <div class="row g-2 mt-2">
+                <div class="col-md-6"><input class="form-control" placeholder="Phone (optional)"></div>
+                <div class="col-md-6">
+                  <select class="form-select">
+                    <option>Choose a service</option>
+                    <option>Windows & Microsoft 365</option>
+                    <option>Antivirus & Security</option>
+                    <option>Printer & Peripheral</option>
+                  </select>
+                </div>
+              </div>
+              <textarea class="form-control mt-2" rows="4" placeholder="Describe your issue"></textarea>
+              <button class="btn btn-primary mt-2">Send Request</button>
+            </form>
+          </div>
 
-      <div class="contact-grid">
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Request received — demo only.');">
-          <input id="cf-name" type="text" placeholder="Full name" required>
-          <input id="cf-email" type="email" placeholder="Email address" required>
-          <input id="cf-phone" type="text" placeholder="Phone (optional)">
-          <select id="cf-service">
-            <option>Choose a service — e.g., Remote Troubleshooting</option>
-            <option>Windows & Microsoft 365</option>
-            <option>Antivirus & Security</option>
-            <option>Printer & Peripheral</option>
-            <option>Network / Wi-Fi</option>
-            <option>Cloud Migration</option>
-            <option>Web Development</option>
-          </select>
-          <textarea id="cf-desc" rows="5" placeholder="Describe your problem" required></textarea>
-          <button type="submit">Send Request</button>
-        </form>
-
-        <aside style="background:linear-gradient(180deg,#fbfdff 0,#fff 100%);padding:18px;border-radius:12px;">
-          <h4 style="margin:0 0 8px;color:var(--primary-2)">Need urgent support?</h4>
-          <div style="color:var(--muted);margin-bottom:12px">Call our 24/7 support line: <strong>(888) 649-7907</strong></div>
-          <div style="font-size:14px;color:var(--muted)">We can connect via a secure remote session (AnyDesk/TeamViewer) or schedule an on-site visit where available.</div>
-        </aside>
+          <div class="col-lg-4">
+            <aside class="p-3 bg-light rounded">
+              <h5 class="text-primary">Need urgent support?</h5>
+              <p class="text-muted mb-1">Call our 24/7 support line:</p>
+              <p class="fw-bold">(888) 649-7907</p>
+              <p class="small text-muted">We can connect via secure remote session (TeamViewer/AnyDesk) or schedule on-site support where available.</p>
+            </aside>
+          </div>
+        </div>
       </div>
     </section>
+
   </main>
 
   <!-- FOOTER -->
-  <footer role="contentinfo">
-    <div style="max-width:1200px;margin:0 auto;padding:0 5%">
-      <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;padding-top:12px">
-        <a href="privacy-policy.html" style="color:var(--muted)">Privacy Policy</a>
-        <a href="terms.html" style="color:var(--muted)">Terms & Conditions</a>
-        <a href="disclaimer.html" style="color:var(--muted)">Disclaimer</a>
+  <footer>
+    <div class="container">
+      <div class="d-flex justify-content-center gap-3 mb-2 flex-wrap">
+        <a href="privacy-policy.html" class="text-muted">Privacy Policy</a>
+        <a href="terms.html" class="text-muted">Terms & Conditions</a>
+        <a href="disclaimer.html" class="text-muted">Disclaimer</a>
       </div>
-
-      <div class="disclaimer" style="text-align:center;margin-top:12px;color:var(--muted);font-size:13px">
-        <strong>Disclaimer:</strong> Microtech IT Service is an independent IT support provider. We are not affiliated with or endorsed by Microsoft Corporation, HP, Canon, Norton, McAfee, or other brands displayed. Trademarks are the property of their respective owners.
-      </div>
-      <div style="text-align:center;margin-top:10px;color:var(--muted)">© 2025 Microtech IT Service. All Rights Reserved.</div>
+      <div class="text-center text-muted small">Disclaimer: Microtech IT Service is an independent technical support provider. We are not affiliated with Microsoft, HP, Canon, Norton, McAfee, or other brands. Trademarks are property of their owners.</div>
+      <div class="text-center text-muted small mt-2">© 2025 Microtech IT Service. All Rights Reserved.</div>
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
   <script>
-    // Header: transparent -> solid on scroll
-    const header = document.getElementById('siteHeader');
-    function updateHeader(){ if(window.scrollY > 24) { header.classList.remove('transparent'); header.classList.add('solid'); } else { header.classList.remove('solid'); header.classList.add('transparent'); } }
-    updateHeader(); window.addEventListener('scroll', updateHeader);
+    // Logo marquee — ensure continuous width by cloning children if needed (done in HTML duplication)
+    // Pause when user hovers: CSS handles it (animation-play-state)
 
-    // Theme toggle (persist)
-    const body = document.body;
-    const themeToggle = document.getElementById('themeToggle');
-    const themeLabel = document.getElementById('themeLabel');
-    function setTheme(t){
-      if(t === 'dark'){ body.setAttribute('data-theme','dark'); themeToggle.setAttribute('aria-pressed','true'); themeLabel.textContent='Light'; themeToggle.innerHTML = '<i class=\"fa-regular fa-sun\"></i> Light'; localStorage.setItem('microtech-theme','dark'); }
-      else { body.setAttribute('data-theme','light'); themeToggle.setAttribute('aria-pressed','false'); themeLabel.textContent='Dark'; themeToggle.innerHTML = '<i class=\"fa-regular fa-moon\"></i> Dark'; localStorage.setItem('microtech-theme','light'); }
-    }
-    const saved = localStorage.getItem('microtech-theme') || 'light';
-    setTheme(saved);
-    themeToggle.addEventListener('click', ()=> setTheme(body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+    // Theme toggle
+    (function(){
+      const body = document.body;
+      const themeToggleBtn = document.getElementById('themeToggle');
+      const saved = localStorage.getItem('microtech-theme') || 'light';
+      function applyTheme(t){
+        if(t === 'dark'){ body.setAttribute('data-theme','dark'); localStorage.setItem('microtech-theme','dark'); }
+        else { body.setAttribute('data-theme','light'); localStorage.setItem('microtech-theme','light'); }
+      }
+      applyTheme(saved);
+      const btn = document.querySelector('.dark-toggle');
+      if(btn){
+        btn.addEventListener('click',()=>{
+          const next = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+          // update icon/text
+          btn.innerHTML = next === 'dark' ? '<i class=\"fa-regular fa-sun\"></i> Light' : '<i class=\"fa-regular fa-moon\"></i> Dark';
+        });
+      }
+    })();
 
-    // Animated counters
-    const counters = [{id:'m1',to:50000},{id:'m2',to:120000},{id:'m3',to:95000},{id:'m4',to:95}];
-    let started=false;
-    function formatShort(n){
-      if (n >= 1000000) return Math.round(n/1000000) + 'M+';
-      if (n >= 1000) return Math.round(n/1000) + 'K+';
-      return n;
-    }
-    function runCounters(){
-      if (started) return; started = true;
-      counters.forEach(c=>{
-        const el = document.getElementById(c.id);
-        if (!el) return;
-        let start = 0; const end = c.to; const dur = 1400; const stepTime = 30;
-        const step = Math.max(1, Math.floor(end / (dur / stepTime)));
-        const timer = setInterval(()=>{
-          start += step;
-          if (start >= end) { clearInterval(timer); el.textContent = (c.id === 'm4' ? end + '%' : formatShort(end)); }
-          else { el.textContent = (c.id === 'm4' ? start + '%' : formatShort(start)); }
-        }, stepTime);
-      });
-    }
-    const metrics = document.querySelector('.metrics');
-    if (metrics) {
-      const obs = new IntersectionObserver((entries)=>{
-        entries.forEach(e => { if (e.isIntersecting) runCounters(); });
-      }, { threshold: 0.25 });
-      obs.observe(metrics);
-    }
+    // Animated counters when metrics enter viewport
+    (function(){
+      const counters = [
+        {el:document.getElementById('c1'), to:50000},
+        {el:document.getElementById('c2'), to:120000},
+        {el:document.getElementById('c3'), to:250000},
+        {el:document.getElementById('c4'), to:95}
+      ];
+      let started=false;
+      function fmt(n){ if(n>=1000000) return Math.round(n/1000000)+'M+'; if(n>=1000) return Math.round(n/1000)+'K+'; return n; }
+      function run(){
+        if(started) return; started=true;
+        counters.forEach(c=>{
+          if(!c.el) return;
+          let start=0, end=c.to, dur=1400, stepTime=30;
+          const step = Math.max(1, Math.floor(end/(dur/stepTime)));
+          const t = setInterval(()=>{
+            start += step;
+            if(start >= end){ clearInterval(t); c.el.textContent = (c.el.id==='c4'? end+'%': fmt(end)); }
+            else c.el.textContent = (c.el.id==='c4'? start+'%': fmt(start));
+          }, stepTime);
+        });
+      }
+      const metrics = document.querySelector('.container .row');
+      const obs = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{ if(e.isIntersecting) run(); });
+      }, {threshold:0.25});
+      const firstMetric = document.getElementById('c1');
+      if(firstMetric) obs.observe(firstMetric);
+    })();
 
-    // Demo booking & contact actions
-    document.getElementById('bookBtn').addEventListener('click', ()=> {
-      alert('Thanks — demo booking request received.');
+    // Ensure mobile offcanvas closes when link clicked: handled with data-bs-dismiss attr
+
+    // Accessibility: allow keyboard pause on marquee via focus
+    document.querySelectorAll('.logo-marquee').forEach(node=>{
+      node.setAttribute('tabindex','0');
+      node.addEventListener('focus', ()=> node.querySelector('.logo-track').style.animationPlayState='paused');
+      node.addEventListener('blur', ()=> node.querySelector('.logo-track').style.animationPlayState='running');
     });
-
-    // Ensure header initial state on load
-    window.addEventListener('load', updateHeader);
   </script>
 </body>
 </html>
