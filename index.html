@@ -1,150 +1,213 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NeonEdge IT Support — 24/7 Dark Tech Support</title>
-  <meta name="description" content="NeonEdge IT Support — 24/7 enterprise & SMB IT support, network, security, cloud & device services." />
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dark Tech IT Support</title>
   <style>
-    :root{
-      --bg:#09060a;
-      --card:#0f0c12;
-      --muted:#9aa0a6;
-      --neon-cyan: #00e6ff;
-      --neon-magenta: #ff43d7;
-      --neon-green: #8cff6b;
-      --divider: rgba(255,255,255,0.06);
-      --accent-glow: 0 8px 30px rgba(0,230,255,0.06), 0 2px 6px rgba(255,67,215,0.03);
-      font-family: 'Inter',system-ui,Segoe UI,Roboto,Helvetica,Arial;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(0,230,255,0.03), transparent),
-                  radial-gradient(900px 400px at 90% 90%, rgba(255,67,215,0.03), transparent),
-                  var(--bg);
-      color:#e6eef6;
-      line-height:1.4;
-      padding-bottom:60px;
+    body {
+      background-color: #0a0f1a;
+      color: #e0e0e0;
+      overflow-x: hidden;
     }
-
-    .container{max-width:1120px;margin:0 auto;padding:28px}
-
-    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--divider)}
-    .brand{display:flex;gap:14px;align-items:center}
-    .logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-magenta));display:flex;align-items:center;justify-content:center;box-shadow:var(--accent-glow)}
-    .brand h1{margin:0;font-size:18px;letter-spacing:0.4px}
-    .brand p{margin:0;font-size:12px;color:var(--muted)}
-
-    nav{display:flex;gap:16px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;font-weight:600}
-    .cta{background:linear-gradient(90deg,var(--neon-cyan),var(--neon-magenta));color:#02030a;padding:10px 14px;border-radius:12px;font-weight:700;text-decoration:none;box-shadow:var(--accent-glow)}
-
-    section{padding:60px 0;border-bottom:1px solid var(--divider)}
-
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:30px;align-items:center}
-    .eyebrow{display:inline-block;padding:6px 10px;background:linear-gradient(90deg, rgba(0,230,255,0.06), rgba(255,67,215,0.04));border-radius:999px;color:var(--neon-cyan);font-weight:700;font-size:12px}
-    .hero h2{font-size:40px;margin:12px 0 10px}
-    .hero p.lead{color:var(--muted);margin:0 0 20px}
-
-    .features{display:flex;gap:12px;flex-wrap:wrap}
-    .feature{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:12px;border-radius:12px;min-width:160px}
-    .feature h4{margin:0 0 6px}
-    .feature p{margin:0;color:var(--muted);font-size:13px}
-
-    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:16px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 40px rgba(2,4,8,0.6)}
-
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
-    .service-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.02)}
-
-    .industries{display:flex;gap:12px;flex-wrap:wrap}
-    .industry{padding:10px 14px;border-radius:12px;background:linear-gradient(90deg, rgba(0,230,255,0.02), rgba(255,67,215,0.02));font-weight:700;color:var(--muted)}
-
-    .split{display:grid;grid-template-columns:2fr 1fr;gap:20px}
-    .testimonial, .faq{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-
-    .contact{display:flex;gap:20px}
-    .contact form{flex:1;display:flex;flex-direction:column;gap:10px}
-    .contact input,.contact textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:10px;color:inherit}
-    .contact button{align-self:flex-start;padding:10px 14px;border-radius:12px;border:none;background:linear-gradient(90deg,var(--neon-cyan),var(--neon-magenta));font-weight:800;color:#02030a}
-
-    footer{padding:40px 0 18px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--divider)}
-
-    @media(max-width:980px){.hero{grid-template-columns:1fr}.services{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr}}
-    @media(max-width:520px){.services{grid-template-columns:1fr}.container{padding:16px}}
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      border-bottom: 1px solid #1f2937;
+    }
+    header h1 {
+      color: #00ffff;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+    }
+    nav a {
+      color: #e0e0e0;
+      margin: 0 1rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #00ffff;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      background: radial-gradient(circle at top, #001122, #000814);
+    }
+    .hero h2 {
+      color: #00ffff;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px #00ffff;
+    }
+    .hero p {
+      color: #ccc;
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+    .section {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .section h2 {
+      color: #00ffff;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      text-shadow: 0 0 5px #00ffff;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      padding: 2rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #00ffff33;
+    }
+    .service-card h3 {
+      color: #00ffff;
+      margin-bottom: 1rem;
+    }
+    .contact {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 5px;
+      background: #111827;
+      color: #fff;
+    }
+    .contact button {
+      background: #00ffff;
+      color: #000;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: 0.3s;
+    }
+    .contact button:hover {
+      background: #00cccc;
+    }
+    footer {
+      background: #000814;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid #1f2937;
+      color: #888;
+    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+      .hero h2 {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo"></div>
-        <div>
-          <h1>NeonEdge IT Support</h1>
-          <p>24/7 Dark Tech — Network, Security & Cloud</p>
-        </div>
-      </div>
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#industries">Industries</a>
-        <a href="#testimonials">Clients</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="tel:+18886497907">Call Now</a>
-      </nav>
-    </header>
+  <header>
+    <h1>DarkTech IT Support</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#industries">Industries</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <section class="hero">
-      <div>
-        <span class="eyebrow">Enterprise & SMB</span>
-        <h2>We keep your systems online, secure, and fast — 24/7</h2>
-        <p class="lead">NeonEdge provides proactive monitoring, incident response, desktop & server support, and secure cloud migration.</p>
-      </div>
-    </section>
+  <section class="hero" id="home">
+    <h2>Your Trusted 24/7 IT Support Partner</h2>
+    <p>Providing expert technical solutions for businesses and individuals — from software troubleshooting to network and cloud management.</p>
+  </section>
 
-    <section id="services">
-      <h3>Our Services</h3>
-      <div class="services">
-        <div class="service-card"><h4>Windows & Microsoft 365</h4><p>Account, Exchange, Active Directory support.</p></div>
-        <div class="service-card"><h4>Network & Wi‑Fi</h4><p>Design, monitoring, firewall & VPN configuration.</p></div>
-        <div class="service-card"><h4>Endpoint Security</h4><p>Antivirus, EDR, patch management and threat response.</p></div>
+  <section class="section" id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service-card">
+        <h3>Microsoft & Windows Support</h3>
+        <p>Get expert help with Windows errors, updates, installations, and more.</p>
       </div>
-    </section>
-
-    <section id="industries">
-      <h3>Industries We Serve</h3>
-      <div class="industries">
-        <div class="industry">Healthcare</div>
-        <div class="industry">Finance</div>
-        <div class="industry">Legal</div>
-        <div class="industry">Education</div>
+      <div class="service-card">
+        <h3>Email Configuration</h3>
+        <p>Setup and troubleshoot Outlook, Exchange, and other mail clients seamlessly.</p>
       </div>
-    </section>
-
-    <section id="testimonials">
-      <h3>What Our Clients Say</h3>
-      <div class="split">
-        <div class="testimonial"><p>“NeonEdge restored our systems within hours after a ransomware attack.”</p></div>
-        <div class="faq"><h4>Do you offer 24/7 support?</h4><p>Yes — we provide 24/7 monitoring and phone support.</p></div>
+      <div class="service-card">
+        <h3>Network & Wi-Fi</h3>
+        <p>Ensure a secure and optimized network setup for your home or office.</p>
       </div>
-    </section>
-
-    <section id="contact">
-      <h3>Contact Us</h3>
-      <div class="contact">
-        <form>
-          <input type="text" placeholder="Your name" required />
-          <input type="email" placeholder="Email" required />
-          <textarea rows="4" placeholder="Your issue"></textarea>
-          <button type="submit">Request Callback</button>
-        </form>
+      <div class="service-card">
+        <h3>Antivirus Installation</h3>
+        <p>Protect your devices with the latest antivirus and security configurations.</p>
       </div>
-    </section>
+      <div class="service-card">
+        <h3>Data Backup & Recovery</h3>
+        <p>Reliable data recovery and cloud backup solutions for peace of mind.</p>
+      </div>
+      <div class="service-card">
+        <h3>Printer & Device Support</h3>
+        <p>Printer setup, driver fixes, and troubleshooting for all major brands.</p>
+      </div>
+    </div>
+  </section>
 
-    <footer>© <span id="year"></span> NeonEdge IT Support — All rights reserved.</footer>
-  </div>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <section class="section" id="industries">
+    <h2>Industries We Serve</h2>
+    <p>From small businesses to enterprise-level operations, our IT expertise spans various sectors — including healthcare, finance, education, and retail.</p>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact">
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 DarkTech IT Support | All Rights Reserved</p>
+  </footer>
 </body>
 </html>
