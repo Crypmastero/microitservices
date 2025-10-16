@@ -59,13 +59,18 @@
         
         .logo {
             display: flex;
-            align-items: center;
+            flex-direction: column;
         }
         
         .logo h1 {
-            font-size: 1.8rem;
-            margin-left: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
             font-weight: 700;
+        }
+        
+        .logo .toll-free {
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
         
         .logo-icon {
@@ -78,6 +83,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-right: 10px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
         }
         
         nav ul {
@@ -467,8 +478,8 @@
         }
         
         .author-avatar {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background-color: white;
             margin-right: 1rem;
@@ -477,6 +488,13 @@
             justify-content: center;
             color: var(--primary);
             font-weight: bold;
+            overflow: hidden;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .author-info h4 {
@@ -701,7 +719,7 @@
                 text-align: center;
             }
             
-            .logo {
+            .logo-container {
                 margin-bottom: 1rem;
             }
             
@@ -775,11 +793,14 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
+                <div class="logo-container">
                     <div class="logo-icon">
                         <i class="fas fa-print"></i>
                     </div>
-                    <h1>PrinterHelp Pro</h1>
+                    <div class="logo">
+                        <h1>PrinterHelp Pro</h1>
+                        <div class="toll-free">Toll-Free: 1-800-PRINTER (1-800-774-6837)</div>
+                    </div>
                 </div>
                 <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -965,7 +986,9 @@
                         "I was ready to throw out my printer after weeks of connectivity issues. The technician from PrinterHelp Pro had it working in 15 minutes. Amazing service!"
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">JD</div>
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jennifer Davis">
+                        </div>
                         <div class="author-info">
                             <h4>Jennifer Davis</h4>
                             <p>Small Business Owner</p>
@@ -977,10 +1000,26 @@
                         "The print quality of my office printer was terrible with streaks everywhere. The support team walked me through the cleaning process and now it works like new."
                     </div>
                     <div class="testimonial-author">
-                        <div class="author-avatar">RS</div>
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Robert Smith">
+                        </div>
                         <div class="author-info">
                             <h4>Robert Smith</h4>
                             <p>Office Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "As a graphic designer, I need perfect color accuracy from my printer. The color calibration service was exceptional - my prints now match my screen perfectly."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Amanda Wilson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Amanda Wilson</h4>
+                            <p>Graphic Designer</p>
                         </div>
                     </div>
                 </div>
