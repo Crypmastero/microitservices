@@ -7,7 +7,7 @@
 
   <!-- SEO Meta -->
   <meta name="description" content="MicroTech IT Services - All-printer brand help & support. Step-by-step printer setup, wireless/WiFi printer setup, driver download & fix, printer offline troubleshooting, network printing and brand-specific guides for HP, Canon, Epson, Brother and more." />
-  <meta name="keywords" content="printer setup, new printer setup, wireless printer setup, printer WiFi setup, connect printer to WiFi, printer driver download, update printer driver, fix printer driver, printer offline fix, printer not responding, printer troubleshooting, HP printer support, Canon printer support, Epson printer support, Brother printer support, printer installation, install printer driver, WiFi Direct printer, WPS printer setup, printer network setup, network printer, USB printer setup" />
+  <meta name="keywords" content="printer setup, new printer setup, wireless printer setup, printer WiFi setup, connect printer to WiFi, printer driver download, update printer driver, fix printer driver, printer offline fix, printer not responding, printer troubleshooting, HP printer support, Canon printer support, Epson printer support, Brother printer support, printer installation" />
   <meta name="author" content="MicroTech IT Services" />
   <link rel="canonical" href="https://www.microtechitservices.example/" />
 
@@ -23,243 +23,388 @@
   <meta name="twitter:title" content="MicroTech IT Services — Printer Help & Support" />
   <meta name="twitter:description" content="Printer setup, WiFi setup, driver fixes, offline printer troubleshooting for all major brands." />
 
-  <!-- Favicon -->
+  <!-- JSON-LD LocalBusiness schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "MicroTech IT Services",
+    "url": "https://www.microtechitservices.example/",
+    "logo": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4",
+    "description": "Printer help & support for all major brands: HP, Canon, Epson, Brother — setup, drivers, WiFi, and offline fixes.",
+    "telephone": "+1-800-555-0123",
+    "areaServed": "US",
+    "sameAs": []
+  }
+  </script>
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>MT</text></svg>" />
 
   <style>
-    :root {
+    :root{
       --brand:#0b66d0;
       --muted:#6b7280;
       --bg:#ffffff;
       --card:#f8fafc;
       --radius:12px;
       --maxw:1200px;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --accent:#4aa3ff;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
     }
-
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--bg); color:#0b1220; line-height:1.45; }
-    .container { max-width:var(--maxw); margin:0 auto; padding:20px; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:#071428;line-height:1.45;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    .site {max-width:var(--maxw);margin:0 auto;padding:0 16px}
 
     /* Header */
-    header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; padding:14px 0; }
-    .brand { display:flex; align-items:center; gap:12px; }
-    .logo { width:50px; height:50px; border-radius:10px; background:linear-gradient(135deg,var(--brand),#4aa3ff); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:18px; box-shadow:0 4px 12px rgba(11,102,208,0.15); }
+    header{position:fixed;left:0;right:0;top:0;z-index:60;transition:background .25s,box-shadow .25s;padding:14px 0}
+    header.inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+    header.transparent{background:transparent}
+    header.solid{background:#ffffff;box-shadow:0 6px 20px rgba(10,20,40,0.06);border-bottom:1px solid #eef4ff}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:18px;box-shadow:0 6px 20px rgba(11,102,208,0.12)}
+    .brand-name{font-weight:800}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:700;font-size:14px;padding:8px 12px;border-radius:8px}
+    nav a.cta{background:var(--brand);color:#fff}
+    .menu-toggle{display:none;background:none;border:0;font-size:22px;color:var(--brand);cursor:pointer}
 
-    nav { display:flex; align-items:center; gap:18px; }
-    nav a { color:var(--muted); text-decoration:none; font-weight:600; }
-    nav a.active { color:var(--brand); }
-
-    /* Mobile Nav Toggle */
-    .menu-toggle {
-      display:none;
-      font-size:24px;
-      cursor:pointer;
-      background:none;
-      border:none;
-      color:var(--brand);
+    @media (max-width:900px){
+      nav{display:none;position:absolute;top:64px;left:16px;right:16px;padding:12px;background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(12,20,40,0.08);flex-direction:column}
+      nav.show{display:flex}
+      .menu-toggle{display:block}
     }
 
-    @media (max-width:768px) {
-      nav { display:none; flex-direction:column; width:100%; margin-top:10px; background:var(--card); padding:10px; border-radius:10px; }
-      nav.show { display:flex; }
-      .menu-toggle { display:block; }
-    }
+    /* Hero full width */
+    .hero-wrap{position:relative;margin-top:72px}
+    .hero{display:grid;grid-template-columns:1fr;gap:0;min-height:60vh;align-items:center;overflow:hidden;border-bottom-left-radius:12px;border-bottom-right-radius:12px}
+    .hero-bg{position:absolute;inset:0}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(3,11,27,0.28) 0%, rgba(3,11,27,0.45) 60%)}
+    .hero-content{position:relative;z-index:2;padding:72px 16px;max-width:1100px;margin:0 auto;text-align:left;color:#fff}
+    .hero-kicker{display:inline-block;background:rgba(255,255,255,0.08);padding:6px 10px;border-radius:999px;font-weight:700;margin-bottom:12px;color:#eaf4ff}
+    h1.hero-title{font-size:clamp(26px,5vw,44px);margin:8px 0 12px;line-height:1.05}
+    p.hero-sub{color:rgba(255,255,255,0.90);max-width:780px;margin-bottom:18px;font-size:16px}
 
-    /* Hero */
-    .hero { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; align-items:center; padding:20px 0; }
-    .hero-card { background:linear-gradient(180deg,#fff,#fbfdff); border-radius:16px; padding:24px; box-shadow:0 10px 30px rgba(12,34,64,0.06); }
-    .kicker { color:var(--brand); font-weight:700; font-size:13px; }
-    h1 { margin:12px 0 8px; font-size:clamp(22px, 4vw, 32px); }
-    p.lead { color:var(--muted); margin-bottom:18px; }
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:10px;border:0;font-weight:800;cursor:pointer}
+    .btn-call{background:#ffdcdc;color:#7a0707}
+    .btn-primary{background:var(--brand);color:#fff}
 
-    .cta { display:flex; gap:12px; flex-wrap:wrap; }
-    .btn { padding:12px 16px; border-radius:10px; border:0; font-weight:700; cursor:pointer; }
-    .btn.primary { background:var(--brand); color:white; }
-    .btn.ghost { background:transparent; border:2px solid #e6eefb; color:var(--brand); }
+    .hero-aux{margin-top:18px;color:#e9f3ff;font-size:14px}
 
-    .searchbox { display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; }
-    .searchbox input { flex:1; padding:12px; border-radius:10px; border:1px solid #e6eefb; min-width:200px; }
-    .searchbox button { padding:12px 14px; border-radius:10px; background:var(--brand); color:white; border:0; }
-
-    .hero-side img { width:100%; height:auto; border-radius:12px; display:block; object-fit:cover; }
+    /* Main sections */
+    main{padding:28px 0 60px}
+    .section{padding:36px 0}
+    .card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(12,20,40,0.04)}
+    .grid{display:grid;gap:20px}
+    .grid.columns-3{grid-template-columns:repeat(3,1fr)}
+    .grid.columns-2{grid-template-columns:repeat(2,1fr)}
+    @media(max-width:980px){ .grid.columns-3{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:640px){ .grid.columns-3,.grid.columns-2{grid-template-columns:1fr} }
 
     /* Services */
-    .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin-top:28px; }
-    .service { background:var(--card); padding:18px; border-radius:12px; display:flex; gap:12px; align-items:flex-start; }
-    .service svg { width:42px; height:42px; }
-    .service h4 { margin:0; font-size:16px; }
-    .service p { margin:0; color:var(--muted); font-size:13px; }
+    .services .service{display:flex;gap:12px;background:var(--card);padding:18px;border-radius:12px;align-items:flex-start}
+    .services svg{width:44px;height:44px;flex-shrink:0;color:var(--brand)}
 
-    /* Brands */
-    .brands { margin-top:34px; padding:18px; border-radius:12px; background:#fff; display:flex; align-items:center; gap:18px; flex-wrap:wrap; justify-content:center; }
-    .brand-logo { width:100px; text-align:center; padding:10px; border-radius:10px; border:1px solid #f1f5f9; font-weight:600; color:var(--brand); background:#f9fbff; }
-
-    /* Content Grid */
-    .grid-two { display:grid; grid-template-columns:2fr 1fr; gap:20px; margin-top:28px; }
-    @media (max-width:900px){ .grid-two { grid-template-columns:1fr; } }
-
-    .card { background:white; border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(12,20,40,0.04); }
+    /* How it works */
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .step{background:#fff;padding:20px;border-radius:12px;text-align:center;box-shadow:0 8px 20px rgba(10,20,40,0.04)}
+    .step .num{width:48px;height:48px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:12px}
 
     /* Testimonials */
-    .testimonials { margin-top:28px; }
-    .carousel-viewport { overflow:hidden; }
-    .carousel-track { display:flex; gap:12px; animation:scroll 18s linear infinite; }
-    .tcard { background:#f8fbff; padding:16px; border-radius:10px; min-width:280px; }
-    .tcard p { margin:0; color:var(--muted); }
-    .tcard h5 { margin:10px 0 0; font-size:15px; }
+    .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media(max-width:980px){ .test-grid{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:640px){ .test-grid{grid-template-columns:1fr} }
 
-    @keyframes scroll {
-      0%{transform:translateX(0)}
-      33%{transform:translateX(-320px)}
-      66%{transform:translateX(-640px)}
-      100%{transform:translateX(0)}
-    }
+    .testimonial{background:#f8fbff;padding:18px;border-radius:12px;min-height:120px;display:flex;flex-direction:column;justify-content:space-between}
+    .testimonial p{margin:0;color:var(--muted);font-style:italic}
+
+    /* FAQ accordion */
+    .faq{max-width:900px;margin:0 auto}
+    .faq-item{border-bottom:1px solid #eef4ff;padding:12px 0}
+    .faq-question{display:flex;justify-content:space-between;align-items:center;cursor:pointer;padding:8px 0;font-weight:700}
+    .faq-answer{display:none;color:var(--muted);padding:8px 0 0}
+
+    /* Contact area */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
+    @media(max-width:980px){ .contact-grid{grid-template-columns:1fr} }
+    .form-row{display:flex;gap:12px;flex-wrap:wrap}
+    input,textarea,select{padding:10px;border-radius:8px;border:1px solid #eef4ff;width:100%}
+    button[type="submit"]{background:var(--brand);color:#fff;padding:12px 16px;border-radius:10px;border:0;font-weight:800;cursor:pointer}
 
     /* Footer */
-    footer { margin-top:40px; padding:28px 0; border-top:1px solid #f1f5f9; }
-    .footer-grid { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; text-align:center; }
-    .small { color:var(--muted); font-size:13px; }
+    footer{padding:28px 0;border-top:1px solid #eef4ff;margin-top:36px;color:var(--muted);text-align:center}
 
-    /* Inputs */
-    input, textarea { width:100%; max-width:100%; box-sizing:border-box; }
+    /* Minor helpers */
+    .muted{color:var(--muted)}
+    .caps{font-size:12px;font-weight:800;color:var(--brand);letter-spacing:.6px}
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
+  <header id="site-header" class="transparent">
+    <div class="inner site">
       <div class="brand">
         <div class="logo">MT</div>
         <div>
-          <div style="font-weight:800">MicroTech IT Services</div>
+          <div class="brand-name">MicroTech IT Services</div>
           <div style="font-size:12px;color:var(--muted)">Printer Help & Support — All Brands</div>
         </div>
       </div>
-      <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('show')">☰</button>
+
+      <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('show')">☰</button>
+
       <nav>
-        <a class="active" href="#">Home</a>
-        <a href="#setup">Setup</a>
-        <a href="#troubleshoot">Troubleshoot</a>
-        <a href="#brands">Brands</a>
-        <a href="#contact">Contact</a>
+        <a href="#hero" class="muted">Home</a>
+        <a href="#services" class="muted">Services</a>
+        <a href="#how" class="muted">How it Works</a>
+        <a href="#testimonials" class="muted">Testimonials</a>
+        <a href="#contact" class="muted">Contact</a>
+        <a href="tel:+18005550123" class="cta" style="margin-left:8px;padding:8px 12px;background:var(--brand);color:#fff;border-radius:8px;text-decoration:none;font-weight:800">Call Now</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <section class="hero">
-        <div class="hero-card">
-          <div class="kicker">Printer Support • All Brands</div>
-          <h1>Fast, Reliable Printer Support — Setup, Drivers & WiFi Fixes</h1>
-          <p class="lead">MicroTech IT Services provides step-by-step guides for new printer setup, wireless printer setup, driver downloads, and offline error fixes for HP, Canon, Epson, Brother & more.</p>
-          <div class="cta">
-            <button class="btn primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Expert Help</button>
-            <button class="btn ghost" onclick="document.getElementById('setup').scrollIntoView({behavior:'smooth'})">Browse Setup Guides</button>
+  <div class="hero-wrap">
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1800&q=60" alt="Printer support banner" loading="lazy">
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="hero-content site">
+        <span class="hero-kicker">Printer Support • All Brands</span>
+        <h1 class="hero-title">Fast, Reliable Printer Support — Setup, Drivers & Wi-Fi Fixes</h1>
+        <p class="hero-sub">Step-by-step guides and expert remote help for HP, Canon, Epson, Brother, Xerox and more. Get connected and printing again — fast.</p>
+
+        <div class="hero-ctas">
+          <!-- phone used from earlier: +1 (800) 555-0123 -->
+          <a href="tel:+18005550123" class="btn btn-call" aria-label="Call MicroTech now">📞 Call Now</a>
+          <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">🖨️ Get Printer Help</button>
+        </div>
+
+        <div class="hero-aux">Popular: <strong>printer setup</strong> · <strong>printer offline fix</strong> · <strong>connect printer to WiFi</strong></div>
+      </div>
+    </section>
+  </div>
+
+  <main class="site" role="main">
+    <!-- Services -->
+    <section id="services" class="section">
+      <h2 style="text-align:center;margin-bottom:20px">Our Services</h2>
+      <div class="grid columns-3 services">
+        <div class="service card">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.2"></rect><path d="M7 15h10M7 11h10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          <div>
+            <h3>New Printer Setup</h3>
+            <p class="muted">Unbox, install drivers, and print your first page on Windows, macOS, Android & iOS.</p>
           </div>
+        </div>
 
-          <div class="searchbox">
-            <input placeholder="Search by printer model (e.g. HP LaserJet Pro)" />
-            <button>Search</button>
+        <div class="service card">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4-7-9M12 20s7-4 7-9M5 11a7 7 0 0 1 14 0" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          <div>
+            <h3>Wi-Fi & Wireless Setup</h3>
+            <p class="muted">Connect via Wi-Fi, WPS, Wi-Fi Direct, and mobile printing apps (HP Smart, Epson iPrint).</p>
           </div>
         </div>
-        <div class="hero-side">
-          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=60" alt="Printer Support Banner" loading="lazy">
-        </div>
-      </section>
 
-      <!-- Services -->
-      <section class="services" id="setup">
-        <div class="service"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.2"></rect><path d="M7 15h10M7 11h10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-          <div><h4>New Printer Setup</h4><p>Unbox, install drivers, and print your first page.</p></div>
+        <div class="service card">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          <div>
+            <h3>Drivers & Firmware</h3>
+            <p class="muted">Official driver downloads, safe firmware updates, and conflict resolution on Windows & macOS.</p>
+          </div>
         </div>
-        <div class="service"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 20s-7-4-7-9M12 20s7-4 7-9M5 11a7 7 0 0 1 14 0" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-          <div><h4>Wireless & WiFi Setup</h4><p>Connect via Wi-Fi, WPS, or mobile apps.</p></div>
-        </div>
-        <div class="service"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-          <div><h4>Driver & Software Fix</h4><p>Download and update official printer drivers.</p></div>
-        </div>
-        <div class="service"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h18M12 3v18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-          <div><h4>Printer Offline Fix</h4><p>Troubleshoot network or queue issues easily.</p></div>
-        </div>
-      </section>
 
-      <!-- Brands -->
-      <section class="brands" id="brands">
-        <div class="brand-logo">HP</div>
-        <div class="brand-logo">Canon</div>
-        <div class="brand-logo">Epson</div>
-        <div class="brand-logo">Brother</div>
-        <div class="brand-logo">Xerox</div>
-        <div class="brand-logo">Lexmark</div>
-        <div class="brand-logo">Samsung</div>
-      </section>
+        <div class="service card">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18M12 3v18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          <div>
+            <h3>Printer Offline Fix</h3>
+            <p class="muted">Network troubleshooting, print-queue clears, and assigning static IPs to keep printers online.</p>
+          </div>
+        </div>
 
-      <!-- Main Grid -->
-      <section class="grid-two">
+        <div class="service card">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.2"/></svg>
+          <div>
+            <h3>Managed Print Support</h3>
+            <p class="muted">Onsite and remote managed services: deployment, monitoring and driver rollout.</p>
+          </div>
+        </div>
+
+        <div class="service card">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4z" stroke="currentColor" stroke-width="1.2"/></svg>
+          <div>
+            <h3>Mobile Printing</h3>
+            <p class="muted">Support for AirPrint, Mopria, and vendor apps to print directly from phones & tablets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="section" style="background:linear-gradient(180deg,#fff,#fbfdff)">
+      <h2 style="text-align:center;margin-bottom:22px">How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h4>Contact</h4>
+          <p class="muted">Tell us your model and issue via call, chat or the form below.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h4>Diagnose</h4>
+          <p class="muted">We guide you remotely — or dispatch on-site for complex network setups.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h4>Fix & Verify</h4>
+          <p class="muted">Driver installs, Wi-Fi config, test prints and final verification before closing the ticket.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section">
+      <h2 style="text-align:center;margin-bottom:22px">Testimonials</h2>
+      <div class="test-grid">
+        <div class="testimonial">
+          <p>"MicroTech fixed our office HP printer offline issue within 30 minutes. Highly recommended!"</p>
+          <div style="text-align:right;margin-top:12px;color:var(--brand);font-weight:800">— Priya R., IT Manager</div>
+        </div>
+        <div class="testimonial">
+          <p>"Clear step-by-step guide for Brother wireless setup. Saved our team a lot of time."</p>
+          <div style="text-align:right;margin-top:12px;color:var(--brand);font-weight:800">— Ahmed S., Small Business Owner</div>
+        </div>
+        <div class="testimonial">
+          <p>"Driver reinstall instructions were perfect — fixed driver conflicts on Windows 11."</p>
+          <div style="text-align:right;margin-top:12px;color:var(--brand);font-weight:800">— Tanvi K., Designer</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <h2 style="text-align:center;margin-bottom:22px">Frequently Asked Questions</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)"><span>Why does my printer show offline?</span><span class="muted">+</span></div>
+          <div class="faq-answer">Printer offline can be due to network drop, IP change, print spooler issues or driver conflicts. Restart devices, check network, and reinstall drivers if needed.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)"><span>How do I connect a printer to Wi-Fi?</span><span class="muted">+</span></div>
+          <div class="faq-answer">Use the printer's wireless setup wizard or WPS, or connect temporarily via USB and use the manufacturer's software to configure Wi-Fi settings.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)"><span>Do you provide on-site support?</span><span class="muted">+</span></div>
+          <div class="faq-answer">Yes — we provide remote and on-site support depending on the complexity and location.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / CTA -->
+    <section id="contact" class="section">
+      <h2 style="text-align:center;margin-bottom:22px">Need Immediate Help?</h2>
+      <div class="contact-grid">
         <div>
           <div class="card">
-            <h2>Top Guides & Fixes</h2>
-            <h3>How to Setup a Wireless Printer</h3>
-            <ol>
-              <li>Unbox and power on.</li><li>Install ink/toner.</li><li>Download manufacturer drivers.</li><li>Use WiFi setup wizard.</li><li>Add printer on PC or Mac.</li>
-            </ol>
-            <p class="small">Keywords: new printer setup, WiFi printer setup, driver download.</p>
-          </div>
+            <h3 style="margin-top:0">Request Support</h3>
+            <p class="muted">Describe your issue — include printer model, OS, and the exact error message.</p>
 
-          <section class="testimonials">
-            <h3>Customer Reviews</h3>
-            <div class="carousel-viewport">
-              <div class="carousel-track">
-                <div class="tcard"><p>"MicroTech fixed my HP offline issue in minutes!"</p><h5>– Priya R.</h5></div>
-                <div class="tcard"><p>"Clear Brother WiFi setup guide. Super helpful."</p><h5>– Ahmed S.</h5></div>
-                <div class="tcard"><p>"Perfect driver reinstall steps for Windows 11."</p><h5>– Tanvi K.</h5></div>
+            <form id="contactForm" onsubmit="submitForm(event)" style="margin-top:12px">
+              <div class="form-row">
+                <input id="name" name="name" placeholder="Full name" required>
+                <input id="email" name="email" type="email" placeholder="Email" required>
               </div>
-            </div>
-          </section>
+              <div style="margin-top:10px">
+                <input id="phone" name="phone" placeholder="Phone (optional)">
+              </div>
+              <div style="margin-top:10px">
+                <input id="model" name="model" placeholder="Printer model (e.g. HP M404dw)">
+              </div>
+              <div style="margin-top:10px">
+                <textarea id="message" name="message" placeholder="Describe your issue (steps tried)" rows="5"></textarea>
+              </div>
+              <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                <button type="submit">Submit Request</button>
+                <a href="tel:+18005550123" style="text-decoration:none;color:var(--brand);font-weight:800">Or call us: +1 (800) 555-0123</a>
+              </div>
+            </form>
+          </div>
         </div>
 
         <aside>
-          <div class="card">
-            <h4>Quick Troubleshoot</h4>
+          <div class="card" style="margin-bottom:16px">
+            <h4 style="margin-top:0">Quick Troubleshoot</h4>
             <ul style="padding-left:18px;color:var(--muted)">
               <li>Restart printer & router</li>
-              <li>Reinstall drivers</li>
-              <li>Reconnect WiFi</li>
-              <li>Try new USB port</li>
+              <li>Clear the print queue</li>
+              <li>Reinstall official driver</li>
+              <li>Assign static IP for network printers</li>
             </ul>
           </div>
 
-          <div class="card" style="margin-top:14px">
-            <h4>Contact</h4>
-            <p class="small">📧 support@microtechitservices.example<br>📞 +1 (800) 555-0123</p>
+          <div class="card">
+            <h4 style="margin-top:0">Services</h4>
+            <p class="muted">Remote troubleshooting • Onsite support • Firmware updates • Driver deployment • Managed print services</p>
+            <div style="margin-top:12px">
+              <a href="tel:+18005550123" class="btn btn-call" style="text-decoration:none;display:inline-block">📞 Call Now</a>
+            </div>
           </div>
         </aside>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="card" style="margin-top:22px;">
-        <h3>Need Help?</h3>
-        <form onsubmit="event.preventDefault();alert('Support request sent!')">
-          <input placeholder="Full name" required>
-          <input placeholder="Email" required>
-          <input placeholder="Phone">
-          <textarea placeholder="Describe your issue" rows="4"></textarea>
-          <button class="btn primary" style="margin-top:10px;">Submit</button>
-        </form>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-grid">
-        <div><strong>MicroTech IT Services</strong><br><span class="small">Printer Setup • Drivers • WiFi Fixes</span></div>
-        <div class="small">© 2025 MicroTech IT Services</div>
       </div>
-    </footer>
-  </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="site">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <div>
+          <strong>MicroTech IT Services</strong><div class="muted" style="font-size:13px">Printer Help & Support — Setup, Drivers, WiFi & Offline Fixes</div>
+        </div>
+        <div class="muted">© 2025 MicroTech IT Services</div>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    // Toggle mobile menu
-    document.querySelector('.menu-toggle').addEventListener('click', () => {
-      document.querySelector('nav').classList.toggle('show');
+    // Header scroll effect
+    const header = document.getElementById('site-header');
+    function onScrollHeader(){
+      if(window.scrollY > 56) header.classList.add('solid'), header.classList.remove('transparent');
+      else header.classList.remove('solid'), header.classList.add('transparent');
+    }
+    window.addEventListener('scroll', onScrollHeader);
+    onScrollHeader();
+
+    // FAQ toggle
+    function toggleFaq(el){
+      const ans = el.nextElementSibling;
+      const sign = el.querySelector('.muted');
+      if(ans.style.display === 'block'){ ans.style.display='none'; sign.textContent='+'; }
+      else { ans.style.display='block'; sign.textContent='−'; }
+    }
+
+    // Simple form handler (demo)
+    function submitForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value || 'User';
+      // In production, replace with real POST to your backend or service
+      alert('Thank you, ' + name + '. Your support request was submitted (demo). We will contact you shortly.');
+      document.getElementById('contactForm').reset();
+    }
+
+    // Mobile nav close on outside click
+    document.addEventListener('click', (ev) => {
+      const nav = document.querySelector('nav');
+      const toggle = document.querySelector('.menu-toggle');
+      if(!nav.contains(ev.target) && !toggle.contains(ev.target) && window.innerWidth <= 900){
+        nav.classList.remove('show');
+      }
     });
   </script>
 </body>
