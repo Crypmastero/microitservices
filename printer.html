@@ -1,367 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Printer Support | MicroTech IT Services</title>
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="Get expert online printer support from MicroTech IT Services. We fix HP, Canon, Epson, Brother, and more. Wireless setup, driver installation, paper jam fix, and printer offline issues. Call now for instant help!">
-<meta name="keywords" content="123.hp.com/setup, hp com setup, canon ij setup, hp printer setup, printer support, HP printer support, printer driver installation, wireless printer setup, fix printer offline, printer troubleshooting, HP printer help, Canon printer support, Epson printer setup, Brother printer help, printer repair service, printer not printing, printer connection error, printer tech support USA, printer remote assistance">
-<meta name="author" content="MicroTech IT Services">
-
-<style>
-:root {
-  --primary: #0076ce; 
-  --secondary: #004b8d;
-  --light-bg: #ffffff;
-  --section-bg: #f4f8fb;
-  --text: #333;
-  --muted: #555;
-  --radius: 12px;
-  --shadow: 0 6px 20px rgba(0,0,0,0.08);
-}
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:"Segoe UI",Tahoma,sans-serif;
-  background:var(--light-bg);
-  color:var(--text);
-  line-height:1.6;
-  overflow-x:hidden;
-}
-
-/* Header */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:1rem 2rem;
-  background:#fff;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
-header h1{color:var(--primary);margin:0;font-size:1.5rem;}
-header .phone{color:var(--secondary);font-weight:bold;}
-
-/* Hero */
-.hero{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-  background:url('https://www.hp.com/content/dam/sites/worldwide/homepage/images/printer-banner.jpg') center/cover no-repeat;
-  padding:5rem 2rem;
-  position:relative;
-  color:#fff;
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,75,141,0.6);
-}
-.hero-content, .hero-form{
-  position:relative;
-  z-index:2;
-}
-.hero-content{flex:1;min-width:300px;}
-.hero-content h2{font-size:2.5rem;margin-bottom:1rem;}
-.hero-content p{font-size:1.1rem;max-width:500px;}
-.hero-content .tags{margin-top:1rem;font-size:0.95rem;opacity:0.9;}
-
-.hero-form{
-  background:#fff;
-  color:#000;
-  padding:2rem;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  max-width:380px;
-}
-.hero-form h3{color:var(--primary);margin-top:0;}
-form{display:flex;flex-direction:column;gap:1rem;}
-input,select,textarea{
-  padding:0.9rem;
-  border-radius:8px;
-  border:1px solid #ccc;
-  font-size:0.95rem;
-}
-button{
-  border:none;
-  padding:0.9rem;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:600;
-}
-button.submit-btn{background:var(--primary);color:#fff;}
-button.call-btn{background:var(--secondary);color:#fff;}
-
-/* Sections */
-section{padding:4rem 1.5rem;}
-section h2{text-align:center;color:var(--secondary);margin-bottom:2rem;}
-
-/* Services */
-.service-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:1.5rem;
-  max-width:1200px;
-  margin:auto;
-}
-.card{
-  background:#fff;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:1.5rem;
-  transition:0.3s;
-  text-align:center;
-}
-.card:hover{transform:translateY(-5px);}
-.card img{width:55px;margin-bottom:1rem;}
-.card h3{color:var(--primary);}
-.card p{color:var(--muted);font-size:0.95rem;}
-
-/* Common Issues */
-.issues ul{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:1rem;
-  list-style:none;
-  padding:0;
-  margin:0;
-  max-width:1000px;
-  margin:auto;
-}
-.issues li{
-  background:#fff;
-  padding:1rem;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-}
-
-/* How It Works */
-.how-works{
-  background:var(--section-bg);
-  text-align:center;
-}
-.steps{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:1.5rem;
-  max-width:1000px;
-  margin:auto;
-}
-.step{
-  background:#fff;
-  padding:1.5rem;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  flex:1 1 280px;
-}
-.step h4{color:var(--primary);margin-top:0;}
-
-/* Brands */
-.brands{
-  background:#fff;
-  text-align:center;
-}
-.brand-logos img{
-  width:100px;
-  margin:1rem;
-  filter:grayscale(100%);
-  transition:0.3s;
-}
-.brand-logos img:hover{filter:grayscale(0%);}
-
-/* Testimonials */
-.testimonials{
-  background:var(--section-bg);
-  text-align:center;
-}
-.testimonial-slider{
-  display:flex;
-  overflow-x:auto;
-  gap:1rem;
-  scroll-behavior:smooth;
-  padding:1rem;
-}
-.testimonial{
-  flex:0 0 300px;
-  background:#fff;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:1.5rem;
-  text-align:left;
-}
-.testimonial img{
-  width:50px;height:50px;border-radius:50%;
-}
-.testimonial h4{color:var(--primary);}
-.testimonial p{color:var(--muted);font-size:0.9rem;}
-
-/* FAQ */
-.faq{
-  background:#fff;
-  max-width:900px;
-  margin:auto;
-}
-details{
-  margin-bottom:1rem;
-  padding:1rem;
-  background:var(--section-bg);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-}
-summary{color:var(--primary);font-weight:600;}
-details p{margin-top:0.5rem;color:var(--muted);}
-
-/* Footer */
-footer{
-  background:var(--secondary);
-  color:#fff;
-  text-align:center;
-  padding:1rem;
-  font-size:0.9rem;
-}
-
-/* Floating Button */
-.floating-btn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:var(--primary);
-  color:#fff;
-  padding:0.8rem 1.2rem;
-  border-radius:50px;
-  box-shadow:var(--shadow);
-  cursor:pointer;
-  font-weight:600;
-  transition:0.3s;
-}
-.floating-btn:hover{background:var(--secondary);}
-
-/* Responsive */
-@media(max-width:768px){
-  .hero{flex-direction:column;text-align:center;}
-  .hero-form{width:100%;max-width:none;margin-top:1.5rem;}
-  .service-grid,.issues ul,.steps{grid-template-columns:1fr;}
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Printer Support | MicroTech IT Services</title>
+  <meta name="description" content="Professional printer support for HP, Canon, Epson, Brother – driver fixes, connectivity, printing issues, paper jams. Reliable printer tech support, remote or onsite." />
+  <meta name="keywords" content="printer support, driver installation, wireless printer setup, HP printer, printer troubleshooting" />
+  <style>
+    :root {
+      --primary: #0052cc;
+      --accent: #0078d4;
+      --bg-white: #ffffff;
+      --bg-light: #f3f6f9;
+      --text-dark: #333333;
+      --text-muted: #666666;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --radius: 10px;
+      --padding: 20px;
+    }
+    body {
+      margin:0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+    header {
+      background: var(--bg-white);
+      padding: var(--padding);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      margin:0;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+    header .contact {
+      font-size:1rem;
+      color: var(--accent);
+    }
+    .banner {
+      background: url('https://www.hp.com/printer-banner-image.jpg') center/cover no-repeat;
+      height: 300px;
+      position: relative;
+    }
+    .banner-overlay {
+      position: absolute;
+      inset:0;
+      background: rgba(0,0,0,0.4);
+    }
+    .banner-text {
+      position: relative;
+      color: #fff;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+      top:50%;
+      transform: translateY(-50%);
+      text-align: center;
+    }
+    .banner-text h2 {
+      font-size:2.4rem;
+      margin-bottom:0.5rem;
+    }
+    .banner-text p {
+      font-size:1.1rem;
+      color: rgba(255,255,255,0.9);
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: var(--padding);
+    }
+    .support-form {
+      background: var(--bg-white);
+      padding: var(--padding);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-top: -80px; /* pulls up over banner */
+      position: relative;
+      z-index: 10;
+    }
+    .support-form form {
+      display: flex;
+      flex-direction: row;
+      gap: var(--padding);
+    }
+    .support-form .form-left, .support-form .form-right {
+      flex:1;
+    }
+    .support-form input, .support-form select, .support-form textarea {
+      width:100%;
+      padding:10px;
+      margin-bottom:10px;
+      border:1px solid #ccc;
+      border-radius:6px;
+    }
+    .support-form button {
+      padding: 12px 20px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius:6px;
+      cursor: pointer;
+      font-size:1rem;
+    }
+    .services, .issues, .faq, .testimonials {
+      margin-top: 2rem;
+    }
+    .services h2, .issues h2, .faq h2, .testimonials h2 {
+      color: var(--primary);
+      margin-bottom:1rem;
+      text-align: center;
+    }
+    .service-grid, .issues-list, .testimonial-grid {
+      display:grid;
+      gap:1.5rem;
+    }
+    .service-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    }
+    .service-card {
+      background: var(--bg-white);
+      padding: var(--padding);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .issues-list {
+      list-style: none;
+      padding:0;
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    }
+    .issues-list li {
+      background: var(--bg-white);
+      padding: var(--padding);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .testimonial-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    }
+    .testimonial {
+      background: var(--bg-white);
+      padding: var(--padding);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .testimonial img {
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      object-fit:cover;
+    }
+    .testimonial h4 {
+      margin:0.5rem 0 0.3rem;
+      color: var(--accent);
+    }
+    .testimonial p {
+      color: var(--text-muted);
+      font-size:0.9rem;
+    }
+    footer {
+      background: var(--bg-white);
+      text-align: center;
+      padding: var(--padding);
+      margin-top: 2rem;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+    }
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      font-weight:600;
+      border:none;
+    }
+    @media(max-width: 768px){
+      .support-form form { flex-direction: column; }
+      .banner { height:200px; }
+      .banner-text h2 { font-size:1.8rem; }
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-  <h1>MicroTech IT Services</h1>
+  <h1>MicroTech Printer Support</h1>
   <div class="phone">📞 (888) 649-7907</div>
 </header>
 
-<section class="hero">
-  <div class="hero-content">
-    <h2>Expert Printer Help. Anytime. Anywhere.</h2>
-    <p>Facing printer problems? Our certified technicians provide instant support for HP, Canon, Epson, Brother, and all major brands — setup, drivers, or troubleshooting made simple.</p>
-    <div class="tags">✅ Certified Experts • 🔒 Secure Remote Fix • ⏰ 24/7 Availability</div>
+<div class="banner">
+  <div class="banner-overlay"></div>
+  <div class="banner-text">
+    <h2>Fast & Reliable Printer Assistance</h2>
+    <p>Setup, driver fixes, wireless printing & hardware support for HP, Canon, Epson, Brother & more.</p>
   </div>
-  <div class="hero-form">
-    <h3>Book Your Support Now</h3>
+</div>
+
+<div class="container">
+  <div class="support-form">
     <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <input type="tel" placeholder="Phone Number" required>
-      <select required>
-        <option value="">Select Printer Brand</option>
-        <option>HP</option><option>Canon</option><option>Epson</option><option>Brother</option><option>Lexmark</option>
-      </select>
-      <textarea rows="3" placeholder="Describe your issue"></textarea>
-      <button type="submit" class="submit-btn">Submit Request</button>
-      <button type="button" class="call-btn" onclick="window.location.href='tel:+18886497907'">Call Now</button>
+      <div class="form-left">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <select required>
+          <option value="">Select Printer Brand</option>
+          <option>HP</option><option>Canon</option><option>Epson</option><option>Brother</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-right">
+        <textarea rows="4" placeholder="Brief description of your issue"></textarea>
+        <button type="submit">Submit Request</button>
+        <button type="button" class="call-btn" onclick="window.location.href='tel:+18886497907'">Call Us Now</button>
+      </div>
     </form>
   </div>
-</section>
 
-<section class="services">
-  <h2>Our Printer Support Services</h2>
-  <div class="service-grid">
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png"><h3>Wireless Setup</h3><p>We connect your printer to Wi-Fi and ensure seamless printing from any device.</p></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/3132/3132084.png"><h3>Driver Installation</h3><p>Install or reinstall the correct printer drivers for your system compatibility.</p></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/2913/2913465.png"><h3>Printer Offline Fix</h3><p>We bring your printer back online with quick configuration checks and updates.</p></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/189/189671.png"><h3>Paper Jam Resolution</h3><p>Remove jams safely and calibrate rollers for smooth operation.</p></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/1792/1792514.png"><h3>Ink Cartridge Help</h3><p>Get instant help fixing cartridge alignment or low ink errors.</p></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png"><h3>Cloud Print Setup</h3><p>Connect your printer with Google Cloud Print or other remote services.</p></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828925.png"><h3>Firmware Update</h3><p>We update your printer firmware for improved features and security.</p></div>
-    <div class="card"><img src="https://cdn-icons-png.flaticon.com/512/4712/4712050.png"><h3>Performance Optimization</h3><p>Speed up print operations and reduce downtime with our expert tweaks.</p></div>
-  </div>
-</section>
+  <section class="services">
+    <h2>Our Printer Services</h2>
+    <div class="service-grid">
+      <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/1792/1792514.png" alt=""><h3>Setup & Installation</h3><p>We set up your printer including network, driver, and initial calibration.</p></div>
+      <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/3132/3132084.png" alt=""><h3>Driver Support</h3><p>Install or update drivers for compatibility and stability.</p></div>
+      <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/189/189671.png" alt=""><h3>Wireless & Networking</h3><p>Connect printers over WiFi or LAN securely and reliably.</p></div>
+      <div class="service-card"><img src="https://cdn-icons-png.flaticon.com/512/2913/2913465.png" alt=""><h3>Print Quality Repair</h3><p>Resolve streaks, color issues, blotches, and blank pages.</p></div>
+    </div>
+  </section>
 
-<section class="issues">
-  <h2>Common Printer Issues We Fix</h2>
-  <ul>
-    <li>Printer not responding or offline</li>
-    <li>Slow or blurry print quality</li>
-    <li>Driver installation errors</li>
-    <li>Wi-Fi or USB connectivity failure</li>
-    <li>Cartridge or toner not detected</li>
-    <li>Paper jam or feed roller error</li>
-  </ul>
-</section>
+  <section class="issues">
+    <h2>Common Printer Issues We Fix</h2>
+    <ul class="issues-list">
+      <li>Printer offline / not responding</li>
+      <li>Paper jams or roller issues</li>
+      <li>Blank pages or faded print</li>
+      <li>Driver installation failures</li>
+      <li>Slow or poor-quality prints</li>
+      <li>Connectivity between devices and network</li>
+    </ul>
+  </section>
 
-<section class="how-works">
-  <h2>How Our Support Works</h2>
-  <div class="steps">
-    <div class="step"><h4>1️⃣ Connect</h4><p>Contact us via phone or form to connect with a certified printer expert.</p></div>
-    <div class="step"><h4>2️⃣ Diagnose</h4><p>We securely access your system (with permission) to identify and resolve issues.</p></div>
-    <div class="step"><h4>3️⃣ Resolve</h4><p>Enjoy quick fixes, driver installs, or guided troubleshooting to restore printing.</p></div>
-  </div>
-</section>
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/2.jpg"><h4>Amy W.</h4><p>"Excellent setup service. My printer works on WiFi now without fuss."</p></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/33.jpg"><h4>Mark B.</h4><p>"They fixed driver issues that HP tech couldn’t solve over phone."</p></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/47.jpg"><h4>Linda K.</h4><p>"Quick response, friendly support. Highly recommend MicroTech."</p></div>
+    </div>
+  </section>
 
-<section class="brands">
-  <h2>Brands We Support</h2>
-  <div class="brand-logos">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/HP_logo_2012.svg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Canon_wordmark.svg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Epson_logo.svg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Brother_logo.svg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Lexmark_logo.svg">
-  </div>
-</section>
+  <section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <details><summary>Does MicroTech support all printer brands?</summary><p>Yes — we support HP, Canon, Epson, Brother, Lexmark, Dell and many others.</p></details>
+    <details><summary>Can you help with wireless printer setup?</summary><p>Yes — we can guide remote setup or onsite networking for WiFi printers.</p></details>
+    <details><summary>What if my printer is out of warranty?</summary><p>Even if warranty has expired, we offer troubleshooting and repair services at reasonable rates.</p></details>
+    <details><summary>How do I know which driver to install?</summary><p>We help identify the correct driver based on model number and OS, and install it securely.</p></details>
+    <details><summary>Do you fix scanner issues too?</summary><p>Yes — many multifunction printers include scanning features; we support those too.</p></details>
+  </section>
+</div>
 
-<section class="testimonials">
-  <h2>Customer Testimonials</h2>
-  <div class="testimonial-slider" id="testimonialSlider">
-    <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/1.jpg"><h4>Sarah T.</h4><p>“MicroTech resolved my HP printer connection error remotely in under 10 minutes!”</p></div>
-    <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/22.jpg"><h4>David L.</h4><p>“Professional and friendly support. My Canon printer works flawlessly now.”</p></div>
-    <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/25.jpg"><h4>Laura P.</h4><p>“They helped me set up my wireless printer — quick and secure assistance!”</p></div>
-    <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/51.jpg"><h4>John K.</h4><p>“MicroTech’s technicians are true professionals. Great experience!”</p></div>
-  </div>
-</section>
+<footer>
+  © 2025 MicroTech IT Services | All Rights Reserved
+</footer>
 
-<section class="faq">
-  <h2>Frequently Asked Questions</h2>
-  <details><summary>Do you support all printer brands?</summary><p>Yes, we offer comprehensive support for HP, Canon, Epson, Brother, and more.</p></details>
-  <details><summary>Is remote printer help safe?</summary><p>Absolutely. All sessions are encrypted and performed with user consent.</p></details>
-  <details><summary>Do you help with printer installation?</summary><p>Yes, we handle setup and driver installation for any printer model.</p></details>
-  <details><summary>Can you fix “Printer Offline” issues?</summary><p>Yes, our team quickly resolves offline status and reconnects your printer.</p></details>
-  <details><summary>Do you provide 24/7 support?</summary><p>Yes, MicroTech IT Services offers round-the-clock assistance.</p></details>
-  <details><summary>What if my printer warranty expired?</summary><p>We can still assist with troubleshooting and setup outside warranty.</p></details>
-</section>
-
-<footer>© 2025 MicroTech IT Services | All Rights Reserved</footer>
-
-<div class="floating-btn" onclick="window.location.href='tel:+18886497907'">📞 Need Help?</div>
-
-<script>
-// Auto-scroll testimonials
-const slider=document.getElementById('testimonialSlider');
-let scrollAmount=0;
-setInterval(()=>{
-scrollAmount+=300;
-if(scrollAmount>=slider.scrollWidth-slider.clientWidth)scrollAmount=0;
-slider.scrollTo({left:scrollAmount,behavior:'smooth'});
-},3000);
-</script>
+<button class="floating-btn" onclick="window.location.href='tel:+18886497907'">📞 Need Help?</button>
 
 </body>
 </html>
