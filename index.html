@@ -1,347 +1,315 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MicroTech IT Services | Professional IT Solutions</title>
-  <meta name="description" content="MicroTech IT Services - Your trusted partner for IT Support, Networking, Cybersecurity, Web Development, and Cloud Solutions." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MicroTech IT Services</title>
   <style>
-    :root {
-      --bg: #050509;
-      --panel: #0b0d12;
-      --muted: #9aa3b2;
-      --accent-cyan: #00f0ff;
-      --accent-magenta: #ff3bd6;
-      --neon: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
-      --glass: rgba(255, 255, 255, 0.03);
-      --glass-2: rgba(255, 255, 255, 0.02);
-      --card-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
-      --radius: 14px;
-      --max-width: 1200px;
-    }
-
     body {
       margin: 0;
-      font-family: "Segoe UI", "Segoe UI Variable", -apple-system, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(0,240,255,0.03), transparent), radial-gradient(1000px 500px at 90% 90%, rgba(255,59,214,0.03), transparent), var(--bg);
-      color: #e6eef6;
-      line-height: 1.6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0f;
+      color: #e0e0e0;
     }
-
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-      background: rgba(5,7,10,0.85);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 2px 20px rgba(0,0,0,0.6);
-    }
-
-    .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 24px;
-      max-width: var(--max-width);
-      margin: 0 auto;
+      padding: 15px 50px;
+      background: rgba(20,20,30,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #1f1f2e;
+      z-index: 999;
     }
-
-    .logo-text {
-      font-weight: 700;
-      font-size: 1.4rem;
-      background: var(--neon);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 1px;
+    header h1 {
+      font-size: 1.5em;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff;
     }
-
-    .tagline {
-      font-size: 0.8rem;
-      color: var(--muted);
-      letter-spacing: 0.6px;
+    header span {
+      font-size: 0.8em;
+      color: #9cf;
     }
-
+    nav {
+      display: flex;
+      gap: 20px;
+    }
     nav a {
-      color: #c8d1de;
+      color: #e0e0e0;
       text-decoration: none;
-      margin-left: 20px;
-      transition: color 0.3s;
+      transition: 0.3s;
     }
-
     nav a:hover {
-      color: var(--accent-cyan);
+      color: #0ff;
     }
-
-    .phone {
-      color: var(--accent-cyan);
-      font-weight: 600;
+    .container {
+      max-width: 1200px;
+      margin: 120px auto 0 auto;
+      padding: 20px;
     }
-
-    .mobile-toggle {
-      display: none;
-      background: none;
-      color: var(--accent-cyan);
-      font-size: 26px;
-      border: none;
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 80px;
     }
-
-    main {
-      margin-top: 140px;
-      padding: 0 20px;
-      max-width: var(--max-width);
-      margin-left: auto;
-      margin-right: auto;
+    .intro-text {
+      flex: 1 1 50%;
     }
-
-    section {
-      margin-bottom: 60px;
-    }
-
-    .heroCard {
-      background: var(--glass);
-      padding: 32px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.05);
-      box-shadow: var(--card-shadow);
-    }
-
-    h1, h2, h3 {
-      background: var(--neon);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .form-section {
-      text-align: center;
-    }
-
-    .form-section h2 {
-      font-size: 2rem;
+    .intro-text h2 {
+      color: #00e6e6;
+      font-size: 2em;
       margin-bottom: 10px;
     }
-
-    .form-section p {
-      color: var(--muted);
-      max-width: 700px;
-      margin: 0 auto 25px auto;
+    .intro-text p {
+      color: #ccc;
     }
-
-    form.contact {
+    .contact-form {
+      flex: 1 1 40%;
+      background: #141420;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.15);
+    }
+    .contact-form h3 {
+      color: #00e6e6;
+      margin-bottom: 15px;
+    }
+    .contact-form input, .contact-form select, .contact-form textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #1c1c2c;
+      color: #fff;
+    }
+    .form-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    button, .call-btn {
+      background: #00e6e6;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+    button:hover, .call-btn:hover {
+      background: #00b3b3;
+    }
+    section {
+      margin-bottom: 80px;
+    }
+    h2.section-title {
+      text-align: center;
+      color: #00e6e6;
+      margin-bottom: 40px;
+    }
+    .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 14px;
-      background: var(--glass-2);
-      padding: 25px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.08);
+      gap: 20px;
     }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 12px;
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.08);
+    .card {
+      background: #141420;
       border-radius: 10px;
-      color: #e9f3fb;
-      font-size: 15px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.1);
+      transition: 0.3s;
     }
-
-    button.btn {
-      background: var(--neon);
-      color: #000;
-      border: none;
-      border-radius: 10px;
-      padding: 12px 18px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: opacity 0.3s;
+    .card:hover {
+      box-shadow: 0 0 25px rgba(0,255,255,0.3);
+      transform: translateY(-5px);
     }
-
-    button.btn:hover { opacity: 0.9; }
-
-    footer {
-      background: #07070c;
-      padding: 40px 20px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-    }
-
-    footer .footer-content {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-    }
-
-    footer h4 {
-      color: var(--accent-cyan);
-      margin-bottom: 12px;
-    }
-
-    footer a {
-      color: var(--muted);
-      text-decoration: none;
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    footer a:hover {
-      color: var(--accent-cyan);
-    }
-
-    .copyright {
+    .stats {
+      display: flex;
+      justify-content: space-around;
       text-align: center;
-      margin-top: 20px;
-      font-size: 13px;
-      color: #7c8598;
+      margin: 50px 0;
     }
-
+    .stats div h3 {
+      font-size: 2em;
+      color: #00e6e6;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { text-shadow: 0 0 10px #0ff; }
+      50% { text-shadow: 0 0 25px #0ff; }
+      100% { text-shadow: 0 0 10px #0ff; }
+    }
+    .faq-item {
+      background: #141420;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .testimonial {
+      background: #141420;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .testimonial img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    footer {
+      background: #0a0a12;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #1f1f2e;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #00e6e6;
+      text-decoration: none;
+    }
     @media (max-width: 768px) {
-      nav {display: none;}
-      .mobile-toggle {display: block;}
-      .topbar {flex-wrap: wrap;}
-      .phone {margin-top: 8px;}
+      header {
+        flex-direction: column;
+      }
+      .intro {
+        flex-direction: column;
+      }
+      .contact-form {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="topbar">
-      <div>
-        <div class="logo-text">MicroTech IT Services</div>
-        <div class="tagline">Innovate • Secure • Support</div>
-      </div>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#industries">Industries</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="phone">📞 Toll-Free: 1-800-MICRO-IT</div>
-      <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+    <div>
+      <h1>MicroTech IT Services</h1>
+      <span>Innovate. Secure. Support.</span>
     </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#industries">Industries</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+18886497907">📞 (888) 649-7907</a>
+    </nav>
   </header>
 
-  <main>
-    <section id="contact" class="heroCard form-section">
-      <h2>Request IT Support</h2>
-      <p>Need immediate assistance? Fill out the form below to book a preferred time for our certified IT experts to connect with you. We ensure fast, professional, and reliable service 24/7.</p>
-      <form class="contact" onsubmit="submitForm(event)">
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email Address" required />
-        <input type="tel" placeholder="Phone Number" required />
-        <select required>
-          <option>Choose Service</option>
-          <option>Network Setup & Troubleshooting</option>
-          <option>Web Design & Development</option>
-          <option>Printer Support</option>
-          <option>Antivirus & Security</option>
-          <option>Microsoft Product Support</option>
-          <option>Cloud Backup & Storage</option>
-          <option>Data Recovery</option>
-          <option>Hardware Installation</option>
-          <option>Custom IT Consultation</option>
-        </select>
-        <select required>
-          <option>Preferred Support Time</option>
-          <option>Morning (9 AM - 12 PM)</option>
-          <option>Afternoon (12 PM - 4 PM)</option>
-          <option>Evening (4 PM - 8 PM)</option>
-          <option>Night (After 8 PM)</option>
-        </select>
-        <textarea placeholder="Describe your issue"></textarea>
-        <button type="submit" class="btn">Submit Request</button>
-      </form>
-    </section>
-
-    <section id="home" class="heroCard">
-      <h1>Welcome to MicroTech IT Services</h1>
-      <p>MicroTech IT Services delivers advanced, reliable, and secure technology solutions tailored to individuals and businesses worldwide. From small offices to enterprise environments, we provide a full suite of IT services that drive efficiency, performance, and growth.</p>
-    </section>
-
-    <section id="services" class="heroCard">
-      <h2>Our Professional IT Services</h2>
-      <p>We offer comprehensive, scalable, and affordable IT services to ensure your systems remain efficient, protected, and future-ready.</p>
-      <div class="services-list">
-        <div class="card"><strong>Network Solutions</strong><br>Secure network setup, configuration, and maintenance for seamless connectivity.</div>
-        <div class="card"><strong>Web Design & Development</strong><br>Custom, responsive, and SEO-optimized websites for your business presence.</div>
-        <div class="card"><strong>Cloud Solutions</strong><br>Cloud setup, backup, storage, and migration for business continuity.</div>
-        <div class="card"><strong>Cybersecurity</strong><br>Protect your digital assets with advanced antivirus, malware protection, and monitoring.</div>
-        <div class="card"><strong>Microsoft Support</strong><br>Expert help with Windows, Office 365, Teams, and Azure environments.</div>
-        <div class="card"><strong>Printer Support</strong><br>Installation, driver setup, and maintenance for all major brands.</div>
-        <div class="card"><strong>Data Recovery</strong><br>Retrieve important data from corrupted or damaged devices securely.</div>
-        <div class="card"><strong>IT Consulting</strong><br>Strategic guidance to align your IT infrastructure with business goals.</div>
-        <div class="card"><strong>Remote IT Assistance</strong><br>Instant support via remote tools to troubleshoot and fix issues in real time.</div>
-        <div class="card"><strong>Managed IT Services</strong><br>Continuous monitoring, updates, and optimization for complete peace of mind.</div>
+  <div class="container" id="home">
+    <div class="intro">
+      <div class="intro-text">
+        <h2>Get Expert Support from Certified Technicians</h2>
+        <p>At MicroTech IT Services, we specialize in delivering fast, reliable, and professional IT solutions for home and business users. Schedule your support session today and experience seamless tech assistance.</p>
       </div>
-    </section>
-
-    <section id="about" class="heroCard">
-      <h2>About Us</h2>
-      <p>Founded with a passion for innovation, MicroTech IT Services has grown into a trusted name in IT support and digital transformation. Our mission is to simplify technology for users by providing tailored, high-quality solutions that enhance productivity and security. Our team of certified professionals brings deep expertise in networking, software, cloud, and hardware services.</p>
-    </section>
-
-    <section id="industries" class="heroCard">
-      <h2>Industries We Serve</h2>
-      <p>We deliver IT services to a diverse range of industries with custom solutions built around your specific challenges.</p>
-      <div class="industries">
-        <span class="brand-pill">Healthcare</span>
-        <span class="brand-pill">Education</span>
-        <span class="brand-pill">Finance</span>
-        <span class="brand-pill">Retail</span>
-        <span class="brand-pill">eCommerce</span>
-        <span class="brand-pill">Gaming</span>
-        <span class="brand-pill">Legal</span>
-        <span class="brand-pill">Manufacturing</span>
-        <span class="brand-pill">Telecom</span>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-content">
-      <div>
-        <h4>MicroTech IT Services</h4>
-        <p>Leading provider of innovative IT and digital transformation services. Trusted by businesses worldwide for fast, reliable, and secure tech support.</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#industries">Industries</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div>
-        <h4>Contact Us</h4>
-        <a href="tel:1800MICROIT">📞 1-800-MICRO-IT</a>
-        <a href="mailto:support@microtechit.com">✉ support@microtechit.com</a>
-        <p>Available 24/7 for all technical support needs.</p>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Disclaimer</a>
+      <div class="contact-form">
+        <h3>Request Support</h3>
+        <form>
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <input type="tel" placeholder="Phone Number" required>
+          <select>
+            <option>Select Preferred Time</option>
+            <option>Morning (8AM - 12PM)</option>
+            <option>Afternoon (12PM - 4PM)</option>
+            <option>Evening (4PM - 8PM)</option>
+            <option>Night (8PM - 11PM)</option>
+          </select>
+          <select>
+            <option>Select Service Type</option>
+            <option>Microsoft Product Support</option>
+            <option>Antivirus Troubleshooting</option>
+            <option>Printer & Peripheral Setup</option>
+            <option>Network Configuration</option>
+            <option>Website Development</option>
+            <option>Cloud Backup Solutions</option>
+            <option>Cybersecurity Consulting</option>
+            <option>Software Installation & Updates</option>
+          </select>
+          <div class="form-buttons">
+            <button type="submit">Submit Request</button>
+            <a class="call-btn" href="tel:+18886497907">Call Us Now</a>
+          </div>
+        </form>
       </div>
     </div>
-    <div class="copyright">© 2025 MicroTech IT Services | All Rights Reserved.</div>
+
+    <section id="services">
+      <h2 class="section-title">Our Professional IT Services</h2>
+      <div class="card-grid">
+        <div class="card">Comprehensive Microsoft product troubleshooting and configuration.</div>
+        <div class="card">Advanced antivirus installation, removal, and real-time protection setup.</div>
+        <div class="card">Printer connectivity, driver updates, and wireless setup assistance.</div>
+        <div class="card">Network optimization, router configuration, and firewall setup.</div>
+        <div class="card">Website design, hosting, and SEO optimization services.</div>
+        <div class="card">Cloud data backup, storage management, and disaster recovery.</div>
+        <div class="card">24/7 cybersecurity monitoring and threat prevention.</div>
+        <div class="card">Software installation, patch management, and performance tuning.</div>
+      </div>
+    </section>
+
+    <section id="industries">
+      <h2 class="section-title">Industries We Serve</h2>
+      <div class="card-grid">
+        <div class="card">Healthcare & Medical</div>
+        <div class="card">Education & E-learning</div>
+        <div class="card">Finance & Banking</div>
+        <div class="card">Retail & E-commerce</div>
+        <div class="card">Manufacturing & Logistics</div>
+        <div class="card">Gaming & Entertainment</div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div><h3>15K+</h3><p>Satisfied Customers</p></div>
+      <div><h3>40K+</h3><p>Issues Resolved</p></div>
+      <div><h3>10K+</h3><p>People Connected</p></div>
+    </section>
+
+    <section id="faq">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-item">1. How can I request technical support?</div>
+      <div class="faq-item">2. What services are covered under your IT plans?</div>
+      <div class="faq-item">3. Is remote assistance safe and secure?</div>
+      <div class="faq-item">4. Do you provide on-site support?</div>
+      <div class="faq-item">5. What payment methods do you accept?</div>
+      <div class="faq-item">6. Are your services available 24/7?</div>
+      <div class="faq-item">7. Can I schedule recurring maintenance?</div>
+      <div class="faq-item">8. Do you offer custom business IT packages?</div>
+      <div class="faq-item">9. How fast is your response time?</div>
+      <div class="faq-item">10. Can I cancel a service request?</div>
+    </section>
+
+    <section id="testimonials">
+      <h2 class="section-title">Client Testimonials</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial"><img src="https://i.pravatar.cc/60?img=1"><p>“Excellent service! My printer was fixed in minutes.”</p><strong>- Sarah L.</strong></div>
+        <div class="testimonial"><img src="https://i.pravatar.cc/60?img=2"><p>“Highly professional and quick remote support.”</p><strong>- Daniel M.</strong></div>
+        <div class="testimonial"><img src="https://i.pravatar.cc/60?img=3"><p>“They optimized our office network perfectly.”</p><strong>- Karen S.</strong></div>
+        <div class="testimonial"><img src="https://i.pravatar.cc/60?img=4"><p>“Friendly and knowledgeable technicians!”</p><strong>- Michael R.</strong></div>
+        <div class="testimonial"><img src="https://i.pravatar.cc/60?img=5"><p>“My antivirus issues were solved instantly.”</p><strong>- Priya T.</strong></div>
+        <div class="testimonial"><img src="https://i.pravatar.cc/60?img=6"><p>“Reliable partner for all our IT needs.”</p><strong>- James K.</strong></div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 MicroTech IT Services. All Rights Reserved.</p>
+    <p><a href="#">Disclaimer</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
   </footer>
-
-  <script>
-    function toggleMenu() {
-      const nav = document.querySelector('nav');
-      nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function submitForm(e) {
-      e.preventDefault();
-      alert('Thank you! Your request has been submitted. Our technician will contact you shortly.');
-    }
-  </script>
 </body>
 </html>
