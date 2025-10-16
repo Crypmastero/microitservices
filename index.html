@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MicroTech IT Services</title>
-  <meta name="description" content="MicroTech IT Services - Advanced IT Solutions for Networking, Web Design, Security, Microsoft Products & More." />
+  <title>MicroTech IT Services | Professional IT Solutions</title>
+  <meta name="description" content="MicroTech IT Services - Your trusted partner for IT Support, Networking, Cybersecurity, Web Development, and Cloud Solutions." />
   <style>
     :root {
       --bg: #050509;
@@ -17,7 +17,7 @@
       --glass-2: rgba(255, 255, 255, 0.02);
       --card-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
       --radius: 14px;
-      --max-width: 1100px;
+      --max-width: 1200px;
     }
 
     body {
@@ -25,7 +25,7 @@
       font-family: "Segoe UI", "Segoe UI Variable", -apple-system, Roboto, Arial, sans-serif;
       background: radial-gradient(1200px 600px at 10% 10%, rgba(0,240,255,0.03), transparent), radial-gradient(1000px 500px at 90% 90%, rgba(255,59,214,0.03), transparent), var(--bg);
       color: #e6eef6;
-      line-height: 1.45;
+      line-height: 1.6;
     }
 
     header {
@@ -33,16 +33,17 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      backdrop-filter: blur(8px);
-      background: linear-gradient(180deg, rgba(5,7,10,0.8), rgba(5,7,10,0.6));
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      background: rgba(5,7,10,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.6);
     }
 
     .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 20px;
+      padding: 16px 24px;
       max-width: var(--max-width);
       margin: 0 auto;
     }
@@ -50,15 +51,18 @@
     .logo {
       background: var(--neon);
       color: #000;
-      padding: 10px 14px;
+      padding: 12px 18px;
       border-radius: 8px;
       font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
     }
 
     nav a {
-      color: var(--muted);
+      color: #c8d1de;
       text-decoration: none;
-      margin-left: 18px;
+      margin-left: 20px;
+      transition: color 0.3s;
     }
 
     nav a:hover {
@@ -74,7 +78,7 @@
       display: none;
       background: none;
       color: var(--accent-cyan);
-      font-size: 24px;
+      font-size: 26px;
       border: none;
     }
 
@@ -86,19 +90,28 @@
       margin-right: auto;
     }
 
+    section {
+      margin-bottom: 60px;
+    }
+
     .heroCard {
       background: var(--glass);
-      padding: 24px;
+      padding: 32px;
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
       box-shadow: var(--card-shadow);
-      margin-bottom: 24px;
+    }
+
+    h1, h2 {
+      background: var(--neon);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     form.contact {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 12px;
+      gap: 14px;
     }
 
     input, select, textarea {
@@ -108,6 +121,7 @@
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 10px;
       color: #e9f3fb;
+      font-size: 15px;
     }
 
     button.btn {
@@ -118,61 +132,103 @@
       padding: 12px 18px;
       font-weight: 700;
       cursor: pointer;
+      transition: opacity 0.3s;
     }
+
+    button.btn:hover { opacity: 0.9; }
 
     .services-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
+      gap: 18px;
     }
 
     .card {
       background: var(--glass-2);
-      padding: 14px;
+      padding: 18px;
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.03);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .brands, .industries {
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 20px rgba(0,240,255,0.1);
+    }
+
+    .industries, .brands {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
 
     .brand-pill {
-      background: linear-gradient(90deg, rgba(255,255,255,0.03), transparent);
+      background: linear-gradient(90deg, rgba(255,255,255,0.04), transparent);
       border: 1px solid rgba(255,255,255,0.05);
       border-radius: 999px;
       padding: 8px 12px;
       font-size: 13px;
+      color: var(--muted);
     }
 
     footer {
-      text-align: center;
-      margin-top: 60px;
-      padding: 20px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      background: #07070c;
+      padding: 40px 20px;
+      border-top: 1px solid rgba(255,255,255,0.08);
       color: var(--muted);
+    }
+
+    footer .footer-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    footer h4 {
+      color: var(--accent-cyan);
+      margin-bottom: 12px;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    footer a:hover {
+      color: var(--accent-cyan);
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #7c8598;
     }
 
     @media (max-width: 768px) {
       nav {display: none;}
       .mobile-toggle {display: block;}
       .topbar {flex-wrap: wrap;}
+      .phone {margin-top: 8px;}
     }
   </style>
 </head>
 <body>
   <header>
     <div class="topbar">
-      <div class="logo">MicroTech IT</div>
+      <div class="logo">MicroTech IT Services</div>
       <nav>
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
         <a href="#contact">Contact</a>
       </nav>
-      <div class="phone">Toll-Free: 1-800-MICRO-IT</div>
+      <div class="phone">📞 Toll-Free: 1-800-MICRO-IT</div>
       <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
     </div>
   </header>
@@ -180,6 +236,7 @@
   <main>
     <section id="contact" class="heroCard">
       <h2>Request IT Support</h2>
+      <p>Our experts are available 24/7 to help you resolve any IT issues quickly and efficiently. Fill in the form below and we’ll contact you shortly.</p>
       <form class="contact" onsubmit="submitForm(event)">
         <input type="text" placeholder="Full Name" required />
         <input type="email" placeholder="Email Address" required />
@@ -196,7 +253,13 @@
           <option>Hardware Installation</option>
           <option>Custom IT Consultation</option>
         </select>
-        <input type="datetime-local" />
+        <select required>
+          <option>Preferred Support Time</option>
+          <option>Morning (9 AM - 12 PM)</option>
+          <option>Afternoon (12 PM - 4 PM)</option>
+          <option>Evening (4 PM - 8 PM)</option>
+          <option>Night (After 8 PM)</option>
+        </select>
         <textarea placeholder="Describe your issue"></textarea>
         <button type="submit" class="btn">Submit Request</button>
       </form>
@@ -204,28 +267,34 @@
 
     <section id="home" class="heroCard">
       <h1>Welcome to MicroTech IT Services</h1>
-      <p>We offer world-class IT support, combining futuristic technology with real-time customer assistance. From networking to Microsoft product support, our certified experts ensure seamless performance for your devices and systems.</p>
+      <p>MicroTech IT Services delivers advanced, reliable, and secure technology solutions tailored to individuals and businesses worldwide. From small offices to enterprise environments, we provide a full suite of IT services that drive efficiency, performance, and growth.</p>
     </section>
 
     <section id="services" class="heroCard">
-      <h2>Our Services</h2>
+      <h2>Our Professional IT Services</h2>
+      <p>We offer comprehensive, scalable, and affordable IT services to ensure your systems remain efficient, protected, and future-ready.</p>
       <div class="services-list">
-        <div class="card"><strong>Network Solutions</strong><br>Setup, configuration, and troubleshooting of LAN/WAN networks.</div>
-        <div class="card"><strong>Web Design & Development</strong><br>Modern, responsive websites built for performance and aesthetics.</div>
-        <div class="card"><strong>Cloud Services</strong><br>Backup, storage, and cloud migration for businesses.</div>
-        <div class="card"><strong>Cybersecurity</strong><br>Antivirus setup, malware removal, and firewall configuration.</div>
-        <div class="card"><strong>Microsoft Support</strong><br>Windows, Office, Azure, and Teams support from certified experts.</div>
-        <div class="card"><strong>Printer Support</strong><br>Installation, configuration, and maintenance for all major printer brands.</div>
-        <div class="card"><strong>Data Recovery</strong><br>Secure recovery from damaged, formatted, or corrupted drives.</div>
-        <div class="card"><strong>Hardware & Software Installation</strong><br>New setups, upgrades, and compatibility checks for all systems.</div>
-        <div class="card"><strong>Managed IT Services</strong><br>24/7 monitoring, maintenance, and system optimization.</div>
-        <div class="card"><strong>IT Consultation</strong><br>Tailored solutions to streamline and secure your IT infrastructure.</div>
+        <div class="card"><strong>Network Solutions</strong><br>Secure network setup, configuration, and maintenance for seamless connectivity.</div>
+        <div class="card"><strong>Web Design & Development</strong><br>Custom, responsive, and SEO-optimized websites for your business presence.</div>
+        <div class="card"><strong>Cloud Solutions</strong><br>Cloud setup, backup, storage, and migration for business continuity.</div>
+        <div class="card"><strong>Cybersecurity</strong><br>Protect your digital assets with advanced antivirus, malware protection, and monitoring.</div>
+        <div class="card"><strong>Microsoft Support</strong><br>Expert help with Windows, Office 365, Teams, and Azure environments.</div>
+        <div class="card"><strong>Printer Support</strong><br>Installation, driver setup, and maintenance for all major brands.</div>
+        <div class="card"><strong>Data Recovery</strong><br>Retrieve important data from corrupted or damaged devices securely.</div>
+        <div class="card"><strong>IT Consulting</strong><br>Strategic guidance to align your IT infrastructure with business goals.</div>
+        <div class="card"><strong>Remote IT Assistance</strong><br>Instant support via remote tools to troubleshoot and fix issues in real time.</div>
+        <div class="card"><strong>Managed IT Services</strong><br>Continuous monitoring, updates, and optimization for complete peace of mind.</div>
       </div>
     </section>
 
     <section id="about" class="heroCard">
-      <h2>About MicroTech</h2>
-      <p>MicroTech IT Services is a leading provider of technology support and solutions. We specialize in comprehensive IT support for individuals and businesses, ensuring reliability, security, and innovation at every level.</p>
+      <h2>About Us</h2>
+      <p>Founded with a passion for innovation, MicroTech IT Services has grown into a trusted name in IT support and digital transformation. Our mission is to simplify technology for users by providing tailored, high-quality solutions that enhance productivity and security. Our team of certified professionals brings deep expertise in networking, software, cloud, and hardware services.</p>
+    </section>
+
+    <section id="industries" class="heroCard">
+      <h2>Industries We Serve</h2>
+      <p>We deliver IT services to a diverse range of industries with custom solutions built around your specific challenges.</p>
       <div class="industries">
         <span class="brand-pill">Healthcare</span>
         <span class="brand-pill">Education</span>
@@ -233,14 +302,42 @@
         <span class="brand-pill">Retail</span>
         <span class="brand-pill">eCommerce</span>
         <span class="brand-pill">Gaming</span>
+        <span class="brand-pill">Legal</span>
+        <span class="brand-pill">Manufacturing</span>
+        <span class="brand-pill">Telecom</span>
       </div>
     </section>
-
-    <footer>
-      © 2025 MicroTech IT Services | <a href="#">Privacy Policy</a> | <a href="#">Terms</a> | <a href="#">Disclaimer</a>
-      <p style="font-size:13px;margin-top:8px;">Disclaimer: MicroTech IT Services is an independent provider of IT and technical support services and is not affiliated with Microsoft or any third-party brands mentioned.</p>
-    </footer>
   </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h4>MicroTech IT Services</h4>
+        <p>Leading provider of innovative IT and digital transformation services. Trusted by businesses worldwide for fast, reliable, and secure tech support.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <a href="tel:1800MICROIT">📞 1-800-MICRO-IT</a>
+        <a href="mailto:support@microtechit.com">✉ support@microtechit.com</a>
+        <p>Available 24/7 for all technical support needs.</p>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+    <div class="copyright">© 2025 MicroTech IT Services | All Rights Reserved.</div>
+  </footer>
 
   <script>
     function toggleMenu() {
