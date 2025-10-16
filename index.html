@@ -1,213 +1,489 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dark Tech IT Support</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NeonTech IT Support</title>
+  <meta name="description" content="Dark neon futuristic IT support — printer, antivirus, Microsoft products, Xbox & general IT services." />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Font stack: official Microsoft style */
+    :root{
+      --bg:#050509;
+      --panel:#0b0d12;
+      --muted:#9aa3b2;
+      --accent-cyan:#00f0ff;
+      --accent-magenta:#ff3bd6;
+      --neon:linear-gradient(90deg,var(--accent-cyan),var(--accent-magenta));
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --card-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      --radius:14px;
+      --max-width:1100px;
     }
-    body {
-      background-color: #0a0f1a;
-      color: #e0e0e0;
-      overflow-x: hidden;
+
+    html,body{height:100%;}
+    body{
+      margin:0;font-family:"Segoe UI", "Segoe UI Variable", -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(0,240,255,0.03), transparent), radial-gradient(1000px 500px at 90% 90%, rgba(255,59,214,0.03), transparent), var(--bg);
+      color:#e6eef6; -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale; line-height:1.45;
     }
-    header {
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 3rem;
-      border-bottom: 1px solid #1f2937;
+
+    /* Layout container */
+    .wrap{max-width:var(--max-width);margin:120px auto 80px;padding:24px;}
+
+    /* Fixed header */
+    header{
+      position:fixed;inset:0 0 auto 0;z-index:1200;backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(5,7,10,0.6), rgba(5,7,10,0.35));border-bottom:1px solid rgba(255,255,255,0.03);
     }
-    header h1 {
-      color: #00ffff;
-      font-size: 1.6rem;
-      letter-spacing: 1px;
+    .topbar{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:10px;background:var(--neon);box-shadow:0 6px 18px rgba(0,240,255,0.06);display:flex;align-items:center;justify-content:center;font-weight:700;color:#030405}
+    .site-title{font-weight:700;font-size:18px;letter-spacing:0.3px}
+
+    nav.desktop-menu{display:flex;gap:18px;align-items:center}
+    nav.desktop-menu a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
+    nav.desktop-menu a:hover{color:var(--accent-cyan);text-decoration:none}
+
+    .phone{font-weight:600;color:var(--accent-cyan);}
+
+    /* mobile toggle */
+    .mobile-toggle{display:none}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:20px}
+    .heroCard{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:16px;box-shadow:var(--card-shadow);border:1px solid rgba(255,255,255,0.03)}
+    .hero h1{font-size:34px;margin:0 0 10px;background:-webkit-linear-gradient(90deg,var(--accent-cyan),var(--accent-magenta));-webkit-background-clip:text;color:transparent}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .cta-row{display:flex;gap:12px}
+    .btn{background:var(--neon);padding:12px 16px;border-radius:10px;border:none;color:#040406;font-weight:700;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+    /* Features */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .card{background:var(--glass);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .card h4{margin:6px 0 0}
+    .brands{display:flex;flex-wrap:wrap;gap:10px}
+    .brand-pill{padding:8px 12px;border-radius:999px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.03);font-size:13px}
+
+    /* Services list */
+    .services-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+
+    /* Testimonials */
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .avatar{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    /* Pricing */
+    .pricing{display:flex;gap:12px}
+    .plan{flex:1;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));border:1px solid rgba(255,255,255,0.03)}
+    .plan .price{font-size:28px;font-weight:800;margin-top:6px}
+
+    /* FAQ accordion */
+    .faq-item{background:var(--glass-2);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);cursor:pointer}
+
+    /* Contact */
+    form.contact{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    form .full{grid-column:1/-1}
+    input,select,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:10px;color:#e9f3fb}
+    input::placeholder, textarea::placeholder{color:rgba(230,238,246,0.35)}
+    label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+
+    footer{margin-top:60px;padding:24px 0;border-top:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+    .footer-links a{color:var(--muted);text-decoration:none;margin-right:12px}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .testimonials{grid-template-columns:repeat(2,1fr)}
     }
-    nav a {
-      color: #e0e0e0;
-      margin: 0 1rem;
-      text-decoration: none;
-      transition: color 0.3s;
+    @media (max-width:720px){
+      .wrap{padding:18px;margin-top:90px}
+      nav.desktop-menu{display:none}
+      .mobile-toggle{display:block}
+      .topbar{padding:12px}
+      .phone{font-size:14px}
+      .grid{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      form.contact{grid-template-columns:1fr}
     }
-    nav a:hover {
-      color: #00ffff;
-    }
-    .hero {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      background: radial-gradient(circle at top, #001122, #000814);
-    }
-    .hero h2 {
-      color: #00ffff;
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 10px #00ffff;
-    }
-    .hero p {
-      color: #ccc;
-      font-size: 1.2rem;
-      max-width: 600px;
-    }
-    .section {
-      padding: 5rem 2rem;
-      text-align: center;
-    }
-    .section h2 {
-      color: #00ffff;
-      margin-bottom: 2rem;
-      font-size: 2rem;
-      text-shadow: 0 0 5px #00ffff;
-    }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .service-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #1f2937;
-      border-radius: 10px;
-      padding: 2rem;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px #00ffff33;
-    }
-    .service-card h3 {
-      color: #00ffff;
-      margin-bottom: 1rem;
-    }
-    .contact {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .contact input, .contact textarea {
-      width: 100%;
-      padding: 1rem;
-      margin: 0.5rem 0;
-      border: none;
-      border-radius: 5px;
-      background: #111827;
-      color: #fff;
-    }
-    .contact button {
-      background: #00ffff;
-      color: #000;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 1rem;
-      transition: 0.3s;
-    }
-    .contact button:hover {
-      background: #00cccc;
-    }
-    footer {
-      background: #000814;
-      text-align: center;
-      padding: 2rem 1rem;
-      border-top: 1px solid #1f2937;
-      color: #888;
-    }
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
-      .hero h2 {
-        font-size: 2rem;
-      }
-    }
+
+    /* Utility */
+    .muted{color:var(--muted)}
+    a[href^="#"]{cursor:pointer}
+
   </style>
 </head>
 <body>
   <header>
-    <h1>DarkTech IT Support</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#industries">Industries</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">NT</div>
+        <div>
+          <div class="site-title">NeonTech Support</div>
+          <div class="muted" style="font-size:12px">24/7 IT — Printer • Antivirus • Microsoft • Xbox</div>
+        </div>
+      </div>
+
+      <nav class="desktop-menu" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="phone">Toll-free: 1-800-NEON-TECH</div>
+        <button class="mobile-toggle" aria-expanded="false" id="menuBtn" onclick="toggleMenu()">☰</button>
+      </div>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="mobileMenu" style="display:none;padding:12px 20px;border-top:1px solid rgba(255,255,255,0.02);background:linear-gradient(180deg, rgba(5,7,10,0.5), rgba(5,7,10,0.6))">
+      <a href="#home" style="display:block;padding:10px 0;color:var(--muted)">Home</a>
+      <a href="#services" style="display:block;padding:10px 0;color:var(--muted)">Services</a>
+      <a href="#about" style="display:block;padding:10px 0;color:var(--muted)">About Us</a>
+      <a href="#contact" style="display:block;padding:10px 0;color:var(--muted)">Contact</a>
+    </div>
   </header>
 
-  <section class="hero" id="home">
-    <h2>Your Trusted 24/7 IT Support Partner</h2>
-    <p>Providing expert technical solutions for businesses and individuals — from software troubleshooting to network and cloud management.</p>
-  </section>
+  <main class="wrap">
+    <section id="home" class="hero">
+      <div class="heroCard">
+        <h1>Dark Neon IT Support — Fast. Secure. Global.</h1>
+        <p>We provide 24/7 help for printers, antivirus, Microsoft products, Xbox gaming support and a full range of IT services — delivered by certified technicians with remote and onsite options.</p>
+        <div class="cta-row">
+          <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Support</button>
+          <button class="btn ghost" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Services</button>
+        </div>
 
-  <section class="section" id="services">
-    <h2>Our Services</h2>
-    <div class="services">
-      <div class="service-card">
-        <h3>Microsoft & Windows Support</h3>
-        <p>Get expert help with Windows errors, updates, installations, and more.</p>
+        <div style="margin-top:18px;" class="grid">
+          <div class="card"><strong>Printer Support</strong><div class="muted">Setup, drivers, repairs, network printers</div></div>
+          <div class="card"><strong>Antivirus Support</strong><div class="muted">Installations, removal, configuration</div></div>
+          <div class="card"><strong>Microsoft Products</strong><div class="muted">Windows, Office, Azure basics</div></div>
+        </div>
       </div>
-      <div class="service-card">
-        <h3>Email Configuration</h3>
-        <p>Setup and troubleshoot Outlook, Exchange, and other mail clients seamlessly.</p>
-      </div>
-      <div class="service-card">
-        <h3>Network & Wi-Fi</h3>
-        <p>Ensure a secure and optimized network setup for your home or office.</p>
-      </div>
-      <div class="service-card">
-        <h3>Antivirus Installation</h3>
-        <p>Protect your devices with the latest antivirus and security configurations.</p>
-      </div>
-      <div class="service-card">
-        <h3>Data Backup & Recovery</h3>
-        <p>Reliable data recovery and cloud backup solutions for peace of mind.</p>
-      </div>
-      <div class="service-card">
-        <h3>Printer & Device Support</h3>
-        <p>Printer setup, driver fixes, and troubleshooting for all major brands.</p>
-      </div>
-    </div>
-  </section>
 
-  <section class="section" id="industries">
-    <h2>Industries We Serve</h2>
-    <p>From small businesses to enterprise-level operations, our IT expertise spans various sectors — including healthcare, finance, education, and retail.</p>
-  </section>
+      <aside class="heroCard">
+        <h3 style="margin-top:0">Quick Info</h3>
+        <div class="muted">Brands we support</div>
+        <div class="brands" style="margin-top:10px">
+          <span class="brand-pill">Microsoft</span>
+          <span class="brand-pill">Bitdefender</span>
+          <span class="brand-pill">Norton</span>
+          <span class="brand-pill">McAfee</span>
+          <span class="brand-pill">HP</span>
+          <span class="brand-pill">Canon</span>
+          <span class="brand-pill">Brother</span>
+          <span class="brand-pill">Epson</span>
+          <span class="brand-pill">Xbox</span>
+          <span class="brand-pill">...and more</span>
+        </div>
 
-  <section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <div class="contact">
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
+        <div style="margin-top:14px">
+          <strong>Call Now</strong>
+          <div class="phone" style="margin-top:6px">1-800-NEON-TECH</div>
+        </div>
+      </aside>
+    </section>
 
-  <footer>
-    <p>© 2025 DarkTech IT Support | All Rights Reserved</p>
-  </footer>
+    <section id="about" style="margin-top:36px">
+      <div class="heroCard">
+        <h2>About Us</h2>
+        <p class="muted">NeonTech Support is a global IT assistance provider focusing on small-to-medium businesses and home users. Our technicians specialize in system security, hardware troubleshooting, gaming consoles and enterprise Microsoft products.</p>
+
+        <h3 style="margin-top:18px">Industries We Serve</h3>
+        <div class="brands" style="margin-top:8px">
+          <span class="brand-pill">Healthcare</span>
+          <span class="brand-pill">Education</span>
+          <span class="brand-pill">Retail</span>
+          <span class="brand-pill">Finance</span>
+          <span class="brand-pill">Gaming & eSports</span>
+          <span class="brand-pill">SMBs</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="what-we-do" style="margin-top:26px">
+      <div class="heroCard">
+        <h2>What We Do</h2>
+        <p class="muted">From remote troubleshooting and security cleanups to onsite hardware repairs and managed services — we cover the full IT lifecycle with transparent pricing and SLA-backed response times.</p>
+
+        <div style="margin-top:12px" class="services-list">
+          <div class="card"><strong>Remote Repair</strong><div class="muted">Secure remote sessions to fix issues fast</div></div>
+          <div class="card"><strong>Onsite Support</strong><div class="muted">Local technicians for complex hardware problems</div></div>
+          <div class="card"><strong>Security & Antivirus</strong><div class="muted">Malware removal, AV setup, security hardening</div></div>
+          <div class="card"><strong>Printer & Peripherals</strong><div class="muted">Driver installs, network printers, maintenance</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" style="margin-top:26px">
+      <div class="heroCard">
+        <h2>Services We Offer</h2>
+        <ul class="muted">
+          <li>Printer Support — all brands (HP, Canon, Epson, Brother, Lexmark)</li>
+          <li>Antivirus Support — installation, activation, cleanup (Norton, McAfee, Bitdefender, Kaspersky, Windows Defender)</li>
+          <li>Microsoft Products — Windows, Office, Azure onboarding & troubleshooting</li>
+          <li>Xbox & Gaming Support — account recovery, network, Xbox Live troubleshooting</li>
+          <li>Network setup, backups, data recovery, device provisioning</li>
+        </ul>
+
+        <h3 style="margin-top:12px">Brands We Support</h3>
+        <div class="brands" style="margin-top:8px">
+          <span class="brand-pill">Microsoft</span>
+          <span class="brand-pill">Windows</span>
+          <span class="brand-pill">Xbox</span>
+          <span class="brand-pill">HP</span>
+          <span class="brand-pill">Canon</span>
+          <span class="brand-pill">Epson</span>
+          <span class="brand-pill">Brother</span>
+          <span class="brand-pill">Norton</span>
+          <span class="brand-pill">McAfee</span>
+          <span class="brand-pill">Bitdefender</span>
+          <span class="brand-pill">Kaspersky</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" style="margin-top:26px">
+      <div class="heroCard">
+        <h2>Testimonials</h2>
+        <div class="testimonials" style="margin-top:12px">
+          <!-- 6 testimonials -->
+          <div class="card">
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="avatar" style="background:var(--neon);color:#030405">JS</div>
+              <div>
+                <strong>Jaya S.</strong>
+                <div class="muted">Small Business Owner</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:8px">Saved us hours of downtime — remote tech was fast and professional.</p>
+          </div>
+
+          <div class="card">
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="avatar" style="background:linear-gradient(90deg,#ff3bd6,#00f0ff);color:#020204">AR</div>
+              <div>
+                <strong>Amit R.</strong>
+                <div class="muted">IT Manager</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:8px">Great knowledge on Microsoft products and excellent follow-up.</p>
+          </div>
+
+          <div class="card">
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="avatar" style="background:linear-gradient(90deg,#00f0ff,#ff3bd6);color:#030405">MK</div>
+              <div>
+                <strong>Maria K.</strong>
+                <div class="muted">Gamer</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:8px">Xbox account issue fixed within 24 hours — thanks!</p>
+          </div>
+
+          <div class="card">
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="avatar" style="background:var(--neon);color:#030405">SB</div>
+              <div>
+                <strong>Sam B.</strong>
+                <div class="muted">Teacher</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:8px">Printer setup made easy. Onsite tech was on time and helpful.</p>
+          </div>
+
+          <div class="card">
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="avatar" style="background:linear-gradient(90deg,#ff3bd6,#00f0ff);color:#030405">LN</div>
+              <div>
+                <strong>Lina N.</strong>
+                <div class="muted">Freelancer</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:8px">Antivirus cleanup recovered my PC — clear communication throughout.</p>
+          </div>
+
+          <div class="card">
+            <div style="display:flex;gap:12px;align-items:center">
+              <div class="avatar" style="background:linear-gradient(90deg,#00f0ff,#ff3bd6);color:#030405">TP</div>
+              <div>
+                <strong>Tom P.</strong>
+                <div class="muted">Retail</div>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:8px">Reliable support and clear pricing — recommended.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" style="margin-top:26px">
+      <div class="heroCard">
+        <h2>Pricing Plans</h2>
+        <div class="pricing" style="margin-top:12px">
+          <div class="plan">
+            <div class="muted">Basic</div>
+            <div class="price">$19/mo</div>
+            <div class="muted">Remote support for single device — 24/7 chat & email</div>
+            <ul class="muted">
+              <li>1 device</li>
+              <li>Remote repairs</li>
+              <li>Email support</li>
+            </ul>
+            <button class="btn" style="margin-top:12px">Choose Basic</button>
+          </div>
+
+          <div class="plan">
+            <div class="muted">Standard</div>
+            <div class="price">$49/mo</div>
+            <div class="muted">Up to 3 devices, priority support, monthly checkups</div>
+            <ul class="muted">
+              <li>Up to 3 devices</li>
+              <li>Priority remote support</li>
+              <li>Monthly system health</li>
+            </ul>
+            <button class="btn" style="margin-top:12px">Choose Standard</button>
+          </div>
+
+          <div class="plan">
+            <div class="muted">Pro</div>
+            <div class="price">$129/mo</div>
+            <div class="muted">Business tier with onsite visits & SLA</div>
+            <ul class="muted">
+              <li>Unlimited devices</li>
+              <li>Onsite visits</li>
+              <li>SLA-backed response</li>
+            </ul>
+            <button class="btn" style="margin-top:12px">Choose Pro</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" style="margin-top:26px">
+      <div class="heroCard">
+        <h2>FAQ</h2>
+        <div style="margin-top:12px">
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <strong>Do you provide onsite support?</strong>
+            <div class="muted" style="display:none;margin-top:8px">Yes — onsite visits are available on Standard & Pro plans or as a one-time service depending on location.</div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="margin-top:8px">
+            <strong>Which antivirus products do you support?</strong>
+            <div class="muted" style="display:none;margin-top:8px">We support most major antivirus products (Norton, McAfee, Bitdefender, Kaspersky, Windows Defender, etc.)</div>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)" style="margin-top:8px">
+            <strong>Do you work with Xbox account issues?</strong>
+            <div class="muted" style="display:none;margin-top:8px">Yes — we help with account recovery, billing escalations and connectivity issues for Xbox and Xbox Live.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:26px">
+      <div class="heroCard">
+        <h2>Contact & Booking</h2>
+        <form class="contact" onsubmit="submitForm(event)">
+          <div>
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="John Doe" required />
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          </div>
+
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="(123) 456-7890" required />
+          </div>
+
+          <div>
+            <label for="service">Service</label>
+            <select id="service" name="service" required>
+              <option value="printer">Printer Support</option>
+              <option value="antivirus">Antivirus Support</option>
+              <option value="microsoft">Microsoft Products</option>
+              <option value="xbox">Xbox / Gaming</option>
+              <option value="network">Network / Backup</option>
+              <option value="onsite">Onsite Visit</option>
+            </select>
+          </div>
+
+          <div class="full">
+            <label for="time">Booking time</label>
+            <input id="time" name="time" type="datetime-local" />
+          </div>
+
+          <div class="full">
+            <label for="message">Additional details</label>
+            <textarea id="message" name="message" rows="4" placeholder="Describe the issue or any device details"></textarea>
+          </div>
+
+          <div class="full" style="display:flex;gap:12px;justify-content:flex-end;align-items:center">
+            <div class="muted" style="font-size:13px">We will call to confirm your booking.</div>
+            <button class="btn" type="submit">Request Booking</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div style="max-width:var(--max-width);margin:0 auto;display:flex;flex-direction:column;gap:12px;padding:0 20px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+          <div class="muted">© NeonTech Support — All rights reserved</div>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Disclaimer</a>
+          </div>
+        </div>
+
+        <div class="muted" style="font-size:13px">Disclaimer: NeonTech Support provides general technical support and troubleshooting guidance. We are not affiliated with Microsoft, Xbox, or any antivirus vendor. Prices, availability and service coverage may vary by region. Please review our Privacy Policy and Terms & Conditions for details.</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    function toggleMenu(){
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.getElementById('menuBtn');
+      const shown = menu.style.display === 'block';
+      menu.style.display = shown ? 'none' : 'block';
+      btn.setAttribute('aria-expanded', !shown);
+    }
+
+    function toggleFaq(el){
+      const detail = el.querySelector('.muted');
+      if(!detail) return;
+      const isShown = detail.style.display === 'block';
+      detail.style.display = isShown ? 'none' : 'block';
+    }
+
+    function submitForm(e){
+      e.preventDefault();
+      const data = new FormData(e.target);
+      // Basic client-side validation already in the form. Here we simulate a submit.
+      alert('Booking request submitted. We will contact you shortly.');
+      e.target.reset();
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(ev){
+        ev.preventDefault();
+        const id = this.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({behavior:'smooth'});
+      });
+    });
+  </script>
 </body>
 </html>
